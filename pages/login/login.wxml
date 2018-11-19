@@ -1,0 +1,24 @@
+<!--login.wxml-->
+<view class="login">
+<image src="{{bodybg}}" class="bodybg"></image>
+<view class='logintop'>
+	  <image src="{{login}}" alt="" />
+</view>
+	  <view class="login-bottom">
+	  	<form action="" method="post" bindsubmit="formSubmit" class="am-form" data-am-validator>
+	  		<text>欢迎登录系统</text>
+      	<view>	  		
+	  			<input type="text" name='j_username' placeholder="用户名" required/>
+          <image src="../../images/username.png"></image>	
+	  		</view>
+	  		<view >
+				  <input type="password" name='j_password'  class=""  placeholder="密码" required/>
+          <image src="../../images/password.png"></image>	
+				</view>
+				<view>					    
+          <button formType="submit" class="login-btn">登录</button>					  
+				</view>			    
+	    </form>
+      
+	  </view>
+</view>

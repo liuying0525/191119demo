@@ -1,0 +1,114 @@
+@import "../../../common/head/head.wxss";
+@import "../../../common/calendar/calendar.wxss";
+.demandColor_y{
+  background: #83afe0;
+  color: #fff;
+}
+.demandColor_n{
+  background: #fff;
+  color: #666;
+}
+.newcommun-bottom{
+  font-size: 26rpx;
+}
+.newcommun-bottom image{
+   width: 38rpx;
+   height: 38rpx;
+   margin: 0 3%;
+   vertical-align:top;
+}
+.newcommun-bottom>view{
+  margin-top: 20rpx;
+}
+.newcommun-bottom text{
+  display: inline-block;
+}
+.newcommun-bottom .type view{
+  display: inline-block;
+  width: 16%;
+  border: 1px solid #ccc;
+  padding: 10rpx 15rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin: 0 10rpx;
+}
+.newcommun-bottom .type view:nth-of-type(1){
+  width: 14%;
+}
+
+.time input{
+     border: 1px solid #ccc;
+     width:30%;
+     height: 30rpx;
+}
+.time .timeOne{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.time .timeTwo{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.associated {
+  position: relative;
+  margin-top: 15rpx;
+}
+.ass-word{
+  display: inline-block;
+  width: 78%;
+  background: rgba(10,10,10,0.05);
+  padding: 10rpx 0 10rpx 10rpx;
+  color: #333;
+}
+.ass-word view{
+  padding: 10rpx 0;
+}
+.ass-word image{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.new-demand textarea {
+     border: 1px solid #ccc;
+     margin-left: 10%;
+     margin-top: 20rpx;
+     width: 80%;
+     height: 200rpx;
+     padding-left: 5rpx;
+}
+ .new-demand input {
+     border: 1px solid #ccc;
+     margin-left: 10%;
+     margin-top: 20rpx;
+     width: 80%;
+     height: 200rpx;
+     padding-left: 5rpx;
+} 
+.new-btn{
+  width: 100%;
+  text-align: center;
+}
+.new-btn button{
+   display: inline-block;
+    width:180rpx;
+    box-shadow: 0px 5px 5px #ccc;
+    border: none;
+    border-radius: 5px;
+    margin:20rpx 45rpx;
+}
+.deter{
+  color: #fff;
+  background-color: #83afe0;
+}
+.cancel{
+  color: #333333;
+  background-color: #f7f7f7;
+}
+

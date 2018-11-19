@@ -1,0 +1,16 @@
+<view class="enterpriseDts">
+  <import src="../../../common/head/head.wxml" />
+  <template is="detail_head" data="{{collect}}" />
+  <import src="../../../common/switchhomepage/detailspage.wxml" />
+  <template is="enterprise_dts" data="{{item,watermark}}" />
+  <view class="foot">
+    <view class="foot-con">
+      <view class='{{item.enterpriseColor}}' bindtap="{{item.enterpriseInfo}}" data-type='enterpriseInfo' data-title='企业资讯' data-prerequisite='{{item.id}}'><text>企业资讯</text></view>
+      <view class='{{item.detailColor}}' bindtap="{{item.enterpriseDetail}}" data-type='research-dts' data-prerequisite='{{item.id}}'><text>企业研究</text></view>
+      <view class='{{item.industryColor}}' bindtap="{{item.industryResearchother}}" data-type='industryResearchother' data-prerequisite='{{item.industryOwned}}'><text>行业研究</text></view>
+      <view class='{{item.similarColor}}' bindtap="{{item.enterpriseSimilar}}" data-type='enterpriseSimilar' data-prerequisite='id={{item.id}}&&hotSpotId={{item.hotspotSegmentation}}'><text>竞争对手</text></view>
+      <view class='colorWhite' bindtap="{{item.inRequirement}}" data-type='inRequirement' data-prerequisite='{{item.id}}'><text>提出需求</text></view>
+    </view>
+  </view>
+  <template is="showModal" data="{{modal,showModalStatus}}" />
+</view>

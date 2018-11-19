@@ -1,0 +1,41 @@
+@import "../../../common/head/head.wxss";
+.clear{
+  clear: both;
+}
+.table-nine{
+   border: 1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  width: 98%;
+}
+ .table-nine .li{
+   width: 100%;
+  display: flex;
+  justify-content: space-between;
+ }
+ .table-nine .li text{
+    padding: 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align:left;
+  width: 100%;
+ }
+ .table-nine  .li text:nth-child(1){
+   font-weight: 700;
+ }
+ .h2w__pre .h2w__span,
+.h2w__pre .h2w__a,
+.h2w__pre .h2w__span,
+.h2w__pre .h2w__b,
+.h2w__pre .h2w__strong,
+.h2w__pre .h2w__i,
+.h2w__pre .h2w__em {
+  display:inline;
+}
+.table-other{
+  padding: 15rpx;
+  /* border: 1px solid #dadada; */
+}
+.corporate{
+  display: inline-block;
+}

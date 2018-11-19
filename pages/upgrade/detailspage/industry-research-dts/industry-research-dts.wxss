@@ -1,0 +1,9 @@
+/* pages/upgrade/detailspage/industry-research-dts.wxss */
+@import "../../../common/head/head.wxss";
+.colorWhite{
+  text-align: right;
+  width: 99%;
+}
+.article .companies .tr .td{
+  text-align: left;
+}

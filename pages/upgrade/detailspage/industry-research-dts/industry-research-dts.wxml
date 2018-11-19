@@ -1,0 +1,112 @@
+<import src="../../../common/wxParse/wxParse.wxml" />
+<view class="indus-res">
+  <import src="../../../common/head/head.wxml" />
+  <template is="detail_head" data="{{collect}}" />
+</view>
+<view class="mainDetail" style="{{watermark}}">
+  <block wx:if="{{collect.data.reportName}}">
+    <view class="title">{{collect.data.reportName}}</view>
+  </block>
+
+  <block wx:if="{{collect.data.tmIndustry}}">
+    <block wx:if="{{collect.data.tmIndustry.industryName}}">
+      <view class="mainDetail-list"><text>所属行业:</text>{{collect.data.tmIndustry.industryName}}</view>
+    </block>
+  </block>
+
+  <block wx:if="{{collect.data.hotspot}}">
+    <block wx:if="{{collect.data.hotspotSubdivideNames}}">
+      <view class="mainDetail-list"><text>热点细分:</text>{{collect.data.hotspotSubdivideNames}}</view>
+    </block>
+  </block>
+  <view class="article">
+    <block wx:if="{{collect.data.overview}}">
+      <text class="table-title">综述</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.overview.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.data.scaleGrowth}}">
+      <text class="table-title">行业规模和增速</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.scaleGrowth.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.data.industryTrends}}">
+      <text class="table-title">行业发展趋势</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.industryTrends.nodes}}" /> </view>
+    </block>
+    <block wx:if="{{collect.data.policyImpact}}">
+      <text class="table-title">相关政策影响</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.policyImpact.nodes}}" /> </view>
+    </block>
+    <block wx:if="{{collect.data.segmentAnalysis}}">
+      <text class="table-title">细分市场分析</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.segmentAnalysis.nodes}}" /> </view>
+    </block>
+    <block wx:if="{{collect.data.industryChain}}">
+      <text class="table-title">产业链上下游</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.industryChain.nodes}}" /> </view>
+    </block>
+    <block wx:if="{{collect.data.compareTrade}}">
+      <text class="table-title">可比交易</text>
+      <view class=""><template is="wxParse" data="{{wxParseData:collect.data.compareTrade.nodes}}" /> </view>
+    </block>
+    <block wx:if="{{collect.content.competition.length>0}}">
+      <text class="table-title">竞争情况</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">细分市场名称</view>
+          <view class="td">市场份额</view>
+          <view class="td">主要竞争品牌</view>
+          <view class="td">主要竞争内容</view>
+        </view>
+        <block wx:for="{{collect.content.competition}}" wx:key="">
+          <view class="tr">
+            <view class="td"><block wx:if="{{item.segmentMarketName}}">{{item.segmentMarketName}}</block></view>
+            <view class="td"><block wx:if="{{item.marketShare}}">{{item.marketShare}}</block></view>
+            <view class="td"><block wx:if="{{item.competitiveBrand}}">{{item.competitiveBrand}}</block></view>
+            <view class="td"><block wx:if="{{item.competitionContent}}">{{item.competitionContent}}</block></view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.content.investment.length>0}}">
+      <text class="table-title">Merger-Link发布投资机会</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">标题</view>
+          <view class="td">发布时间</view>
+        </view>
+        <block wx:for="{{collect.content.investment}}" wx:key="">
+          <view class="tr">
+            <view class="td">{{item.title}}</view>
+            <view class="td"><block wx:if="{{item.releaseTime}}">{{item.releaseTime}}</block></view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.content.otherInfomation.length>0}}">
+      <block wx:for="{{collect.content.otherInfomation}}" wx:key="">
+        <view>
+          <view class="table-title">{{item.infoEntryName}}</view>
+          <view class="">{{item.infoEntryContent}}</view>
+        </view>
+      </block>
+    </block>
+    <block wx:if="{{collect.content.enterprise.length>0}}">
+      <text class="table-title ">企业长名单</text>
+      <view class="table companies">
+        <view class="tr">
+          <view class="td">公司名称</view>
+        </view>
+        <block wx:for="{{collect.content.enterprise}}" wx:key="">
+          <view class="tr">
+            <view class="td">{{item.companyName}}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="foot">
+  <view class="foot-rescon ">
+    <view class='colorWhite' bindtap="inRequirement" data-prerequisite='{{item.conditions.id}}'><text>提出需求</text></view>
+  </view>
+</view>

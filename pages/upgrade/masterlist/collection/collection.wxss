@@ -1,0 +1,9 @@
+/* pages/upgrade/masterlist/collection.wxss */
+@import "../../../common/search/search.wxss";
+.nodata{
+  width: 100%;
+  text-align: center;
+}
+.search-head{
+  border-top:10rpx solid #fc7afc;
+}

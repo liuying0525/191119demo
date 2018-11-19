@@ -1,0 +1,62 @@
+<!--pages/homepage/homepage.wxml-->
+<import src="../common/switchhomepage/home_item.wxml" />
+<import src="../common/menu/menu.wxml" />
+<import src="../../towxml/entry.wxml"/>
+
+<view class="homepage" >
+
+  <view class="articleHtml" wx:if="{{articleHtml != ''}}">
+    <view class='article_body'>
+      <view class="article_mt">保密与免责条款</view>
+      <scroll-view scroll-y class='article_main'>
+        <template is="entry" data="{{articleHtml}}"/>
+      </scroll-view>
+      <view class="article_mb">
+        <button size="mini" class='article_btn' bindtap="article_btn">同意</button>
+      </view>
+    </view>
+  </view>
+  <view class="head">
+  <view class="search">
+
+    <view class="search-list">
+   
+      <input placeholder="{{placeholder}}" bindinput="bindKeywordInput" value="{{searchKeyword}}" name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" />
+      <image src="{{false_0}}" bindtap="resetBtnClick"></image>
+    </view>
+    <view class="search-img" bindtap="keywordSearch">搜索</view>
+    <view class="screening" data-screening="{{screeningHidden}}" bindtap="screening">
+      <image src="{{screen}}" />
+    </view>
+  </view>
+  </view>
+<swiper current="{{currentTab}}" indicator-dots="true" indicator-color="#ccc" indicator-active-color="#83afe0"  class="swiper-box" duration="300" bindchange="bindChange">
+    <swiper-item style="top:0">
+     <view class="homepage-list" data-current="0">
+      <block wx:for="{{item.topOne}}" wx:key="item" wx:if="{{item.wxUrl}}">
+      <view class="category-info" bindtap="{{item.wxBindtaps}}">
+        <image src="{{item.wxIconCls}}" class="category-image"></image>
+        <view class="category-text">{{item.name}}</view>
+        <view class="{{item.prompt}}"></view>
+      </view>
+    </block>
+  </view>
+    </swiper-item>
+    <swiper-item style="top:0">
+       <view class="homepage-list" data-current="0">
+        <block wx:for="{{item.topTow}}" wx:key="" wx:if="{{item.wxUrl}}">
+            <view class="category-info" bindtap="{{item.wxBindtaps}}">
+              <image src="{{item.wxIconCls}}" class="category-image"></image>
+              <view class="category-text">{{item.name}}</view>
+              <view class="{{item.prompt}}"></view>
+            </view>
+        </block>
+    </view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="search-homepage">
+<image src="{{bodybg}}" class="bodybg"></image>
+  <template is="{{templateName}}" data="{{searchSongList,searchLoading,loadingImg,userId,watermark,searchLoadMore}}"/>
+  <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,userId,watermark}}"/>
+</view>

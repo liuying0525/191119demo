@@ -1,0 +1,53 @@
+.screen{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.5);
+  z-index: 20;
+}
+.screen-bag{
+  background-color: #fff;
+  height: 70%;
+}
+.screen-con{
+  padding: 15rpx;
+  height: 80%;
+  overflow-y: auto;
+}
+.scr-foot{
+   width: 100%;
+   text-align: center;
+}
+.scr-foot button{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width:180rpx;
+    box-shadow: 0px 5px 5px #ccc;
+    border-radius: 5px;
+    margin:20rpx 45rpx;
+}
+.confirm{
+  color: #fff;
+  background-color: #83afe0;
+}
+.remove{
+  color: #333333;
+  background-color: #f7f7f7;
+} 
+.screen-bot{
+  width: 100%;
+  height: 30%;
+}
+.bodybg{
+  position:absolute;
+  top:0;
+  left: 0;
+  height:100%;
+  width: 100%;
+  opacity: 0.1;
+}

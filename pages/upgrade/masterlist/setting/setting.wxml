@@ -1,0 +1,3 @@
+<!--pages/upgrade/masterlist/setting.wxml-->
+<import src="../../../common/menu/menu.wxml"/>
+<template is="settingMenu" data="{{dataOne,bodybg,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo}}"/>

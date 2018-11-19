@@ -1,0 +1,21 @@
+<import src="../../../common/menu/menu.wxml" />
+<view class="head">
+  <view class="custom-demand">
+    <view class="custom-demand-list">
+      <input bindinput="bindKeywordInput" value="{{searchKeyword}}" name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" />
+      <image src="../../../../images/false.png" bindtap="resetBtnClick"></image>
+    </view>
+    <view class="search-img" bindtap="keywordSearch">搜索</view>
+    <image class="custon-add" src="../../../../images/sign_b.png" bindtap="addCustom"></image>
+    <image class="custom-scree" src="../../../../images/screen.png" data-screening="{{screeningHidden}}" bindtap="screening" />
+  </view>
+</view>
+<view class="search-head">
+  <import src="../../../common/switchhomepage/home_item.wxml" />
+  <template is="custom_demand" data="{{searchSongList,searchLoading,loadingImg,watermark,bodybg}}" />
+  <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,timeHidden,expectedTimeOne,expectedTimeOneTwo,M_logo}}" />
+  <view hidden="{{calendarIsShow}}">
+    <import src="../../../common/calendar/calendar.wxml" />
+    <template is="calendar" data="{{currentDate,dayList,currentDayList,currentObj,currentDay,top}}" />
+  </view>
+</view>

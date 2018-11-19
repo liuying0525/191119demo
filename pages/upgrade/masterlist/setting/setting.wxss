@@ -1,0 +1,2 @@
+/* pages/upgrade/masterlist/setting.wxss */
+@import "../../../common/menu/menu.wxss";

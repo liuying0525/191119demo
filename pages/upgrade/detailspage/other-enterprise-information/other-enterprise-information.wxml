@@ -1,0 +1,15 @@
+<!--pages/upgrade/masterlist/information.wxml-->
+<import src="../../../common/switchhomepage/home_item.wxml"/>
+ <import src="../../../common/screening/screening.wxml"/> 
+<view class="head">
+  <view class="search">
+    <view class="search-list">
+        <input placeholder="品牌" bindinput="bindKeywordInput" value="{{searchKeyword}}"  name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" /> <image src="../../../../images/false.png"></image> <view class="search-img" bindtap="keywordSearch">搜索</view>
+    </view>
+    <view class="screening"  data-screening="{{screeningHidden}}" bindtap="screening" >筛选</view>
+  </view>
+</view>
+<view class="search-head">
+ <template is="information" data="{{searchSongList}}"/>  
+ <template is="screening" data="{{screeningHidden}}"/>
+</view>

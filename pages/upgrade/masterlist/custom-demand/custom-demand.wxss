@@ -1,0 +1,79 @@
+/* pages/upgrade/masterlist/customdemand.wxss */
+@import "../../../common/search/search.wxss";
+@import "../../../common/menu/menu.wxss";
+@import "../../../common/calendar/calendar.wxss";
+.custom-demand{
+  width:100%;
+  height:9%;
+  background: #f4f4f4;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items:center;
+  border-top:10rpx solid #fc7afc;
+}
+.custom-demand-list{
+  width:64%;
+  background-color: #fff;
+  height: 70rpx;
+  border-radius:10rpx;
+  margin-left: 3%;
+}
+.custom-demand-list input{
+  width:85%;
+  height: 70rpx;
+  padding-left: 15rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.custom-demand-list  image{
+  width: 35rpx;
+  height: 35rpx;
+  vertical-align: middle;
+  margin-right: 15rpx;
+}
+ .search-img{
+   display: inline-block;
+  color: #fff;
+  font-size:26rpx;
+  background-color:#83afe0;
+  padding:12rpx 10rpx;
+  border-radius:10rpx; 
+  margin-left:20rpx;
+}
+.custom-demand .custon-add {
+  margin: 0 15rpx;
+  width:48rpx;
+  height:48rpx;
+}
+.custom-demand .custom-scree{
+  margin: 0 5rpx;
+  width: 40rpx;
+  height:40rpx;
+}
+.prompt{
+  width:16rpx;
+  height:16rpx;
+  border-radius: 50%;
+  background-color:#ff3e3b;
+ display: inline-block;
+ vertical-align: super;
+}
+.main .li{
+    position: relative;
+}
+.state {
+  position: absolute;
+  top: 10rpx;
+  right: 5px;
+  display: inline-block;
+  line-height:40rpx;
+  height: 38rpx;
+  font-size:32rpx;
+  color: #56b056;
+  padding: 0 10rpx;
+  border-radius: 5rpx;
+  border: 1px solid #56b056;
+}

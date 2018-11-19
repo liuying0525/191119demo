@@ -1,0 +1,28 @@
+<template name="screening">
+    <view class="screen" hidden="{{screeningHidden}}" >
+       <view class="screen-bag">
+          <view class="screen-con">
+             <view class="one"><text>所属行业</text>        
+             </view>                             
+          </view>
+          <view class="scr-foot">
+             <button class="confirm">确认</button>
+             <button class="remove">清除</button>
+          </view>
+       </view>
+       <view class="screen-bot" data-screening="{{screeningHidden}}" bindtap="screening"></view>
+   </view> 
+</template>
+
+<template name="searchList">
+<view class="head">
+<image src="http://192.168.1.97:8080/merger-weixin-webapp/phone/wximages/bodybg.png" class="bodybg"></image>
+    <view class="search">
+      <view class="search-list">
+          <input placeholder="{{placeholder}}" bindinput="bindKeywordInput" value="{{searchKeyword}}"  name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" /><image src="../../../../images/false.png" bindtap="resetBtnClick"></image>
+      </view>
+      <view class="search-img" bindtap="keywordSearch">搜索</view>
+      <view class="screening"  data-screening="{{screeningHidden}}" bindtap="screening" ><image src="../../../../images/screen.png" /></view>
+    </view>
+</view>
+</template>

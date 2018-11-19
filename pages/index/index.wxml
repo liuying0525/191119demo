@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="index-logo" src="../../../images/M.png"></image>
+    <view class="word">Merger-Link</view>
+    <view class="prompt">您可点击图标返回系统首页</view>
+    <!-- <image class="userinfo-avatar" src="" background-size="cover"></image> -->
+    <!-- <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+  </view>
+  <!-- <view class="usermotto"> 
+    <!-- <image class="userinfo-avatar" src="{{avatarUrl}}"></image> -->
+  <!-- </view> --> 
+</view>
+ 

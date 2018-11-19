@@ -1,0 +1,15 @@
+/* pages/upgrade/masterlist/enterprise.wxss */
+@import "../../../common/search/search.wxss";
+@import "../../../common/menu/menu.wxss";
+
+.enresearchCustom{
+  position: absolute;
+  top: 40%;
+  left:20%;
+  color: #5d82bc;
+  font-size: 28rpx;
+  }
+  .infor-list{
+    display: inline-block;
+    margin-right: 15rpx;
+  }
