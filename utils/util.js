@@ -238,7 +238,7 @@ function pagingBottom(obj,data){
   var totalPage = parseInt((data.data.total + rows - 1) / rows);
   var searchList = data.data.rows;
   if (searchList.length > 0) {
-    if (data.data.currentPage >= totalPage) {//不要瞎猜   这里的意思是超过了总页面就是没有更多数据了。所以是显示，true是不显示  所以这里应该是false   else里面是true   然后没有条数就代表没有数据就是显示就是false 还是在页面存在肯定是别的地方的问题。不是这里的。
+    if (data.data.currentPage >= totalPage) {//
       obj.setData({
         searchLoading: true, //隐藏
         searchLoadMore: false
@@ -275,7 +275,6 @@ var picUrls = {
   left: picUrl + 'left.png',
   loading: picUrl + 'loading.gif',
   login: picUrl + 'login.jpg',
-  bodybg: picUrl +'bodybg.png',
   M: picUrl + 'M.png',
   mail: picUrl + 'mail.png',
   menu: picUrl + 'menu.png',
@@ -311,7 +310,6 @@ function inintPicUrls(obj){
     left: picUrl + 'left.png',
     loading: picUrl + 'loading.gif',
     login: picUrl + 'login.jpg',
-    bodybg: picUrl + 'bodybg.png',
     M: picUrl + 'M.png',
     mail: picUrl + 'mail.png',
     menu: picUrl + 'menu.png',

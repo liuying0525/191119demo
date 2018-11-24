@@ -1,6 +1,6 @@
 // pages/upgrade/detailspage/information-dts/information-dts.js
 const util = require('../../../../utils/util.js'); 
-// const watermarkurl = require('../../../../config.js').watermarkurl;
+ const watermarkurl = require('../../../../config.js').watermarkurl;
 const detailspage = require('../../../common/switchhomepage/detailspage.js');
 let collect = {};
 Page({
@@ -136,7 +136,7 @@ getShareholder:function(list) {
         verifyFlage: options.verifyFlage,
         openid: options.openid,
         userId:userId,
-        // watermark: "background:url('" + watermarkurl + userId + "')"
+        watermark: "background:url('" + watermarkurl + userId + "')"
       })
     }else{
       that.setData({
@@ -144,7 +144,7 @@ getShareholder:function(list) {
         verifyFlage: options.verifyFlage,
         openid: options.openid,
         userId:options.userId,
-        // watermark: "background:url('" + watermarkurl + options.userId + "')"
+        watermark: "background:url('" + watermarkurl + options.userId + "')"
       })
     }
     that.viewDetail();

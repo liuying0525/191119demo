@@ -11,13 +11,14 @@ var host = "http://192.168.1.97:8080/merger-weixin-webapp/"
   //var host = "http://182.168.1.36:9999/merger-weixin-webapp/"
   //var host = "https://www.merger-link.com/merger-weixin-webapp/";
 
-//  var watermarkurl = "https://www.merger-link.com/merger-weixin-webapp/custom/watermark.do?id=";
- var watermarkurl = ''
+  // var watermarkurl = "https://www.merger-link.com/merger-weixin-webapp/custom/watermark.do?id=";
+var watermarkurl = "http://192.168.1.97:8080/merger-weixin-webapp/custom/watermark.do?id="
+
 var config = {
    watermarkurl,
   host,
   // 用code换取openId
-  openIdUrl: `https://api.weixin.qq.com/sns/jscode2session`, /// 这个地址 是微信让你测试的  上下是不能访问的
+  openIdUrl: `https://api.weixin.qq.com/sns/jscode2session`, /// 
   //服务器图片路径  
   picUrl: host +'phone/wximages/'
 };

@@ -1,5 +1,5 @@
 var util = require('../../../../utils/util.js');
-// const watermarkurl = require('../../../../config.js').watermarkurl;
+ const watermarkurl = require('../../../../config.js').watermarkurl;
 var home_item = require('../../../common/switchhomepage/home_item.js');
 var menu = require('../../../common/menu/menu.js');
 const host = require('../../../../config').host;
@@ -13,8 +13,7 @@ Page({
     searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏
     screeningHidden:true, //筛选 默认true，隐藏
     concurrentPrevention:true, //防止多次发送请求
-    loadingImg: util.picUrls.loading,
-    bodybg:util.picUrls.bodybg||''
+    loadingImg: util.picUrls.loading
   },
   //搜索，访问网络
   fetchSearchList: function(){
@@ -111,7 +110,7 @@ Page({
       })
     }else{
       that.setData({
-        // watermark: "background:url('" + watermarkurl + options.userId + "')"
+         watermark: "background:url('" + watermarkurl + options.userId + "')"
       })
     }
     var url = '../../detailspage/industry-research-dts/industry-research-dts';
@@ -122,7 +121,7 @@ Page({
      var userId = wx.getStorageSync('userId') || '';
     this.fetchSearchList();
     this.setData({
-      // watermark: "background:url('" + watermarkurl+ userId + "')"
+       watermark: "background:url('" + watermarkurl+ userId + "')"
     })
   }
 })

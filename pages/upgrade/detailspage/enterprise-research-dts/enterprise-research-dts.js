@@ -124,7 +124,7 @@ Page({
         infoId: options.modelId,
         verifyFlage: options.verifyFlage,
         openid: options.openid,
-        // watermark: "background:url('" + watermarkurl + userId + "')"
+         watermark: "background:url('" + watermarkurl + userId + "')"
       })
     }else{
       that.setData({
@@ -132,7 +132,7 @@ Page({
         infoId: options.modelId,
         verifyFlage: options.verifyFlage,
         openid: options.openid,
-        // watermark: "background:url('" + watermarkurl+ options.userId + "')"
+         watermark: "background:url('" + watermarkurl+ options.userId + "')"
       })
     }
     that.viewDetail();

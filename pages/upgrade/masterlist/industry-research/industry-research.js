@@ -88,12 +88,12 @@ Page({
     if (userId != '') {
       that.setData({
         prerequisite: option.prerequisite||"",
-        // watermark: "background:url('" + watermarkurl+ userId + "')"
+         watermark: "background:url('" + watermarkurl+ userId + "')"
       })
     } else {
       that.setData({
         prerequisite: option.prerequisite||"",
-        // watermark: "background:url('" + watermarkurl + option.userId + "')"
+        watermark: "background:url('" + watermarkurl + option.userId + "')"
       })
     }
   }, // 筛选

@@ -14,7 +14,7 @@
 </view>
 <view class="search-head">
   <import src="../../../common/switchhomepage/home_item.wxml" />
-  <template is="commun_demand" data="{{searchSongList,searchLoading,loadingImg,watermark,bodybg}}" />
+  <template is="commun_demand" data="{{searchSongList,searchLoading,loadingImg,watermark}}" />
   <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,timeHidden,expectedTimeOne,expectedTimeOneTwo,M_logo}}" />
   <view hidden="{{calendarIsShow}}">
     <import src="../../../common/calendar/calendar.wxml" />

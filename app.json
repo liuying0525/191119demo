@@ -25,12 +25,13 @@
     "pages/upgrade/masterlist/industry-research/industry-research",
     "pages/upgrade/masterlist/information/information",
     "pages/upgrade/masterlist/setting/setting",
-    "pages/upgrade/masterlist/custom-subscribe/custom-subscribe"
+    "pages/upgrade/masterlist/custom-subscribe/custom-subscribe",
+    "pages/upgrade/masterlist/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000832",
-    "navigationBarTitleText": "Merger-Link",
+    "navigationBarTitleText": "Merger-link",
     "navigationBarTextStyle": "#fff"
   }
 }

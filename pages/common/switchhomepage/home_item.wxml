@@ -45,11 +45,12 @@
                </block>
             </block>
           </view>
-          <view class="loading complete" hidden="{{searchLoadMore}}">没有更多数据了！</view>
-        </scroll-view>
-         <view class="loading" hidden="{{searchLoading}}">
+           <view class="loading" hidden="{{searchLoading}}">
             <image src="{{loadingImg}}"></image>正在加载
          </view>
+          <view class="loading complete" hidden="{{searchLoadMore}}">没有更多数据了！</view>
+        </scroll-view>
+      
          
       </view>
 </template>
@@ -142,16 +143,17 @@
         </block>
          </block>
       </view>
+       <view class="loading" wx:if="{{!searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
        <view  class="loading complete" hidden="{{searchLoadMore}}" >没有更多数据了！</view>
     </scroll-view>
-   <view class="loading" wx:if="{{!searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+  
  
  </view>
 </template>
 
 <template name="commun_demand">
    <view class="search-result">
-   <image src="{{bodybg}}" class='bodybg'></image>
+   
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
       <view class="main" style="{{watermark}}">
       <block wx:for="{{searchSongList}}">
@@ -186,15 +188,15 @@
 		</block>
     </block>
       </view>
+       <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
       <view class="loading complete" hidden="{{searchLoadMore}}">没有更多数据了！</view>
     </scroll-view>
-     <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+    
     
   </view>
 </template>
 <template name="custom_demand">
   <view class="search-result">
-   <image src="{{bodybg}}" class='bodybg'></image>
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
       <view class="main" style="{{watermark}}">
       <block wx:for="{{searchSongList}}">
@@ -223,9 +225,10 @@
 		</block>
     </block>
       </view>
+        <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
         <view class="loading complete"  hidden="{{searchLoadMore}}">没有更多数据了！</view>
     </scroll-view>
-	  <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+	
  
   </view>
 </template>

@@ -36,6 +36,7 @@ page{
   width: 45rpx;
   height: 45rpx;
   vertical-align: middle;
+  margin-left:-114rpx;
 
 }
 
@@ -44,24 +45,23 @@ page{
 
 	overflow-y: auto;
 	width: 100%;
-  padding:0 5%;
+  padding:0 2%;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
   /* margin-top: 10rpx; */
   box-sizing: border-box;
+
 }
 .top{
   margin-top:90rpx;
 }
 .main  .li{
-	padding: 10rpx 0;
 	border-bottom: 1rpx solid #c8c8c8;
+
+  	padding: 10rpx 0;
 	position: relative;
 	clear: both;
   font-size:26rpx;
-  line-height: 1.5;
-  margin-top:14rpx;
-  padding-bottom: 26rpx;
 }
 .search-homepage .main  .li{
   	border-bottom: 4rpx solid #d6e6ed;
@@ -70,26 +70,25 @@ page{
 	width: 100%;
 }
 .main .li .title{
-  color:#697dc0;
+  color:#000832;
   font-size:35rpx;
   font-weight: 600;
-  line-height:42rpx;
-  padding-bottom:20rpx;
+  line-height:33rpx;
+
 }
 .search-homepage .main .li .title{color:#000832;}
 
 .main .li .titleChange{
-  color:#697dc0;
+  color:#000832;
   font-size:35rpx;
   font-weight: 300;
   line-height:33rpx;
-  padding-bottom:10rpx;
 }
-.search-homepage .main .li .titleChange{color:#000832;font-weight: 600;}
+/* .search-homepage .main .li .titleChange{color:#000832;font-weight: 600;} */
 .main .li .titleChange text{
   vertical-align:sub;
 }
-.search-homepage .main .li .date{margin-bottom:14rpx;}
+/* .search-homepage .main .li .date{margin-bottom:14rpx;} */
 
 .main .li .titleDullGrey{
   color:#999;
@@ -100,10 +99,11 @@ page{
   vertical-align:sub;
 }
 .main  .date text{
-	border-left: 1px solid #6e6e6e;
+	/* border-left: 1px solid #6e6e6e;
 	padding:0 10rpx;
 	color: #3a3b3b;
-  font-size:25rpx;
+  font-size:25rpx; */
+  color: #999;
 }
 .main  .li .date text:nth-child(1){
 	padding-left: 0;
@@ -188,10 +188,10 @@ color: #666;
   display: inline-block;
   color: #fff;
   font-size:24rpx;
-  background-color: #00c6ff;
+  background-color: #4c607d;
   padding:18rpx 10rpx;
   border-radius:1rpx; 
-  margin-left:15rpx;
+  margin-left:0;
 }
 .search view image{
   width: 40rpx;
@@ -208,12 +208,4 @@ color: #666;
 .search .screening image{
 height:65rpx;
 width:65rpx;
-}
-.bodybg{
-  position:absolute;
-  top:0;
-  left: 0;
-  height:100%;
-  width: 100%;
-  opacity: 0.1;
 }

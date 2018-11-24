@@ -2,9 +2,9 @@ var allMenu = require('../../../utils/allMenu.js');
 const host = require('../../../config').host;
 var util = require('../../../utils/util.js')
 module.exports = {
-  init: function(obj) {
-    var that = this;//obj.data.moduleCode == "A" ? "ALL" : 
-    allMenu.initMap(obj.data.moduleCode, host, function() {
+  init: function (obj) {
+    var that = this;
+    allMenu.initMap(obj.data.moduleCode, host, function () {
       var checkedItem = obj.data.checkedItem;
       var syncCheckedItem = wx.getStorageSync('checkedItem') || '';
       if (!checkedItem) {
@@ -21,15 +21,16 @@ module.exports = {
         menuOpen: {},
         screeningHidden: true,
         calendarIsShow: true
+      
       });
       clearCss(obj.data.checkedItem);
-      obj.selectItem = function(e) {
+      obj.selectItem = function (e) {
 
 
         // obj.setData({
         //   dataOne
         // });
-        var closeItem = function(id) {
+        var closeItem = function (id) {
 
           if (mapMenu[id]) {
             obj.data.menuOpen[id] = false;
@@ -58,19 +59,14 @@ module.exports = {
           });
         }
 
-        obj.bindKeyInput = function(event) {
+        obj.bindKeyInput = function (event) {
 
           var txtValue = event.detail.value.trim();
-          txtValue = txtValue;
           var sid = event.currentTarget.dataset.index;
           var nData = obj.data.dataOne.filter(a => a.id == sid);
           if (nData.length == 0) return;
           var nDataList = nData = nData[0];
           var allItems = [];
-          //debugger
-          // nDataList.items.forEach((item, index) => {
-          //   setSearchObject(item, 1);
-          // });
           if (txtValue.length == 0) {
             nDataList.items.forEach((item, index) => {
               setSearchObject(item, 1);
@@ -81,11 +77,13 @@ module.exports = {
               getSearchObject(nDataList, nDataList, item, txtValue, nDataObj, allItems);
             });
           }
+
           nDataList.items.forEach((item, index) => {
             if (allItems.indexOf(item.id) != -1) {
               item.isShow = 1;
             }
           });
+
           obj.data.dataOne.filter(a => a.id == sid)[0] = nDataList;
           obj.setData({
             dataOne: obj.data.dataOne
@@ -96,19 +94,34 @@ module.exports = {
               menuOpen: obj.data.menuOpen
             })
           }, 100);
+          // console.log(event.currentTarget.dataset.index);
+          //  obj.setData({dataOne:[]})
+          let menudataList = obj.data.dataOne;
+          for (var n = 0; n < obj.data.dataOne.length; n++) {
+            if (i == obj.data.dataOne[n].id) {
+              //  for (obj.data.dataOne[n].items)
+              // console.log(event.detail.value)
+              //  preSearch(obj.data.dataOne[n].items, obj.data.dataOne[n]);
+
+
+            }
+
+          }
+          obj.setData({
+            dataOne: obj.data.dataOne
+          })
+
         }
       };
 
       function getSearchObject(aitem, pitem, item, searchName, isShow = 0, arrasys) {
-        // if (item.name.indexOf(searchName) != -1 || item.name.toLowerCase().indexOf(searchName) != -1 || item.name.indexOf(searchName.toLowerCase()) != -1) {
-        if (item.name.toLowerCase().indexOf(searchName.toLowerCase()) != -1) {
+        if (item.name.indexOf(searchName) != -1) {
           isShow = 1;
         } else {
           isShow = 0;
         }
         if (isShow == 0) {
-          // if (item.items.filter(o => o.name.indexOf(searchName) != -1 || o.name.toLowerCase().indexOf(searchName) != -1 || o.name.indexOf(searchNam.toLowerCase()) != -1 ).length > 0) {
-          if (item.items.filter(o => o.name.indexOf(searchName) != -1 || o.name.toLowerCase().indexOf(searchName.toLowerCase()) != -1).length > 0) {
+          if (item.items.filter(o => o.name.indexOf(searchName) != -1).length > 0) {
             isShow = 1;
           }
         }
@@ -118,18 +131,20 @@ module.exports = {
         if (isShow == 1) //找父节点
         {
           pitem.isShow = 1;
-          for (var v = 0; v < aitem.items.length; v++) {
-            for (var m = 0; m < aitem.items[v].items.length; m++) {
-              if (aitem.items[v].items[m].name == pitem.name) {
-                aitem.items[v].isShow = 1;
-                var keyName = aitem.items[v].id;
-                arrasys.indexOf(keyName) == -1 && (arrasys.push(keyName));
-                setTimeout(() => {
-                  obj.data.menuOpen[keyName] = true;
-                  obj.setData({
-                    menuOpen: obj.data.menuOpen
-                  });
-                }, 150);
+          if (pitem.type == 'registerPlace') {
+            for (var v = 0; v < aitem.items.length; v++) {
+              for (var m = 0; m < aitem.items[v].items.length; m++) {
+                if (aitem.items[v].items[m].name == pitem.name) {
+                  aitem.items[v].isShow = 1;
+                  var keyName = aitem.items[v].id;
+                  arrasys.indexOf(keyName) == -1 && (arrasys.push(keyName));
+                  setTimeout(() => {
+                    obj.data.menuOpen[keyName] = true;
+                    obj.setData({
+                      menuOpen: obj.data.menuOpen
+                    });
+                  }, 150);
+                }
               }
             }
           }
@@ -143,13 +158,12 @@ module.exports = {
       };
 
       function setSearchObject(item, isShow) {
-
         item.items.forEach(obj => {
           setSearchObject(obj, isShow);
         });
         item.isShow = isShow;
       }
-      obj.checkboxChange = function(e) {
+      obj.checkboxChange = function (e) {
         let checkParent = {};
         var FLAG = true;
         var dataset = e.currentTarget.dataset;
@@ -214,7 +228,7 @@ module.exports = {
         }
 
       };
-      obj.search = function() {
+      obj.search = function () {
         var parameter = {
           'seached': 'Y'
         };
@@ -253,7 +267,7 @@ module.exports = {
         });
         obj.keywordSearch();
       };
-      obj.clear = function() {
+      obj.clear = function () {
         obj.setData({
           checkedItem: {},
           parameter: {},
@@ -286,12 +300,12 @@ module.exports = {
       // }
     });
   },
-  show: function(obj, screeningHidden) {
+  show: function (obj, screeningHidden) {
     obj.setData({
       screeningHidden: screeningHidden
     });
   },
-  getAllMenu: function() {
+  getAllMenu: function () {
     return allMenu;
   }
 }

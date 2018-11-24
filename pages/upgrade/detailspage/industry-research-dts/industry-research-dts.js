@@ -1,7 +1,7 @@
 // pages/upgrade/detailspage/collectrmation-dts/collectrmation-dts.js
 var util = require('../../../../utils/util.js'); 
 const host = require('../../../../config').host;
-// const watermarkurl = require('../../../../config.js').watermarkurl;
+ const watermarkurl = require('../../../../config.js').watermarkurl;
 var detailspage = require('../../../common/switchhomepage/detailspage.js');
 let collect = {};
 Page({
@@ -61,7 +61,7 @@ Page({
         verifyFlage: options.verifyFlage,
         openid: options.openid,
         userId:userId,
-        // watermark: "background:url('" + watermarkurl + userId + "')"
+        watermark: "background:url('" + watermarkurl + userId + "')"
       })
     }else{
       that.setData({
@@ -69,7 +69,7 @@ Page({
         verifyFlage: options.verifyFlage,
         openid: options.openid,
         userId:options.userId,
-        // watermark: "background:url('" + watermarkurl+ options.userId + "')"
+         watermark: "background:url('" + watermarkurl+ options.userId + "')"
       })
     }
     that.viewDetail();

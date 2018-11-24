@@ -36,9 +36,10 @@ Page({
     var user = wx.getStorageSync('user') || {};
     wx.removeStorageSync('checkedItem');
     if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600))) {
+     
       wx.login({
         success: function(logins) {
-        
+      
           wx.request({
             url: host + 'phone/getOpenId.do',
             data: {
@@ -92,8 +93,7 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         success: function(res) {
-          // wx.setStorageSync('userId', res.data.userId);//存储openid
-          var userid = wx.getStorageSync('user').openid;
+          wx.setStorageSync('userId', res.data.userId);//存储userid
           if (res.data.modelName) {
             var customMenuList = res.data.customMenu;
             for (var i in customMenuList) {
@@ -102,12 +102,13 @@ Page({
             wx.setStorageSync("customMenu", customMenuList);
             wx.setStorageSync("entrys", res.data.entrys);
             wx.setStorageSync("modelName", res.data.modelName);
+           
             wx.setNavigationBarTitle({
               title: res.data.modelName,
             })
             obj.verifyCustomerViewData();
             allMenu.initMap('F', host, function() {});
-            var url = '../homepage/homepage?templet=' + res.data.modelType + '&pagePath=' + res.data.pagePath + '&userId=' + userid;
+            var url = '../homepage/homepage?templet=' + res.data.modelType + '&pagePath=' + res.data.pagePath + '&userId=' + res.data.userId;
             console.log("url=" + url);
             wx.redirectTo({
               url: url

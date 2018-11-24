@@ -1,6 +1,6 @@
 // pages/homepage/homepage.js
 const host = require('../../config').host;
-// const watermarkurl = require('../../config').watermarkurl;
+ const watermarkurl = require('../../config').watermarkurl;
 var util = require('../../utils/util.js');
 var menu = require('../common/menu/menu.js');
 var home_item = require('../common/switchhomepage/home_item.js');
@@ -31,8 +31,7 @@ Page({
     screeningHidden: true,
     moduleCode: 'A', //右侧参数清单，参考allmenu.js
     loadingImg: util.picUrls.loading,
-    watermark: '',
-    bodybg:""
+    watermark: ''
   },
   //输入框事件，每输入一个字符，就会触发一次
   bindKeywordInput: function(e) {
@@ -117,13 +116,23 @@ Page({
     }
   },
   onLoad: function(option) {
+  
    
     var that = this;
-    var userId = wx.getStorageSync('userId') || '';
+     var userId = wx.getStorageSync('userId') || '';
+    // var userId = util.getOpenId().openId || '';
     console.log('userId', util.getOpenId().openId)
+    if (userId != '') {
+      that.setData({
+        watermark: "background:url('" + watermarkurl + userId + "')"
+      })
+    } else {
+      that.setData({
+        watermark: "background:url('" + watermarkurl + option.userId + "')"
+      })
+    }
     this.setData({
-      headertitle:wx.getStorageSync("modelName")||"",
-      bodybg: host +"phone/wximages/bodybg.png"||""
+      headertitle:wx.getStorageSync("modelName")||""
     })
     //let data = app.towxml.toJson(res.data,'markdown');
     wx.request({
@@ -148,6 +157,7 @@ Page({
       }
     });
     console.log("1")
+    
     if (userId != '') {
       that.setData({
         templateName: option.templet,
@@ -155,17 +165,18 @@ Page({
         userId: option.userId,
         moduleCode: (option.templet == 'information' ? 'A' : 'B'),
         item: wx.getStorageSync("customMenu") || {},
-        // watermark: "background:url('" + watermarkurl + userId + "')"
+         
+         
      
       })
+     
     } else {
       that.setData({
         templateName: option.templet,
         pagePath: option.pagePath,
         userId: option.userId,
         moduleCode: (option.templet == 'information' ? 'A' : 'B'),
-        item: wx.getStorageSync("customMenu") || {},
-        // watermark:"background:url('"+watermarkurl + option.userId + "')"
+        item: wx.getStorageSync("customMenu") || {}
       })
     }
     console.log("3")
@@ -240,7 +251,7 @@ Page({
       url: '../upgrade/masterlist/collection/collection',
     })
   },
-  about: function() {
+  aboutBind: function() {
     wx.navigateTo({
       url: '../upgrade/detailspage/about/about',
     })

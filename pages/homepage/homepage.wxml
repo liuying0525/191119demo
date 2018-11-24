@@ -24,9 +24,10 @@
       <input placeholder="{{placeholder}}" bindinput="bindKeywordInput" value="{{searchKeyword}}" name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" />
       <image src="{{false_0}}" bindtap="resetBtnClick"></image>
     </view>
-    <view class="search-img" bindtap="keywordSearch">搜索</view>
+    <view class="search-img" bindtap="keywordSearch"><image src="../../images/searchicon.png"></image></view>
     <view class="screening" data-screening="{{screeningHidden}}" bindtap="screening">
-      <image src="{{screen}}" />
+      <!-- <image src="{{screen}}" /> -->
+      <image src="../../images/screen.png" />
     </view>
   </view>
   </view>
@@ -56,7 +57,6 @@
   </swiper>
 </view>
 <view class="search-homepage">
-<image src="{{bodybg}}" class="bodybg"></image>
   <template is="{{templateName}}" data="{{searchSongList,searchLoading,loadingImg,userId,watermark,searchLoadMore}}"/>
   <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,userId,watermark}}"/>
 </view>

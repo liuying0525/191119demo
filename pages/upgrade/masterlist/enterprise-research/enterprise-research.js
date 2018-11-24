@@ -112,11 +112,11 @@ Page({
     var userId = wx.getStorageSync('userId') || '';
     if(userId != ''){
       that.setData({
-        // watermark: "background:url('" + watermarkurl+ userId + "')"
+        watermark: "background:url('" + watermarkurl+ userId + "')"
       })
     }else{
       that.setData({
-        // watermark: "background:url('" + watermarkurl+ option.userId + "')"
+        watermark: "background:url('" + watermarkurl+ option.userId + "')"
       })
     }
     menu.init(that);

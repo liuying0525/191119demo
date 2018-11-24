@@ -67,7 +67,7 @@
 
 <template name="settingMenu">
   <view class="page-content">
-  <image src='{{bodybg}}' class='bodybg'></image>
+  
     <view class="settingContent">
       <view class="menuOne" wx:for-items="{{dataOne}}">
         <view class="menuItem" bindtap="selectItem" data-index='{{item.id}}'>

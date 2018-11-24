@@ -1,5 +1,5 @@
 const util = require('../../../../utils/util.js');
-// const watermarkurl = require('../../../../config.js').watermarkurl;
+ const watermarkurl = require('../../../../config.js').watermarkurl;
 const detailspage = require('../../../common/switchhomepage/detailspage.js');
 const host = require('../../../../config').host;
 let collect = {};
@@ -16,8 +16,7 @@ Page({
     collect:{},
     showModalStatus:false,
     userId:'',
-    watermark:'',
-    bodybg: ""
+    watermark:''
   },
   viewDetail:function(){
     var that = this;
@@ -132,9 +131,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      bodybg: host + "phone/wximages/bodybg.png" || ""
-    })
+
     var that = this;
     var userId = wx.getStorageSync('userId') || '';
 
@@ -144,7 +141,7 @@ Page({
         verifyFlage: options.verifyFlage,
         openid: options.openid,
         userId:userId,
-        // watermark: "background:url('" + watermarkurl+ userId + "')"
+         watermark: "background:url('" + watermarkurl+ userId + "')"
       })
     }else{
       that.setData({
@@ -152,7 +149,7 @@ Page({
         verifyFlage: options.verifyFlage,
         openid: options.openid,
         userId:options.userId,
-        // watermark: "background:url('" + watermarkurl + options.userId + "')"
+         watermark: "background:url('" + watermarkurl + options.userId + "')"
       })
     }
 

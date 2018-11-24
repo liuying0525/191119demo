@@ -1,5 +1,5 @@
 var util = require('../../../../utils/util.js');
-// const watermarkurl = require('../../../../config.js').watermarkurl;
+ const watermarkurl = require('../../../../config.js').watermarkurl;
 var home_item = require('../../../common/switchhomepage/home_item.js');
 var menu = require('../../../common/menu/menu.js');
 const host = require('../../../../config').host;
@@ -21,8 +21,7 @@ Page({
     expectedTimeOne: '',
     expectedTimeOneTwo: '',
     loadingImg: util.picUrls.loading,
-    customNeeds: true,
-    bodybg: util.picUrls.bodybg || ''
+    customNeeds: true
   },
   //搜索，访问网络
   fetchSearchList: function(){
@@ -135,11 +134,11 @@ Page({
     util.inintInput(that);
     if(userId != ''){
       that.setData({
-        // watermark: "background:url('" + watermarkurl + userId + "')"
+        watermark: "background:url('" + watermarkurl + userId + "')"
       })
     }else{
       that.setData({
-        // watermark: "background:url('" + watermarkurl + options.userId + "')"
+         watermark: "background:url('" + watermarkurl + options.userId + "')"
       })
     }
   }, onShow: function () {

@@ -1,6 +1,5 @@
 <!--login.wxml-->
 <view class="login">
-<image src="{{bodybg}}" class="bodybg"></image>
 <view class='logintop'>
 	  <image src="{{login}}" alt="" />
 </view>

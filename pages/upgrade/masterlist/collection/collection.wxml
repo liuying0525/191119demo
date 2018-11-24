@@ -1,6 +1,5 @@
 <!--pages/upgrade/masterlist/collection.wxml-->
 <view class="search-head">
-<image src='{{bodybg}}' class='bodybg'></image>
 <block wx:if="{{searchSongList.length < 1}}">
  <view class="nodata">没有更多数据了</view>
 </block>

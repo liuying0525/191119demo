@@ -16,7 +16,6 @@
 
 <template name="searchList">
 <view class="head">
-<image src="http://192.168.1.97:8080/merger-weixin-webapp/phone/wximages/bodybg.png" class="bodybg"></image>
     <view class="search">
       <view class="search-list">
           <input placeholder="{{placeholder}}" bindinput="bindKeywordInput" value="{{searchKeyword}}"  name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" /><image src="../../../../images/false.png" bindtap="resetBtnClick"></image>

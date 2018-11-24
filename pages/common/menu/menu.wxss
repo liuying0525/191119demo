@@ -116,7 +116,7 @@
   margin:5%;
 }
 .ocs-foot .ocs-search{
- background:#1e009f;
+ background:#000832;
  color: #fff;
 }
 .time .timeOne{
@@ -149,12 +149,4 @@ border-radius:8rpx;
 padding-left:8rpx;
 color:#9c9c9c;
 
-}
-.bodybg{
-  position:absolute;
-  top:0;
-  left: 0;
-  height:100%;
-  width: 100%;
-  opacity: 0.1;
 }
