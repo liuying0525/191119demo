@@ -59,8 +59,8 @@
    <view class="search-result">
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
       <view class="main" style="{{watermark}}">
-       <block wx:for="{{searchSongList}}">
-        <block wx:for="{{searchSongList[index]}}" wx:key="">
+       <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
           <view class="li" bindtap="{{item.urlName}}" data-infoid="{{item.id}}">
           <view class="{{item.titleCss}}">
             <text>{{item.companyName}}</text>
@@ -90,8 +90,8 @@
   <view class="search-result">
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
       <view class="main" style="{{watermark}}">
-       <block wx:for="{{searchSongList}}">
-        <block wx:for="{{searchSongList[index]}}" wx:key="">
+       <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
           <view class="li" bindtap="{{item.urlName}}" data-infoid="{{item.researchId}}" data-modelid="{{item.enterpriseId}}">
 				<view class="{{item.titleCss}}">
 					<text>{{item.companyName}}</text>
@@ -121,8 +121,8 @@
   <view class="search-result">
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
       <view class="main" style="{{watermark}}">
-      <block wx:for="{{searchSongList}}">
-        <block wx:for="{{searchSongList[index]}}" wx:key="">
+      <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
           <view class="li"  bindtap="{{item.urlName}}" data-infoid="{{item.id}}">
             <view class="{{item.titleCss}}">
               <text>{{item.reportName}}</text>
@@ -156,8 +156,8 @@
    
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
       <view class="main" style="{{watermark}}">
-      <block wx:for="{{searchSongList}}">
-        <block wx:for="{{searchSongList[index]}}" wx:key="">
+      <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
 		  <view class="li" bindtap="{{item.urlName}}" data-demandid ="{{item.id}}">
 				<view class="title-demand"><text>{{item.information.title?item.information.title:item.enterprise.companyName}}</text><view wx:if="{{item.updateSign && item.updateSign=='1'}}" class="prompt"></view></view>
 			  <block wx:if="{{item.proposeTime}}">
@@ -198,9 +198,9 @@
 <template name="custom_demand">
   <view class="search-result">
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
-      <view class="main" style="{{watermark}}">
-      <block wx:for="{{searchSongList}}">
-        <block wx:for="{{searchSongList[index]}}" wx:key="">
+      <view class="main" style="{{watermark}}" >
+      <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
 		  <view class="li" bindtap="{{item.urlName}}" data-demandid ="{{item.id}}">
 			  <block wx:if="{{item.enterprise.companyName}}">
 				<view class="title"><text>{{item.enterprise.companyName}}</text></view>
