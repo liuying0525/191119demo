@@ -1,0 +1,62 @@
+@import "../../../common/head/head.wxss";
+.email {
+  width: 100%;
+  height: 100vw;
+  text-align: center;
+  font-size: 30rpx;
+   margin-top:80rpx;
+}
+.email view{
+  margin-top: 50rpx;
+}
+.addressee {
+  width: 90%;
+  display: flex;
+  margin-left: 5%;
+  
+}
+.addressee text{
+  width: 20%;
+}
+.addressee input {
+  width: 80%;
+  border: 1px solid #ccc;
+}
+.emailTop {
+  margin-top: 10rpx;
+  width: 90%;
+  margin-left: 6%;
+  background: aliceblue;
+  padding:20rpx 0;
+  line-height:20px;
+}
+.email-title {
+  width: 90%;
+  margin-left: 5%;
+  text-align: left;
+  font-weight: 600;
+}
+
+.email-content {
+  width: 90%;
+  margin-left: 5%;
+  text-align: left;
+}
+navigator{
+  margin-top: 50rpx;
+  color: blue;
+}
+.email .send{
+    width: 80%;
+    color: #fff;
+    font-size:30rpx;
+    padding: 15rpx 0;
+    margin-left: 10%;
+    margin-top: 15%;
+    display: block;
+    background: -webkit-linear-gradient(top,#83afe0,#051733);
+    background: linear-gradient(180deg,#83afe0,#051733);
+    border-radius: 20rpx;
+    text-align: center;
+    font-family: kaiti;
+}

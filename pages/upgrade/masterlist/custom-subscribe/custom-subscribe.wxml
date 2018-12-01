@@ -1,0 +1,2 @@
+<import src="../../../common/subscribe/menu.wxml"/>
+<template is="subscribe" data="{{dataOne,tmCustomSubscribe,stockChangeObj,tradeScaleObj,subscribeCycleObj,subscribeData,prnArrayName,prnArrayObj,childrenItem,industryObj,industrylength,industryHotspot,hotspotLength,subscribeOpen,checkedindustry,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo}}" />

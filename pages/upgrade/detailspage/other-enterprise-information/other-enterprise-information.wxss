@@ -1,0 +1,3 @@
+/* pages/upgrade/detailspage/other-enterprise-information.wxss */
+@import "../../../common/screening/screening.wxss";
+@import "../../../common/search/search.wxss";

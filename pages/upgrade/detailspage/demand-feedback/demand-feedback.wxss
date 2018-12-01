@@ -1,0 +1,108 @@
+@import "../../../common/head/head.wxss";
+.demand {
+  margin-top: 10rpx;
+}
+.top{
+  margin-top: 15rpx;
+}
+.communLeft {
+  float: left;
+  margin-top: 10rpx;
+}
+.communLeft image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 30rpx;
+}
+.communLeft-box {
+  position: relative;
+  max-width: 80%;
+  background: #f4f4f4;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.communLeft-box image {
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  top: 10rpx;
+  left: -23rpx;
+}
+.communRight image {
+  float: right;
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+}
+.communRight-box {
+  float: right;
+  position: relative;
+  max-width:80%;
+  background: #83afe0;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  color: #fff;
+}
+.communRight-box image {
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  top: 10rpx;
+  right: -23rpx;
+}
+.demand-foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  color: #333;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  align-items: center;
+}
+.demand-foot input {
+  border: 1px solid #ccc;
+  width: 75%;
+  height: 40rpx;
+  padding: 10rpx 0;
+  border-radius: 5px;
+  margin-left: 1%;
+  margin-bottom: 10rpx;
+}
+
+.demand-foot button {
+  height: 70rpx;
+  width: 20%;
+  font-size: 30rpx;
+  background: #83afe0;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.clear {
+  clear: both;
+}
+
+.custom {
+  display: inline-block;
+  line-height: 30rpx;
+  height: 30rpx;
+  font-size: 8px;
+  width: 65rpx;
+  color: #fff;
+  border-radius: 2px;
+  background: #83afe0;
+  text-align: center;
+}
+.contact{
+  display: inline-block;
+}

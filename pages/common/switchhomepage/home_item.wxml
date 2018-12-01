@@ -1,0 +1,234 @@
+
+
+<template name="information">
+    <view class="search-result" >
+   
+        <scroll-view scroll-y="true" bindscrolltoupper="searchscrolltoupper" bindscrolltolower="searchScrollLower">
+       
+          <view class="main" style="{{watermark}}">
+          <block wx:for="{{searchSongList}}" wx:key="sitem">
+            <block wx:for="{{searchSongList[index]}}" wx:key="item">
+              <view class="li" bindtap="{{item.urlName}}" data-userId="{{userId}}" data-infoid="{{item.id}}">
+                  <view class="{{item.titleCss}}">
+                    <text>{{item.title}}</text>
+                    <block wx:if="{{item.institutionDemand}}">
+                      <view class="custom">定制</view>
+                    </block>
+                  </view>
+                  <view class="date">
+                    <block wx:if="{{item.releaseDate}}">
+                      <text>{{item.releaseDate}}</text>
+                    </block>
+                    <block wx:if="{{item.tradeStatus}}">
+                      <text>{{item.tradeStatus}}</text>
+                    </block>
+                    <block wx:if="{{item.tradeSpecificScale}}">
+                      <text>{{item.tradeSpecificScale}}</text>
+                    </block>
+                    <block wx:if="{{item.tradeCurrency}}">
+                      <text>{{item.tradeCurrency}}</text>
+                    </block>
+                  </view>
+                  <block wx:if="{{item.industryNames}}">
+                    <view class="list infor-list"><text>所属行业：</text>{{item.industryNames}}</view>
+                  </block>
+                  <block wx:if="{{item.hotspotSubdivideNames}}">
+                    <view class="list infor-list"><text>关联热点：</text>{{item.hotspotSubdivideNames}}</view>
+                  </block>
+                  <block wx:if="{{item.outContent}}">
+                    <view class="word">{{item.outContent}}</view>
+                  </block>
+                  <block wx:if="{{item.contentUpDate && item.contentUpDate>item.releaseDate}}">
+                    <view class="time"><text>更新时间：</text>{{item.contentUpDate}}</view>
+                  </block>
+              </view>
+               </block>
+            </block>
+          </view>
+           <view class="loading" hidden="{{searchLoading}}">
+            <image src="{{loadingImg}}"></image>正在加载
+         </view>
+          <view class="loading complete" hidden="{{searchLoadMore}}">没有更多数据了！</view>
+        </scroll-view>
+      
+         
+      </view>
+</template>
+
+<template name="enterprise">
+   <view class="search-result">
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+      <view class="main" style="{{watermark}}">
+       <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
+          <view class="li" bindtap="{{item.urlName}}" data-infoid="{{item.id}}">
+          <view class="{{item.titleCss}}">
+            <text>{{item.companyName}}</text>
+            <block wx:if="{{item.customizedClientIds}}">
+              <view class="custom">定制</view>
+            </block>
+          </view>
+          <block wx:if="{{item.industryOwnedNames}}">
+            <view class="list infor-list"><text>所属行业：</text>{{item.industryOwnedNames}}</view>
+          </block>
+          <block wx:if="{{item.hotspotNames}}">
+            <view class="list infor-list"><text>热点细分：</text>{{item.hotspotNames}}</view>
+          </block>
+          </view>
+        </block>
+       </block>
+      </view>
+    </scroll-view>
+	  <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+   <!-- <view class="loading complete" hidden="{{!searchLoading}}">已加载全部</view> -->
+  </view>
+  <block wx:if="{{1> searchSongList.length}}">
+      <view bindtap="newCustomTo" class="enresearchCustom" hidden="{{customNeeds}}">搜索无结果可跳转到定制需求新增页面</view>
+  </block>
+</template>
+<template name="enterprise_research">
+  <view class="search-result">
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+      <view class="main" style="{{watermark}}">
+       <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
+          <view class="li" bindtap="{{item.urlName}}" data-infoid="{{item.researchId}}" data-modelid="{{item.enterpriseId}}">
+				<view class="{{item.titleCss}}">
+					<text>{{item.companyName}}</text>
+					<block wx:if="{{item.customizedClientIds}}">
+					  <view class="custom">定制</view>
+					</block>
+				</view>
+        <view class="date infor-list "><text><block wx:if="{{item.isInforMation && item.isInforMation=='HAVE'}}">有</block><block wx:else>无</block>资讯</text><text>有企业研究</text></view>
+        <block wx:if="{{item.industryName}}">
+          <view class="list"><text>所属行业：</text>{{item.industryName}}</view>
+        </block>
+         <block wx:if="{{item.hotspotName}}">
+          <view class="list infor-list"><text>热点细分：</text>{{item.hotspotName}}</view>
+        </block>
+          </view>
+         </block>
+        </block>
+      </view>
+    </scroll-view>
+    <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+  </view>
+  <block wx:if="{{1> searchSongList.length}}">
+   <view bindtap="newCustomTo" class="enresearchCustom" hidden="{{customNeeds}}">搜索无结果可跳转到定制需求新增页面</view>
+  </block>
+</template>
+<template name="industry_research">
+  <view class="search-result">
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+      <view class="main" style="{{watermark}}">
+      <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
+          <view class="li"  bindtap="{{item.urlName}}" data-infoid="{{item.id}}">
+            <view class="{{item.titleCss}}">
+              <text>{{item.reportName}}</text>
+              <block wx:if="{{item.customerIds}}">
+                <view class="custom">定制</view>
+              </block>
+            </view>
+            <block wx:if="{{item.hotspotSubdivideNames}}">
+              <view class="list infor-list"><text>关联热点：</text>{{item.hotspotSubdivideNames}}</view>
+            </block>
+            <block wx:if="{{item.tmIndustry.industryName}}">
+              <view class="list infor-list"><text>所属行业：</text>{{item.tmIndustry.industryName}}</view>
+            </block>
+            <!-- <block wx:if="{{item.createTime}}">
+              <view class="time"><text>创建时间：</text>{{item.createTime }}</view>
+            </block> -->
+          </view>
+        </block>
+         </block>
+      </view>
+       <view class="loading" wx:if="{{!searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+       <view  class="loading complete" hidden="{{searchLoadMore}}" >没有更多数据了！</view>
+    </scroll-view>
+  
+ 
+ </view>
+</template>
+
+<template name="commun_demand">
+   <view class="search-result">
+   
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+      <view class="main" style="{{watermark}}">
+      <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
+		  <view class="li" bindtap="{{item.urlName}}" data-demandid ="{{item.id}}">
+				<view class="title-demand"><text>{{item.information.title?item.information.title:item.enterprise.companyName}}</text><view wx:if="{{item.updateSign && item.updateSign=='1'}}" class="prompt"></view></view>
+			  <block wx:if="{{item.proposeTime}}">
+        <view class="list"><text>提出时间：</text>{{item.proposeTime}}</view>
+        </block>
+         <block wx:if="{{item.demandType}}">
+          <view class="list"><text>对接类型：</text>{{item.demandType}}</view>
+         </block>
+          <block wx:if="{{item.information && item.information.title}}">
+            <block wx:if="{{item.information && item.information.title}}">
+              <view class="list"><text>定制需求：</text><block wx:if="{{item.information.institutionDemand}}">是</block> <block wx:else>否</block></view>
+            </block>
+         </block>
+         <block wx:elif="{{item.enterprise && item.enterprise.companyName}}">
+            <view class="list"><text>定制需求：</text><block wx:if="{{item.enterprise.customizedClientIds}}">是</block> <block wx:else>否</block></view>
+         </block>
+
+			  <view class="demand-list">
+				  <block wx:if="{{item.expectedTime}}">
+					<view class="list "><text>期望时间：</text>{{item.expectedTime}}</view>
+				  </block>
+				  <block wx:if="{{item.content}}">
+					<view class="list "><text>需求内容：</text>{{item.content}}</view>
+				  </block>
+			  </view>
+	    	<view class="state">{{item.status}}</view>
+      </view>
+		</block>
+    </block>
+      </view>
+       <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+      <view class="loading complete" hidden="{{searchLoadMore}}">没有更多数据了！</view>
+    </scroll-view>
+    
+    
+  </view>
+</template>
+<template name="custom_demand">
+  <view class="search-result">
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+      <view class="main" style="{{watermark}}" >
+      <block wx:for="{{searchSongList}}" wx:key="item">
+        <block wx:for="{{searchSongList[index]}}" wx:key="item.id">
+		  <view class="li" bindtap="{{item.urlName}}" data-demandid ="{{item.id}}">
+			  <block wx:if="{{item.enterprise.companyName}}">
+				<view class="title"><text>{{item.enterprise.companyName}}</text></view>
+			  </block>
+			  <view class="date">
+				  <block wx:if="{{item.proposeTime}}">
+					  <text>{{item.proposeTime}}</text>
+					  <text>定制</text>
+            <view wx:if="{{item.updateSign && item.updateSign==1}}" class="prompt"></view>
+				  </block>
+			  </view>
+        <view class="demand-list">
+			  <block wx:if="{{item.content}}">
+				 <view class="list">
+					<text>需求内容：</text>
+					<text>{{item.content}}</text>
+				</view>
+			  </block>
+        </view>
+        <view class="state">{{item.status}}</view>
+			</view>
+		</block>
+    </block>
+      </view>
+        <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
+        <view class="loading complete"  hidden="{{searchLoadMore}}">没有更多数据了！</view>
+    </scroll-view>
+	
+ 
+  </view>
+</template>

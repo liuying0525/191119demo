@@ -1,0 +1,70 @@
+ .layer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index:10;
+} 
+.datapage {
+  display: flex;
+  flex-direction: column;
+  width:75%;
+  height:65%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-size: 14px;
+  background: #fff; 
+  position: fixed;
+  right:40rpx;
+  z-index:1000;
+}
+.box {
+  display: block;
+}
+.box-top {
+  background-color: #83afe0;
+  color: #fff;
+}
+
+.box-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ionic {
+  color: #fff;
+}
+
+.week {
+  color: #0c80ba;
+}
+
+.flex-item {
+  flex-flow: nowrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 12.2%;
+}
+
+.data-item {
+  border: 1px solid #ccc;
+  color: #999;
+}
+
+.item-content {
+  text-align: center;
+  height: 2rem;
+  line-height: 2rem;
+}
+
+.bk-color-day {
+  background-color: #89d7ff;
+}
+
+.item-content-current-day {
+  flex-grow: 2;
+}

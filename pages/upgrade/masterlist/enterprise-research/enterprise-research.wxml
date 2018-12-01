@@ -1,0 +1,10 @@
+<import src="../../../common/menu/menu.wxml"/>
+<import src="../../../common/screening/screening.wxml"/> 
+<template is="searchList" data="{{screeningHidden,searchKeyword}}"/> 
+
+<view class="search-head">
+
+  <import src="../../../common/switchhomepage/home_item.wxml" />
+  <template  is="enterprise_research" data="{{searchSongList,searchLoading,customNeeds,loadingImg,watermark}}" />
+  <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,  inputModel}}"/>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/upgrade/masterlist/industryresearch.wxml-->
+<import src="../../../common/menu/menu.wxml"/>
+<import src="../../../common/screening/screening.wxml"/> 
+<template is="searchList" data="{{screeningHidden,searchKeyword}}"/>  
+<view class="search-head">
+
+  <import src="../../../common/switchhomepage/home_item.wxml"/>
+  <template is="industry_research" data="{{searchSongList,searchLoading,loadingImg,customNeeds,watermark}}"/>  
+  <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,  inputModel}}"/>
+</view>

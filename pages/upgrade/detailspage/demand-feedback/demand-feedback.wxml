@@ -1,0 +1,111 @@
+<view class="demandfeed">
+  <view class="mainDetail demand">
+    <scroll-view style="height:{{srollHeight}}px;" scroll-y="true" scroll-top="{{scrollTop}}">
+      <block wx:if="{{collect.data.companyName}}">
+        <block wx:if="{{collect.conditions.information}}">
+          <view class="title" bindtap="infoDts" data-type="information" data-infoid="{{collect.conditions.informationId}}">{{collect.conditions.information}}
+            <view wx:if="{{collect.conditions.institutionDemand}}" class="custom">定制</view>
+          </view>
+        </block>
+		  <block wx:elif="{{collect.data.companyName}}">
+          <view class="title" bindtap="infoDts" data-type="enterprise" data-infoid="{{collect.data.id}}">{{collect.data.companyName}}
+            <view wx:if="{{collect.data.customizedClientIds}}" class="custom">定制</view>
+          </view>
+        </block>
+      </block>
+      <block wx:if="{{collect.conditions.proposeTime}}">
+        <view class="mainDetail-list"><text>提出时间：</text>{{collect.conditions.proposeTime}}</view>
+      </block>
+      <view class="mainDetail-list">
+        <text>对接类型：</text>
+        <block wx:if="{{collect.conditions.type}}">
+         {{collect.conditions.type}}
+        </block>
+      </view>
+      <block wx:if="{{collect.conditions.status}}">
+        <view class="mainDetail-list"><text>需求状态：</text>{{collect.conditions.status}}</view>
+      </block>
+        <view class="communRight top">
+         <image src="../../../../images/customer.png"></image>
+         <view class="communRight-box">
+         <image src="../../../../images/right.png"></image>
+          <block wx:if="{{collect.conditions.exceptTime}}">
+            <view>期望时间：{{collect.conditions.exceptTime}}</view>
+          </block>
+          <block wx:if="{{collect.conditions.content}}">
+            <view>需求内容:{{collect.conditions.content}}</view>
+          </block>
+          </view>
+        </view>
+      <block wx:for="{{feedBackContent}}">
+        <block wx:if="{{item.type=='CUSTOM'}}">
+          <view class="communRight clear">
+            <image src="../../../../images/customer.png"></image>
+            <view class="communRight-box">
+              <image src="../../../../images/right.png"></image>
+              <view>
+               <block wx:if="{{item.createTime}}">
+                  <view>{{item.createTime}}</view>
+                </block>
+                 <block wx:if="{{item.appointedDate}}">
+                  <view>会议时间：{{item.appointedDate}}</view>
+                </block>
+                <block wx:if="{{item.appointedPlace}}">
+                  <view>会议地点：{{item.appointedPlace}}</view>
+                </block>              
+                <block wx:if="{{item.contacts.name}}">
+                  <view class="contact">企业联系人：{{item.contacts.name }},</view>
+                </block>
+                <block wx:if="{{item.contacts.position}}">
+                  <view class="contact">{{item.contacts.position}}</view>
+                </block>
+                <block wx:if="{{item.contacts.cellphoneNumber}}">
+                  <view class="contact" style="color:#4e80bc;">{{item.contacts.cellphoneNumber}}</view>
+                </block>
+                <block wx:if="{{item.content}}">
+                  <view>反馈内容：{{item.content}}</view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <block wx:if="{{item.demandStatus == 'RELEASE'}}">
+            <view class="communLeft clear">
+              <image src="../../../../images/M.png"></image>
+              <view class="communLeft-box">
+                <image src="../../../../images/left.png"></image>
+                <view>
+                 <block wx:if="{{item.createTime}}">
+                  <view>{{item.createTime}}</view>
+                 </block> 
+                  <block wx:if="{{item.appointedDate}}">
+                  <view>会议时间：{{item.appointedDate}}</view>
+                  </block>                
+                  <block wx:if="{{item.appointedPlace}}">
+                    <view>会议地点：{{item.appointedPlace}}</view>
+                  </block>                
+                  <block wx:if="{{item.contacts.name}}">
+                    <view class="contact">企业联系人：{{item.contacts.name}},</view>
+                  </block>
+                  <block wx:if="{{item.contacts.position}}">
+                    <view class="contact">{{item.contacts.position}},</view>
+                  </block>
+                  <block wx:if="{{item.contacts.cellphoneNumber}}">
+                    <view class="contact" bindtap="makePhoneCall" data-phoneNumber="{{item.contacts.cellphoneNumber}}" style="color:#4e80bc;">{{item.contacts.cellphoneNumber}}</view>
+                  </block>
+                  <block wx:if="{{item.content}}">
+                    <view>反馈内容：{{item.content}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </block>
+        </block>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="demand-foot">
+    <input bindinput="bindKeywordInput" value="{{searchKeyword}}" name="searchKeyword" /><button bindtap="dispatch">发送</button>
+  </view>
+</view>

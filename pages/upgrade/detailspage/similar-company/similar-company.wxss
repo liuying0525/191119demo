@@ -1,0 +1,2 @@
+@import "../../../common/head/head.wxss";
+@import "../../../common/search/search.wxss";

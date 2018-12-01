@@ -1,0 +1,3 @@
+/* pages/upgrade/masterlist/industryresearch.wxss */
+@import "../../../common/search/search.wxss";
+@import "../../../common/menu/menu.wxss";

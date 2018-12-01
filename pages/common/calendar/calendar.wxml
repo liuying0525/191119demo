@@ -1,0 +1,70 @@
+<template name="calendar">
+<view class="layer" bindtap="cancelDateControl"></view>
+  <view class="datapage" style="top:{{top}}px">  
+    <view class="box">  
+      <view class="box-flex box-top">  
+        <view class="flex-item">  
+          <view class="item-content" bindtap="doDay" data-key='left'>  
+            <view class="ionic glyphicon-triangle-left">《</view>  
+          </view>  
+        </view>  
+        <view class="flex-item item-content-current-day">  
+          <view class="ionic item-content">{{currentDate}}</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content" bindtap="doDay" data-key="right">  
+            <view class="ionic glyphicon-triangle-right">》</view>  
+          </view>  
+        </view>  
+      </view>  
+      <view class="box-flex week">  
+        <view class="flex-item">  
+          <view class="item-content">一</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content">二</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content">三</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content">四</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content">五</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content">六</view>  
+        </view>  
+        <view class="flex-item">  
+          <view class="item-content">日</view>  
+        </view>  
+      </view>  
+      <view class="box-flex">  
+      <block  wx:for="{{currentDayList}}" wx:for-item="dateTime" wx:key="{{key}}">
+        <view class="flex-item data-item" wx:for-index='key' bindtap="{{dateTime.pitchOn}}" data-thisData="{{dateTime.day}}"  wx:key="{{key}}">  
+            <view class="item-content" style="{{dateTime.beforeClass}}" wx:if="{{currentDay != dateTime.day}}">{{dateTime.day}}</view>  
+            <view class="item-content bk-color-day" wx:else>{{dateTime.day}}</view>  
+        </view> 
+      </block>
+      </view>  
+    </view>  
+  </view>  
+</template>
+
+<template name="pickerview">
+<view class="layer">
+  <view>{{year}}年{{month}}月{{day}}日</view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+</template>

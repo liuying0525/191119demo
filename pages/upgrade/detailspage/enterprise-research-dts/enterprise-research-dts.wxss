@@ -1,0 +1,34 @@
+@import "../../../common/head/head.wxss";
+
+.foot .en-foot {
+  border-left: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.table-nine {
+  border: 1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  width: 98%;
+}
+
+.table-nine .li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-nine .li text {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: left;
+  width: 100%;
+}
+
+.table-nine  .li text:nth-child(1) {
+  font-weight: 700;
+}

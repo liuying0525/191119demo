@@ -1,0 +1,108 @@
+<!--pages/upgrade/masterlist/collection.wxml-->
+<view class="search-head">
+<block wx:if="{{searchSongList.length < 1}}">
+ <view class="nodata">没有更多数据了</view>
+</block>
+  <block wx:for="{{searchSongList}}" wx:key="">
+    <block wx:if="{{item.tmInformation && item.tmInformation.title && item.modelType == 'INFORMATION'}}">
+      <view class="main" style="{{watermark}}">
+          <view class="li" bindtap="informationDts" data-infoid="{{item.modelId}}">
+            <view class="titleChange">
+              <text>{{item.tmInformation.title}}</text>
+              <block wx:if="{{item.institutionDemand}}">
+                <view class="custom">定制</view>
+              </block>
+            </view>
+            <view class="date">
+              <block wx:if="{{item.tmInformation.createTime}}">
+                <text>{{item.tmInformation.createTime}}</text>
+              </block>
+              <block wx:if="{{item.tmInformation.tradeStatus}}">
+                <text>{{item.tmInformation.tradeStatus}}</text>
+              </block>
+              <block wx:if="{{item.tmInformation.tradeSpecificScale}}">
+                <text>{{item.tmInformation.tradeSpecificScale}}</text>
+              </block>
+              <block wx:if="{{item.tmInformation.tradeCurrency}}">
+                <text>{{item.tmInformation.tradeCurrency}}</text>
+              </block>
+            </view>
+            <block wx:if="{{item.tmInformation.industryNames}}">
+              <view class="list infor-list">
+                <text>所属行业：</text>{{item.tmInformation.industryNames}}</view>
+            </block>
+            <block wx:if="{{item.tmInformation.hotspotSubdivide}}">
+              <view class="list infor-list">
+                <text>关联热点：</text>{{item.tmInformation.hotspotSubdivide}}</view>
+            </block>
+          </view>
+      </view>
+    </block>
+    <block wx:if="{{item.tmEnterprise && item.tmEnterprise.companyName && item.modelType == 'ENTERPRISE_STORE'}}">
+        <view class="main" style="{{watermark}}">
+            <view class="li" bindtap="enterpriseDts" data-infoid="{{item.modelId}}">
+              <view class="titleChange">
+                <text>{{item.tmEnterprise.companyName}}</text>
+                <block wx:if="{{item.tmEnterprise.customizedClientIds}}">
+                  <view class="custom">定制</view>
+                </block>
+              </view>
+              <block wx:if="{{item.tmEnterprise.industryOwnedNames}}">
+                <view class="list infor-list">
+                  <text>所属行业：</text>{{item.tmEnterprise.industryOwnedNames}}</view>
+              </block>
+              <block wx:if="{{item.tmEnterprise.hotspotSegmentation}}">
+                <view class="list infor-list">
+                  <text>关联热点：</text>{{item.tmEnterprise.hotspotSegmentation}}</view>
+              </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{item.tmEnterpriseResearch && item.tmEnterpriseResearch.enterprise.companyName && item.modelType == 'ENTERPRISE_RESEARCH'}}">
+      <view class="main" style="{{watermark}}">
+          <view class="li" bindtap="enterpriseResearchDts" data-infoid="{{item.tmEnterpriseResearch.enterprise.id}}" data-modelid="{{item.modelId}}">
+            <view class="titleChange">
+              <text>{{item.tmEnterpriseResearch.enterprise.companyName}}</text>
+              <block wx:if="{{item.tmEnterpriseResearch.enterprise.customizedClientIds}}">
+                <view class="custom">定制</view>
+              </block>
+            </view>
+            <block wx:if="{{item.tmEnterpriseResearch.enterprise.isInforMation}}">
+              <view class="date">
+                <text>有资讯</text>
+                <text>{{item.tmEnterpriseResearch.enterprise.isInforMation}}</text>
+              </view>
+            </block>
+            <block wx:if="{{item.tmEnterpriseResearch.enterprise.industryOwnedNames}}">
+              <view class="list infor-list">
+                <text>所属行业：</text>{{item.tmEnterpriseResearch.enterprise.industryOwnedNames}}</view>
+            </block>
+            <block wx:if="{{item.tmEnterpriseResearch.enterprise.hotspotSegmentation}}">
+              <view class="list infor-list">
+                <text>关联热点：</text>{{item.tmEnterpriseResearch.enterprise.hotspotSegmentation}}</view>
+            </block>
+          </view>
+      </view>
+    </block>
+    <block wx:if="{{item.tmIndustryResearch && item.tmIndustryResearch.reportName && item.modelType == 'INDUSTRY_RESEARCH'}}">
+      <view class="main" style="{{watermark}}">
+        <view class="li" bindtap="industryResearchDts" data-infoid="{{item.modelId}}">
+          <view class="titleChange">
+            <text>{{item.tmIndustryResearch.reportName}}</text>
+            <block wx:if="{{item.tmIndustryResearch.customerIds}}">
+              <view class="custom">定制</view>
+            </block>
+          </view>
+          <block wx:if="{{item.tmIndustryResearch.tmIndustry.industryName}}">
+            <view class="list infor-list">
+              <text>所属行业：</text>{{item.tmIndustryResearch.tmIndustry.industryName}}</view>
+          </block>
+          <block wx:if="{{item.tmIndustryResearch.hotspot.hotspotName}}">
+            <view class="list infor-list">
+              <text>关联热点：</text>{{item.tmIndustryResearch.hotspot.hotspotName}} </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

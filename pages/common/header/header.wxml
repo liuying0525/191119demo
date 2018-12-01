@@ -1,0 +1,6 @@
+<!--pages/common/header/header.wxml-->
+<view class="header">
+  <!-- <view>这里是组件的内部节点</view> -->
+  <image src="../../../images/tp-bg.png" class='topbg'></image>
+  <slot></slot>
+</view>

@@ -1,0 +1,107 @@
+<!--page/one/index.wxml-->
+<template name="menu">
+  <view class="filterpage" hidden="{{screeningHidden}}" bindtap="hidebg">
+    <view class="filterpage-content">
+      <view class="filterpage-left" data-screening="{{screeningHidden}}" bindtap="screening"></view>
+      <view class="content">
+        <view class="logoView">
+          <image class="ocs-logo" src="../../../../images/M_logo.png"></image>
+        </view>
+        <view class="menuOne" wx:for-items="{{dataOne}}" wx:key="item">
+          <view class="menuItem" bindtap="selectItem" data-index='{{item.id}}'>
+
+            <view class="text">{{item.name}}</view>
+            <block wx:if="{{item.type=='industry'||item.type=='hotspot'||item.type=='registerPlace'}}">
+              <input bindinput="bindKeyInput" placeholder="search" data-index='{{item.id}}' class="searchitem"  data-mtype='{{item.type}}' value="{{inputModel[item.type]}}"/>
+            </block>
+
+          </view>
+          <view class="menuTwo {{menuOpen[item.id] ? 'slidown' : 'slidup'}} " wx:for="{{item.items}}" wx:for-item="itemTwo" wx:key="index">
+            <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{item}}' data-checked="{{itemTwo.id}}" data-parentid="{{item.id}}" data-parentids="{{item.id}}">
+              <block wx:if="{{itemTwo.isShow!=0}}">
+                <view class="menuItem">
+                  <checkbox checked="{{checkedItem[itemTwo.id]}}" style="transform:scale(.7)" value="{{itemTwo.id}}" />
+                  <view bindtap="selectItem" class="text" data-index='{{itemTwo.id}}'>{{itemTwo.name}}</view>
+                </view>
+              </block>
+              <view class="menuThree  {{menuOpen[itemTwo.id] ? 'slidown' : 'slidup'}}" wx:for="{{itemTwo.items}}" wx:for-item="itemThree" wx:key="index">
+                <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{itemTwo}}' data-checked="{{itemThree.id}}" data-parentid="{{itemTwo.id}}" data-parentids="{{itemTwo.id+','+item.id}}">
+                 <block wx:if="{{itemThree.isShow!=0}}">
+                  <view class="menuItem">
+                    <checkbox checked="{{checkedItem[itemThree.id]}}" style="transform:scale(.7)" value="{{itemThree.id}}" />
+                    <view bindtap="selectItem" class="text" data-index='{{itemThree.id}}'>{{itemThree.name}}</view>
+                  </view>
+                   </block>
+                  <view class="menuFour  {{menuOpen[itemThree.id] ? 'slidown' : 'slidup'}}" wx:for="{{itemThree.items}}" wx:for-item="itemFour" wx:key="index">
+                    <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{itemThree}}' data-checked="{{itemFour.id}}" data-parentid="{{itemThree.id}}" data-parentids="{{itemThree.id+','+itemTwo.id+','+item.id}}">
+                     <block wx:if="{{itemFour.isShow!=0}}">
+                      <view class="menuItem">
+                        <checkbox checked="{{checkedItem[itemFour.id]}}" style="transform:scale(.7)" value="{{itemFour.id}}" />
+                        <view bindtap="selectItem" class="text" data-index='{{itemFour.id}}'>{{itemFour.name}}</view>
+                      </view>
+                    
+                     </block>                
+
+                    </checkbox-group>
+                  </view>
+                </checkbox-group>
+              </view>
+            </checkbox-group>
+          </view>
+        </view>
+        <view class="time" hidden="{{!timeHidden}}">
+          <view class="timeOne">
+            <text>提出时间：</text>
+            <input bindtap="expectedTimeOne" data-key="expectedTimeOne" value="{{expectedTimeOne}}" name="expectedTimeOne" />~
+            <input bindtap="expectedTimeOneTwo" data-key="expectedTimeOneTwo" value="{{expectedTimeOneTwo}}" name="expectedTimeOneTwo" />
+          </view>
+        </view>
+        <view class="ocs-foot">
+          <button class="ocs-search" bindtap="search">确认</button>
+          <button class="{{ocs_clear}}" bindtap="clear">清除</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="settingMenu">
+  <view class="page-content">
+  
+    <view class="settingContent">
+      <view class="menuOne" wx:for-items="{{dataOne}}">
+        <view class="menuItem" bindtap="selectItem" data-index='{{item.id}}'>
+          <view class="text">{{item.name}}</view>
+        </view>
+        <view class="menuTwo {{menuOpen[item.id] ? 'slidown' : 'slidup'}} " wx:for="{{item.items}}" wx:for-item="itemTwo">
+          <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{item}}' data-checked="{{itemTwo.id}}" data-parentid="{{item.id}}" data-parentids="{{item.id}}">
+            <view class="menuItem">
+              <checkbox checked="{{checkedItem[itemTwo.id]}}" style="transform:scale(.7)" value="{{itemTwo.id}}" />
+              <view bindtap="selectItem" class="text" data-index='{{itemTwo.id}}'>{{itemTwo.name}}</view>
+            </view>
+            <view class="menuThree  {{menuOpen[itemTwo.id] ? 'slidown' : 'slidup'}}" wx:for="{{itemTwo.items}}" wx:for-item="itemThree">
+              <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{itemTwo}}' data-checked="{{itemThree.id}}" data-parentid="{{itemTwo.id}}" data-parentids="{{itemTwo.id+','+item.id}}">
+                <view class="menuItem">
+                  <checkbox checked="{{checkedItem[itemThree.id]}}" style="transform:scale(.7)" value="{{itemThree.id}}" />
+                  <view bindtap="selectItem" class="text" data-index='{{itemThree.id}}'>{{itemThree.name}}</view>
+                </view>
+                <view class="menuFour  {{menuOpen[itemThree.id] ? 'slidown' : 'slidup'}}" wx:for="{{itemThree.items}}" wx:for-item="itemFour">
+                  <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{itemThree}}' data-checked="{{itemFour.id}}" data-parentid="{{itemThree.id}}" data-parentids="{{itemThree.id+','+itemTwo.id+','+item.id}}">
+                    <view class="menuItem">
+                      <checkbox checked="{{checkedItem[itemFour.id]}}" style="transform:scale(.7)" value="{{itemFour.id}}" />
+                      <view bindtap="selectItem" class="text" data-index='{{itemFour.id}}'>{{itemFour.name}}</view>
+                    </view>
+                  </checkbox-group>
+                </view>
+              </checkbox-group>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class="ocs-foot">
+        <button class="ocs-search" bindtap="search">确认</button>
+        <button class="{{ocs_clear}}" bindtap="clear">清除</button>
+      </view>
+    </view>
+  </view>
+</template>

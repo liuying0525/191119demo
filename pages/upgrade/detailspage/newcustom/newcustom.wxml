@@ -1,0 +1,10 @@
+<view class="enterprise-res">
+  <view class="content">
+    <text>需求内容</text>
+    <textarea bindinput="bindKeywordInput" value="{{searchKeyword}}" name="searchKeyword" />
+    <view class="custom-btn">
+      <button class="save" bindtap="doSave">确定</button>
+      <button class="cancel" bindtap="doCancel">取消</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+
+<view class="indexDts">
+	<view class="content">
+		<view class="about-title">网站使用条款Terms of Use</view>
+		<view class="p">本网站提供所有信息、资料或服务归上海墨领信息科技有限公司（“墨领”）所有；</view>
+		<view class="p">通过访问、浏览或使用本网站上的信息、资料或服务，表明您已经阅读并理解、同意这些条款，并接受它们的法律约束。</view>
+		<view class="about-title">保密义务 Confidentiality Obligation</view>
+		<view class="content-p p"><view class="content-one">1.</view><view class="content-two">除非另有约定，本网站提供的所有信息、资料或服务仅限正式签约用户或者经本网站授权的用户（“使用者”）本人使用，任何使用者不得以任何方式复制、截屏、传播、销售、出版、广播或用作商业目的；</view></view>
+		<view class="content-p p"><view class="content-one">2.</view><view class="content-two">如果使用者存在对本网站提供的信息、资料或服务私自复制、截屏、传播、销售、出版、广播或用作商业目的的行为，本网站有权单方终止信息服务，并保留通过法律途径进一步追诉的权利。</view></view>
+		<view class="about-title">免责条款Exception</view>
+		<view class="p">本网站所提供的信息、资料和咨询服务仅供使用者参考。在任何情况下，本网站不对使用者因本网站提供的咨询产品或服务造成的损失承担任何责任，但本网站应尽勤勉尽责义务。</view>
+	</view>
+</view>

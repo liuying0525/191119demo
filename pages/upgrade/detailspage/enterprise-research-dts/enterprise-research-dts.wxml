@@ -1,0 +1,412 @@
+<import src="../../../common/wxParse/wxParse.wxml" />
+<import src="../../../common/head/head.wxml" />
+<import src="../../../common/switchhomepage/detailspage.wxml" />
+<view class="enter-res">
+  <template is="detail_head" data="{{collect}}" />
+</view>
+<view class="mainDetail" style="{{watermark}}">
+  <block wx:if="{{item.companyName}}">
+    <view class="title">{{item.companyName}}</view>
+  </block>
+  <block wx:if="{{item.companyName}}">
+    <view class="mainDetail-list"><text>企业中文名称:</text>{{item.companyName}}</view>
+  </block>
+  <block wx:if="{{item.companyNameEn}}">
+    <view class="mainDetail-list"><text>企业英文名称:</text>{{item.companyNameEn}}</view>
+  </block>
+  <block wx:if="{{item.registeredAddress}}">
+    <view class="mainDetail-list"><text>注册地址:</text>{{item.registeredAddress}}</view>
+  </block>
+  <block wx:if="{{item.registeredTime}}">
+    <view class="mainDetail-list"><text>注册时间:</text>{{item.registeredTime}}</view>
+  </block>
+  <block wx:if="{{item.registeredCapital}}">
+    <view class="mainDetail-list"><text>注册资本:</text>{{item.specificRegisteredCapital}}</view>
+  </block>
+  <block wx:if="{{item.corporate}}">
+    <view class="mainDetail-list"><text>法人代表:</text>{{item.corporate}}</view>
+  </block>
+  <block wx:if="{{item.companyNature}}">
+    <view class="mainDetail-list"><text>公司性质：</text>{{item.companyNature}}</view>
+  </block>
+  <view class="article">
+    <block wx:if="{{item.mainBusiness}}">
+      <view class="table-title">主营业务</view>
+      {{item.mainBusiness}}
+    </block>
+    <block wx:if="{{collect.shareholder.length>0}}" wx:key="">
+      <text class="table-title">股东结构</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">股东类型</view>
+          <view class="td">所占股份</view>
+          <view class="td">股东名称</view>
+        </view>
+        <block wx:for="{{collect.shareholder}}" wx:key="">
+          <view class="tr">
+            <view class="td">
+              <block wx:if="{{item.shareholderType}}">{{item.shareholderType}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.shares}}">{{item.shares}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.shareholderName}}">{{item.shareholderName}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.shareholderNote}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.shareholderNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.directorate.length>0}}" wx:key="">
+      <text class="table-title">董事会构成</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td" style="flex-basis:160rpx;">姓名</view>
+          <view class="td" style="flex-basis:160rpx;">职务</view>
+          <view class="td">背景介绍</view>
+        </view>
+        <block wx:for="{{collect.directorate}}" wx:key="">
+          <view class="tr">
+            <view class="td" style="flex-basis:160rpx;">
+             <block wx:if="{{item.name}}">{{item.name}}</block>
+            </view>
+            <view class="td" style="flex-basis:160rpx;">
+              <block wx:if="{{item.post}}">{{item.post}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.background}}">{{item.background}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.team.length>0}}">
+      <text class="table-title">主要团队</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td" style="flex-basis:140rpx;">姓名</view>
+          <view class="td" style="flex-basis:140rpx;">职务</view>
+          <view class="td">背景介绍</view>
+        </view>
+        <block wx:for="{{collect.team}}" wx:key="">
+          <view class="tr">
+            <view class="td" style="flex-basis:140rpx;">
+              <block wx:if="{{item.name}}">{{item.name}}</block>
+            </view>
+            <view class="td" style="flex-basis:140rpx;">
+              <block wx:if="{{item.post}}">{{item.post}}</block>
+            </view>
+            <view class="td">
+               <block wx:if="{{item.background}}">{{item.background}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.teamNote}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.teamNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.shareholdingStructureNote}}">
+      <text class="table-title clrar">股权架构图</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.shareholdingStructureNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.researchEnterprise.length>0}}">
+      <text class="table-title">公司对外投资</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td" style="flex-basis:362rpx;">编号</view>
+          <view class="td">公司名称</view>
+          <view class="td">成立时间</view>
+          <view class="td">注册资本</view>
+          <view class="td">股权比例</view>
+          <view class="td">合作伙伴</view>
+        </view>
+        <block wx:for="{{collect.researchEnterprise}}" wx:key="">
+          <view class="tr">
+            <view class="td" style="flex-basis:362rpx;">{{item.no}}</view>
+            <view class="td">
+              <block wx:if="{{item.companyName}}">{{item.companyName}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.establishTime}}">{{item.establishTime}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.registeredCapital}}">{{item.registeredCapital}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.percentageShares}}">{{item.percentageShares}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.partner}}">{{item.partner}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.researchEnterpriseNote}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.researchEnterpriseNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.researchCorporation.length>0}}">
+      <text class="table-title">法人对外投资</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td" style="flex-basis:362rpx;">编号</view>
+          <view class="td">公司名称</view>
+          <view class="td">成立时间</view>
+          <view class="td">注册资本</view>
+          <view class="td">股权比例</view>
+          <view class="td">合作伙伴</view>
+        </view>
+        <block wx:for="{{collect.researchCorporation}}" wx:key="">
+          <view class="tr">
+            <view class="td" style="flex-basis:362rpx;">
+             <block wx:if="{{item.no}}">{{item.no}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.companyName}}">{{item.companyName}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.establishTime}}">{{item.establishTime}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.registeredCapital}}">{{item.registeredCapital}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.percentageShares}}">{{item.percentageShares}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.partner}}">{{item.partner}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <!-- <block wx:if="{{collect.enterpriseResearch.constitutionBusinessesNote}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.constitutionBusinessesNote.nodes}}"/></view>
+    </block> -->
+    <block wx:if="{{collect.enterpriseResearch.constitutionBusinessesNote}}">
+      <text class="table-title">主营构成</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.constitutionBusinessesNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.clientsNote}}">
+      <text class="table-title">主要客户</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.clientsNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.status.length>0}}">
+      <text class="table-title">经营状况(访谈)</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td" style="flex-basis:250rpx;">年份</view>
+          <view class="td">具体销售额</view>
+          <view class="td">具体净利润</view>
+          <view class="td">EBITDA</view>
+        </view>
+        <block wx:for="{{collect.status}}" wx:key="">
+          <view class="tr">
+            <view class="td" style="flex-basis:250rpx;">
+              <block wx:if="{{item.year}}">{{item.year}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.actualSales}}">{{item.actualSales}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.actualProfit}}">{{item.actualProfit}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.ebitda}}">{{item.ebitda}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.stateBusinessNote}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.stateBusinessNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.commerce.length>0}}">
+      <text class="table-title">经营状况(工商)</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td" style="flex-basis:250rpx;">年份</view>
+          <view class="td">具体销售额</view>
+          <view class="td">具体净利润</view>
+          <view class="td">EBITDA</view>
+        </view>
+        <block wx:for="{{collect.commerce}}" wx:key="">
+          <view class="tr">
+            <view class="td" style="flex-basis:250rpx;">
+             <block wx:if="{{item.year}}">{{item.year}}</block>
+           </view>
+            <view class="td">
+              <block wx:if="{{item.actualSales}}">{{item.actualSales}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.actualProfit}}">{{item.actualProfit}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.ebitda}}">{{item.ebitda}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.stateBusinessNoteCommerce}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.stateBusinessNoteCommerce.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.staffComposition}}">
+      <text class="table-title">人员构成</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.staffComposition.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.majorSuppliers}}">
+      <text class="table-title">主要供应商(上游)</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.majorSuppliers.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.majorDevelopment}}">
+      <text class="table-title">企业重大发展事件</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.majorDevelopment.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.marketSizeNote}}">
+      <text class="table-title">细分市场规模及增速</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.marketSizeNote.nodes}}" /></view>
+    </block>
+    <!-- <block wx:if="{{collect.researchMarket.length>0}}">
+      <text class="table-title">细分市场规模及增速</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">行业</view>
+          <view class="td">细分领域</view>
+          <view class="td">规模</view>
+          <view class="td">增速</view>
+        </view>
+        <block wx:for="{{collect.researchMarket}}" wx:key="">
+          <view class="tr">
+            <view class="td">{{item.industry}}</view>
+            <view class="td">{{item.subdivisionField}}</view>
+            <view class="td">{{item.scale}}</view>
+            <view class="td">{{item.speedUp}}</view>
+          </view>
+        </block>
+      </view>
+    </block> -->
+    <block wx:if="{{collect.competitor.length>0}}">
+      <text class="table-title">主要竞争对手</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">公司名称</view>
+        </view>
+        <block wx:for="{{collect.competitor}}" wx:key="">
+          <view class="tr">
+            <view class="td">{{item.corporateName}}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.competitorNote}}">
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.competitorNote.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.productionCapacity}}">
+      <text class="table-title">生产能力</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.productionCapacity.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.salesServiceCapacity}}">
+      <text class="table-title">销售和服务能力</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.salesServiceCapacity.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.technologicalStrength}}">
+      <text class="table-title">技术实力</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.technologicalStrength.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.substituteProducts}}">
+      <text class="table-title">可用替代产品</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.substituteProducts.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.businessDevelopmentDirection}}">
+      <text class="table-title">可能的业务拓展方向</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.businessDevelopmentDirection.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.FinancingHistory.length>0}}">
+      <text class="table-title">融资历史</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">编号</view>
+          <view class="td">时间</view>
+          <view class="td">融资轮数</view>
+          <view class="td">融资金额</view>
+          <view class="td">投资方</view>
+          <view class="td">融资详情</view>
+        </view>
+        <block wx:for="{{collect.FinancingHistory}}" wx:key="">
+          <view class="tr">
+            <view class="td">
+              <block wx:if="{{item.no}}">{{item.no}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.financingTime}}">{{item.financingTime}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.financingFrequency}}">{{item.financingFrequency}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.financingMoney}}">{{item.financingMoney}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.investor}}">{{item.investor}}</block>
+            </view>
+            <view class="td">
+              <block wx:if="{{item.financingDetails}}">{{item.financingDetails}}</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.comparableTransaction}}">
+      <text class="table-title">可比交易</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.comparableTransaction.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.other}}">
+      <text class="table-title">其他信息</text>
+      <view>
+        <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.other.nodes}}" /></view>
+      </view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.industryDynamic}}">
+      <text class="table-title">行业动态</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.industryDynamic.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.enterpriseDynamic}}">
+      <text class="table-title">企业动态</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.enterpriseDynamic.nodes}}" /></view>
+    </block>
+    <block wx:if="{{collect.enterpriseResearch.additionalInformationContent}}">
+      <text class="table-title">补充信息</text>
+      <view><template is="wxParse" data="{{wxParseData:collect.enterpriseResearch.additionalInformationContent.nodes}}" /></view>
+    </block>
+
+    <!-- <block wx:if="{{collect.AdditionalInformation.length>0}}">
+      <text class="table-title">补充信息</text>
+      <view class="table">
+        <view class="tr">
+          <view class="td">编号</view>
+          <view class="td">补充信息抬头</view>
+          <view class="td">补充信息内容</view>
+        </view>
+        <block wx:for="{{collect.AdditionalInformation}}" wx:key="">
+          <view class="tr">
+            <view class="td">{{item.no}}</view>
+            <view class="td">{{item.additionalInfomationTitle}}</view>
+            <view class="td">{{item.additionalInfomationContent}}</view>
+          </view>
+        </block>
+      </view>
+    </block> -->
+  </view>
+</view>
+<view class="foot">
+  <view class="foot-rescon">
+    <view class='{{item.enterpriseColor}}' bindtap="{{item.enterpriseInfo}}" data-type='enterpriseInfo' data-prerequisite='{{item.id}}'><text>企业资讯</text></view>
+    <view class='colorWhite en-foot' bindtap="{{item.inRequirement}}" data-type='inRequirement' data-prerequisite='{{item.id}}'><text>提出需求</text></view>
+  </view>
+</view>
+<template is="showModal" data="{{modal,showModalStatus}}" />

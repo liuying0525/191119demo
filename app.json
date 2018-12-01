@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+
+    "pages/common/header/header",
+    "pages/homepage/homepage",
+    "pages/login/login",
+    "pages/upgrade/detailspage/email/email",
+    "pages/upgrade/detailspage/demand-feedback/demand-feedback",
+    "pages/upgrade/detailspage/enterprise-dts/enterprise-dts",
+    "pages/upgrade/detailspage/enterprise-research-dts/enterprise-research-dts",
+    "pages/upgrade/detailspage/industry-research-dts/industry-research-dts",
+    "pages/upgrade/detailspage/information-dts/information-dts",
+    "pages/upgrade/detailspage/newcommun/newcommun",
+    "pages/upgrade/detailspage/newcustom/newcustom",
+    "pages/upgrade/detailspage/other-enterprise-information/other-enterprise-information",
+    "pages/upgrade/detailspage/other-Industry-res/other-Industry-res",
+    "pages/upgrade/detailspage/similar-company/similar-company",
+    "pages/upgrade/detailspage/about/about",
+    "pages/upgrade/masterlist/collection/collection",
+    "pages/upgrade/masterlist/commun-demand/commun-demand",
+    "pages/upgrade/masterlist/custom-demand/custom-demand",
+    "pages/upgrade/masterlist/enterprise/enterprise",
+    "pages/upgrade/masterlist/enterprise-research/enterprise-research",
+    "pages/upgrade/masterlist/industry-research/industry-research",
+    "pages/upgrade/masterlist/information/information",
+    "pages/upgrade/masterlist/setting/setting",
+    "pages/upgrade/masterlist/custom-subscribe/custom-subscribe",
+    "pages/upgrade/masterlist/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000832",
+    "navigationBarTitleText": "Merger-link",
+    "navigationBarTextStyle": "#fff"
+  }
+}

@@ -1,0 +1,27 @@
+<template name="detail_head">
+  <!-- <view class="detail-top">
+    <view class="detail-top-list" bindtap="navigateBack">上一步</view>
+     <view class="detail-top-list"></view> 
+    <view class="detail-top-list" bindtap="onChangeShowState">更多</view>
+    <view class=" hide{{collect.showView?'show':''}} detail-more">
+      <view class="mail" bindtap='emailShare' hidden='{{collect.emailStatus?false:true}}'>分享
+        <image src="{{collect.share}}"></image>
+      </view>
+      <view class="collect" bindtap="collection"  data-id="{{collect.modelId}}">收藏
+        <image src="{{collect.collection_image}}"></image>
+      </view>
+    </view>
+  </view> -->
+  
+      <!-- <view class="mail-a" bindtap='emailShare' hidden='{{collect.emailStatus?false:true}}'>
+        <image src="{{collect.share}}"></image>
+      </view> -->
+       <view class="detail-top"> 
+        <view class="homepage" bindtap="skipHomePage">
+          <image src="../../../../images/homepage.png"></image>
+        </view>
+        <view class="collect-a" bindtap="collection"  data-id="{{collect.modelId}}">
+          <image src="{{collect.collection_image}}"></image>
+        </view>
+      </view>
+</template>

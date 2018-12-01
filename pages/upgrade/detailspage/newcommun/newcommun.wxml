@@ -1,0 +1,49 @@
+<view class="newcommun">
+   <view class="newcommun-bottom">
+      <view class="type">
+        <image src="../../../../images/demand_a.png"></image>
+        <text>对接类型：</text>
+        <block wx:for="{{types}}">
+           <view class="{{item.classname}}" bindtap="clickBind" data-selectid="{{item.selectid}}" data-index="{{index}}" data-classname="{{item.classname}}">{{item.demand}}</view>
+        </block>
+      </view>
+      <view class="time">
+          <image src="../../../../images/time.png"></image>
+          <text>期望时间：</text>
+          <view class="timeOne">
+              <text>时间1：</text>
+              <input bindtap="dateTimePicker" disabled data-key="expectedTimeOne" value="{{expectedTimeOne}}"  name="expectedTimeOne" />~<input  bindtap="dateTimePicker" disabled  data-key="expectedTimeOneTwo"  value="{{expectedTimeOneTwo}}"  name="expectedTimeOneTwo" />
+          </view>
+           <view class="timeTwo">
+              <text>时间2：</text>
+              <input bindtap="dateTimePicker" data-key="expectedTimeTwo" disabled value="{{expectedTimeTwo}}"  name="expectedTimeTwo" />~<input  bindtap="dateTimePicker" disabled  data-key="expectedTimeTwoTwo"  value="{{expectedTimeTwoTwo}}"  name="expectedTimeTwoTwo" />
+          </view>
+      </view>
+      <view class="associated">
+         <image src="../../../../images/associated.png"></image>
+         <view class="ass-word">
+		 <block wx:if="{{collect.information && collect.information.title}}">
+			<view class="classname"><text>关联资讯：</text>{{collect.information.title}}</view>
+		 </block>
+         <block wx:if="{{collect.enterprise && collect.enterprise.companyName}}">
+			  <view class="classname"><text>关联企业：</text>{{collect.enterprise.companyName}}</view>
+		 </block>
+            <!-- <image src="../../../../images/connet.png"></image> -->
+         </view>        
+      </view>
+      <view class="new-demand">
+        <image src="../../../../images/demand_b.png"></image>
+        <text>需求内容：</text>
+         <input bindinput="demandContent" value="{{demandContent}}"  name="demandContent" /> 
+        <!-- <textarea bindinput="demandContent" value="{{demandContent}}"  name="demandContent" /> -->
+      </view>
+       <view hidden="{{calendarIsShow}}">
+            <import src="../../../common/calendar/calendar.wxml"/>
+            <template is="calendar" data="{{currentDate,dayList,currentDayList,currentObj,currentDay,top}}"/>  
+      </view>
+   </view>
+   <view class="new-btn">
+      <button class="deter" bindtap="doSave">确定</button>
+      <button class="cancel" bindtap="doCancel">取消</button>
+   </view>
+</view>

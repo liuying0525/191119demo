@@ -1,0 +1,152 @@
+/**
+ *question1:  (本小程序中没有用到)
+ *解决transform使用导致z-index失效而带来的层级问题 
+ *http://www.w3cplus.com/css/3d-transform-and-z-index.html
+ *http://www.zhangxinxu.com/wordpress/2016/08/safari-3d-transform-z-index/
+ */
+ 
+ page{       
+    height: 100%;     
+ }
+.filterpage{
+    height: 100%;
+    width:100%;
+    top: 0;
+    left: 50;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.5);
+    position: fixed;
+    z-index: 20;
+}
+.filterpage-content{
+  width: 100%;
+  height:100%;
+  display: flex;
+}
+.filterpage-content .filterpage-left{
+  width:15%;
+}
+.settingContent{
+   width:100%;
+   height: 100%;
+   background: #fff;
+   overflow-y: auto;
+   border-top:10rpx solid #fc7afc;
+}
+.content{
+    height: 100%;
+    background: #fff;
+    width:85%;
+    overflow-y: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.menuItem{
+  color: #9c9c9c;
+  font-size:30rpx;
+  position: relative;
+  height: 52rpx;
+  vertical-align: middle;
+  padding-top:10rpx;
+}
+.menuOne>.menuItem .text{
+  width:100%;
+}
+.menuItem checkbox{
+  display: inline-block;
+  width: 10%;
+}
+.menuItem .text{
+  display: inline-block;
+  width: 90%;
+  border-bottom: 1px solid #d1d3d4;
+  padding-bottom: 10rpx;
+}
+.menuOne{ 
+  padding-left:3%;
+  margin-top:5px;
+  z-index: 25;
+}
+.menuTwo{
+ padding-left: 10px;
+  z-index: 35;
+}
+.menuThree{
+ padding-left:20rpx;  
+  z-index: 45;
+}
+.menuFour{
+   padding-left: 20px;
+    z-index: 55;
+}
+.logoView{
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 2px;
+  border-bottom: 3vh solid #00c6ff  ;
+}
+.ocs-logo{
+  width: 170px;
+  height: 28px;
+}
+@keyframes slidown{
+    from{
+        transform:  translateY(-10%);
+    }
+    to{
+        transform:  translateY(0%);
+    }
+}
+.slidown{
+    animation: slidown .5s ease-in both;
+}
+.slidup{    
+  display: none;
+}
+.ocs-foot{
+  margin-top:10px;
+}
+.ocs-foot button{
+  display: inline-block;
+  margin-top: 5px;
+  width:40%;
+  height:80rpx;
+  line-height:80rpx;
+  margin:5%;
+}
+.ocs-foot .ocs-search{
+ background:#000832;
+ color: #fff;
+}
+.time .timeOne{
+    width: 90%;
+    height: 52rpx;
+    display: flex;
+    justify-content: space-around;
+    font-size: 30rpx;
+    padding-top:10rpx;
+    padding-left:3%;
+    color:#9c9c9c;
+}
+.time input{
+     border: 1px solid #ccc;
+     width:35%;
+     height: 30rpx;
+}
+.clearMortar{
+  background-color: #999;
+  color: #fff;
+}
+.searchitem{
+position:absolute;
+left:25%;
+top:-2rpx;
+width:50%;
+height:90%;
+border:2rpx solid #ddd;
+border-radius:8rpx;
+padding-left:8rpx;
+color:#9c9c9c;
+
+}

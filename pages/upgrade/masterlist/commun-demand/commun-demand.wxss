@@ -1,0 +1,34 @@
+/* pages/upgrade/masterlist/commundemand.wxss */
+@import "../../../common/search/search.wxss";
+@import "../../../common/menu/menu.wxss";
+@import "../../../common/calendar/calendar.wxss";
+.main .li{
+  position: relative;
+}
+.title-demand {
+  color: #5d82bc;
+  font-size: 32rpx;
+  font-weight: 600;
+  width:74%;
+}
+.state {
+  position: absolute;
+  top: 15rpx;
+  right: 5px;
+  display: inline-block;
+  line-height:40rpx;
+  height: 38rpx;
+  font-size:32rpx;
+  color: #56b056;
+  padding: 0 10rpx;
+  border-radius: 5rpx;
+  border: 1px solid #56b056;
+}
+.prompt{
+  width:16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color:#ff3e3b;
+ display: inline-block;
+ vertical-align: super;
+}

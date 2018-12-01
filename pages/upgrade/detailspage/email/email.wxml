@@ -1,0 +1,11 @@
+<view>
+  <view class="email">
+     <view class="addressee"><text>收件人</text><input  bindinput="bindKeywordInput" value="{{to}}"  name="to"/></view>
+     <view class="emailTop">您也许对分享自Merger-link并购信息科技移动应用的以下信息感兴趣，供您参考。</view>
+     <view class="email-title">{{emailSubject}}</view>
+     <view class="email-content">{{emailText}}</view>
+     <navigator url="{{backUrl}}">http://127.0.0.1:8020/Mergerlink/mail.html</navigator>
+     <button class="send" bindtap='sendEmail'>发送邮件</button>
+  </view>
+</view>
+

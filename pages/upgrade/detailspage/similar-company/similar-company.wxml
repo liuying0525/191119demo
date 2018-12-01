@@ -1,0 +1,11 @@
+<view class="similar">
+  <view class="main" style="{{watermark}}">
+  <block wx:for="{{searchSongList}}">
+    <view class="li" bindtap='similarbind' data-similarid="{{item.tmEnterpriseId}}">
+      <view class="title" style="color:{{item.titleCss}}"><text>{{item.corporateName}}</text></view>
+      <view wx:if="{{item.industryName}}" class="list infor-list"><text>所属行业：</text>{{item.industryName}}</view>
+      <view wx:if="{{item.hotspotName}}" class="list infor-list"><text>关联热点：</text>{{item.hotspotName}}</view>
+    </view>
+  </block>
+  </view>
+</view>
