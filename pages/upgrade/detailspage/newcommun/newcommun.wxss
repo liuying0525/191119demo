@@ -98,14 +98,14 @@
 .new-btn button{
    display: inline-block;
     width:180rpx;
-    box-shadow: 0px 5px 5px #ccc;
+    /* box-shadow: 0px 5px 5px #ccc; */
     border: none;
-    border-radius: 5px;
+   border-radius: 5px;
     margin:20rpx 45rpx;
 }
 .deter{
   color: #fff;
-  background-color: #83afe0;
+  background-color: #000832;
 }
 .cancel{
   color: #333333;

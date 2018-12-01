@@ -15,6 +15,8 @@ module.exports = {
           wx.setStorageSync('checkedItem', checkedItem); //缓存设置值，重新设置初始值，清空本地缓存
         }
       }
+
+      
       obj.setData({
         dataOne: allMenu.getMenu(),
         checkedItem: checkedItem,
@@ -24,13 +26,7 @@ module.exports = {
       });
       clearCss(obj.data.checkedItem);
       obj.selectItem = function(e) {
-
-
-        // obj.setData({
-        //   dataOne
-        // });
         var closeItem = function(id) {
-
           if (mapMenu[id]) {
             obj.data.menuOpen[id] = false;
             for (var j = 0; j < mapMenu[id].length; j++) {
@@ -59,9 +55,29 @@ module.exports = {
         }
 
         obj.bindKeyInput = function(event) {
-
+          var FLAG=false;
           var txtValue = event.detail.value.trim();
           txtValue = txtValue;
+          var imodel = obj.data.inputModel;
+          imodel[event.currentTarget.dataset.mtype] = txtValue;
+          obj.setData({
+            menuKeyword: txtValue,
+            inputModel: imodel
+          });
+          if(txtValue.length>0){
+           FLAG=true;
+            if (!FLAG) {
+              obj.setData({
+                ocs_clear: 'clearMortar'
+              })
+            } else {
+              obj.setData({
+                ocs_clear: ''
+              })
+            }
+          }else{
+            FLAG=false;
+          }
           var sid = event.currentTarget.dataset.index;
           var nData = obj.data.dataOne.filter(a => a.id == sid);
           if (nData.length == 0) return;
@@ -254,11 +270,18 @@ module.exports = {
         obj.keywordSearch();
       };
       obj.clear = function() {
+        var imodel = obj.data.inputModel;
+        for (var key in imodel) {
+          imodel[key] = "";
+        };
         obj.setData({
           checkedItem: {},
           parameter: {},
           expectedTimeOne: '',
-          expectedTimeOneTwo: ''
+          expectedTimeOneTwo: '',
+          inputModel: imodel,
+          menuOpen: {},
+          dataOne: allMenu.getMenu()
         });
         clearCss(obj.data.checkedItem);
       };
@@ -281,9 +304,9 @@ module.exports = {
           })
         }
       }
-      // if (!obj.data.setting){
-      //   obj.search();
-      // }
+       if (!obj.data.setting){
+         obj.search();
+       }
     });
   },
   show: function(obj, screeningHidden) {

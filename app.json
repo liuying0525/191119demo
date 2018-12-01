@@ -2,9 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-"pages/login/login",
+
     "pages/common/header/header",
     "pages/homepage/homepage",
+    "pages/login/login",
     "pages/upgrade/detailspage/email/email",
     "pages/upgrade/detailspage/demand-feedback/demand-feedback",
     "pages/upgrade/detailspage/enterprise-dts/enterprise-dts",

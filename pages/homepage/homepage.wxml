@@ -36,7 +36,7 @@
      <view class="homepage-list" data-current="0">
       <block wx:for="{{item.topOne}}" wx:key="item" wx:if="{{item.wxUrl}}">
       <view class="category-info" bindtap="{{item.wxBindtaps}}">
-        <image src="{{item.wxIconCls}}" class="category-image"></image>
+        <image src="{{item.wxIconCls+randomicon}}" class="category-image"></image>
         <view class="category-text">{{item.name}}</view>
         <view class="{{item.prompt}}"></view>
       </view>
@@ -47,7 +47,7 @@
        <view class="homepage-list" data-current="0">
         <block wx:for="{{item.topTow}}" wx:key="" wx:if="{{item.wxUrl}}">
             <view class="category-info" bindtap="{{item.wxBindtaps}}">
-              <image src="{{item.wxIconCls}}" class="category-image"></image>
+              <image src="{{item.wxIconCls+randomicon}}" class="category-image"></image>
               <view class="category-text">{{item.name}}</view>
               <view class="{{item.prompt}}"></view>
             </view>
@@ -58,5 +58,5 @@
 </view>
 <view class="search-homepage">
   <template is="{{templateName}}" data="{{searchSongList,searchLoading,loadingImg,userId,watermark,searchLoadMore}}"/>
-  <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,userId,watermark}}"/>
+  <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,userId,watermark,inputModel}}"/>
 </view>

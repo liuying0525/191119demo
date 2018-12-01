@@ -19,8 +19,8 @@ tradeNature:交易性质
 companyNature:公司性质
 haveInformation:有无资讯
 registeredCapital:注册资本
-salesAmount:销售额
-retainedProfits:净利润
+     salesAmount:销售额
+    retainedProfits:净利润
 demandStatus:需求状态
 demandType:需求类型
  */

@@ -4,7 +4,7 @@ var allMenu = require('../../utils/allMenu.js');
 var util = require('../../utils/util.js')
 
 Page({
-  j_username: function (e) {   //获取input输入的值
+  j_username: function (e) {   //获取input输入的值 
     var that = this;
     that.setData({
       j_username: e.detail.value

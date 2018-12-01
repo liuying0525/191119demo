@@ -20,7 +20,12 @@ Page({
     calendarIsShow:true,
     expectedTimeOne: '',
     expectedTimeOneTwo: '',
-    loadingImg: util.picUrls.loading
+    loadingImg: util.picUrls.loading,
+    inputModel: {
+      industry: "",
+      hotspot: "",
+      registerPlace: ""
+    }
   },
   //搜索，访问网络
   fetchSearchList: function(){

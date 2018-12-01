@@ -24,6 +24,7 @@ Page({
 
   onLoad: function() {
     var that = this;
+   
     that.getOpenId(that, function () {
       that.verifyLogin(that);
     })
@@ -108,7 +109,9 @@ Page({
             })
             obj.verifyCustomerViewData();
             allMenu.initMap('F', host, function() {});
+         
             var url = '../homepage/homepage?templet=' + res.data.modelType + '&pagePath=' + res.data.pagePath + '&userId=' + res.data.userId;
+         
             console.log("url=" + url);
             wx.redirectTo({
               url: url

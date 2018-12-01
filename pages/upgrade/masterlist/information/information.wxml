@@ -5,5 +5,5 @@
  <import src="../../../common/switchhomepage/home_item.wxml"/>
  <template is="information" data="{{searchSongList,searchLoading,loadingImg,watermark,searchLoadMore}}"/>  
  <import src="../../../common/menu/menu.wxml"/>
- <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,watermark}}"/>
+ <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,watermark,inputModel}}"/>
 </view>

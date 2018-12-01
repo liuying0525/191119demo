@@ -17,6 +17,11 @@ Page({
     concurrentPrevention: true, //防止多次发送请求
     prerequisite: '',
     parameter: {},
+    inputModel: {
+      industry: "",
+      hotspot: "",
+      registerPlace: ""
+    },
     moduleCode: 'A', //右侧参数清单，参考allmenu.js
     placeholder: '全文关键字检索',
     loadingImg: util.picUrls.loading

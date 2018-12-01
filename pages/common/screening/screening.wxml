@@ -20,7 +20,7 @@
       <view class="search-list">
           <input placeholder="{{placeholder}}" bindinput="bindKeywordInput" value="{{searchKeyword}}"  name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" /><image src="../../../../images/false.png" bindtap="resetBtnClick"></image>
       </view>
-      <view class="search-img" bindtap="keywordSearch">搜索</view>
+      <view class="search-img" bindtap="keywordSearch"><image src="../../../../images/searchicon.png"></image></view>
       <view class="screening"  data-screening="{{screeningHidden}}" bindtap="screening" ><image src="../../../../images/screen.png" /></view>
     </view>
 </view>

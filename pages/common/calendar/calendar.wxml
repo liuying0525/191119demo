@@ -41,7 +41,7 @@
         </view>  
       </view>  
       <view class="box-flex">  
-      <block  wx:for="{{currentDayList}}" wx:for-item="dateTime">
+      <block  wx:for="{{currentDayList}}" wx:for-item="dateTime" wx:key="{{key}}">
         <view class="flex-item data-item" wx:for-index='key' bindtap="{{dateTime.pitchOn}}" data-thisData="{{dateTime.day}}"  wx:key="{{key}}">  
             <view class="item-content" style="{{dateTime.beforeClass}}" wx:if="{{currentDay != dateTime.day}}">{{dateTime.day}}</view>  
             <view class="item-content bk-color-day" wx:else>{{dateTime.day}}</view>  

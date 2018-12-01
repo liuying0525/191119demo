@@ -99,11 +99,11 @@ page{
   vertical-align:sub;
 }
 .main  .date text{
-	/* border-left: 1px solid #6e6e6e;
+ border-left: 1px solid #6e6e6e;
 	padding:0 10rpx;
-	color: #3a3b3b;
-  font-size:25rpx; */
-  color: #999;
+	 color: #3a3b3b; 
+  font-size:25rpx; 
+  /* color: #999; */
 }
 .main  .li .date text:nth-child(1){
 	padding-left: 0;
@@ -154,6 +154,8 @@ color: #666;
   left: 0;
   z-index: 20;
   border-bottom:10rpx solid #fc7afc;
+  padding:0 3%;
+  box-sizing: border-box;
 }
 .search-result{
   height:100%;
@@ -168,11 +170,10 @@ color: #666;
 }
 .search-list{
   display: inline-block;
-  width:72%;
+  width:76%;
   background-color: #fff;
   height: 70rpx;
   border-radius:0px;
-  margin-left:3%;
   margin-top: 15rpx;
 }
 .search input{
@@ -189,9 +190,11 @@ color: #666;
   color: #fff;
   font-size:24rpx;
   background-color: #4c607d;
-  padding:18rpx 10rpx;
+  padding:18rpx 18rpx;
   border-radius:1rpx; 
   margin-left:0;
+  vertical-align:middle;
+
 }
 .search view image{
   width: 40rpx;
@@ -202,7 +205,8 @@ color: #666;
 .search .screening{
   font-size: 30rpx;
   color:#ccc;
-  padding-left:20rpx;
+  float:right;
+  margin-top:20rpx;
   display: inline-block;
 }
 .search .screening image{

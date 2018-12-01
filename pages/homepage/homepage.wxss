@@ -55,13 +55,15 @@ height: 100%;
   margin-top:24rpx;
 }
 .homepage-list{
-    height:64%;
+    height:70%;
   background-color: #fff;
   position: fixed;
-  top:80rpx;
+  top:50rpx;
   left: 0;
   right:0;
   z-index: 20;
+  box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2);
+
 }
 .category-info {
  margin-top: 45rpx;
@@ -103,10 +105,10 @@ line-height: 80rpx;
 } 
 .homepage .swiper-box{
   display: block;
-  height: 98%;
+  height: 90%;
   width: 100%;
   overflow: hidden;
-  box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2);
+  /* box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2); */
 }
 .homepage .swiper-box view{
   text-align: center;
@@ -156,6 +158,6 @@ left:62rpx;
 }
  swiper-item{
  /* background:#fff; */
- box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2);
+ /* box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2); */
  /* height:90% !important; */
 } 

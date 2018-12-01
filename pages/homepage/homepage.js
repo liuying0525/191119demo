@@ -1,6 +1,6 @@
 // pages/homepage/homepage.js
 const host = require('../../config').host;
- const watermarkurl = require('../../config').watermarkurl;
+const watermarkurl = require('../../config').watermarkurl;
 var util = require('../../utils/util.js');
 var menu = require('../common/menu/menu.js');
 var home_item = require('../common/switchhomepage/home_item.js');
@@ -14,24 +14,31 @@ Page({
   data: {
     articleHtml: '',
     item: {},
+    randomicon: '?l=' + Math.random() * 999,
     searchKeyword: '', //需要搜索的字符
+    menuKeyword: '',
     searchSongList: [], //放置返回数据的数组
     isFromSearch: true, // 用于判断searchSongList数组是不是空数组，默认true，空的数组
     searchPageNum: util.system_val.page, // 设置加载的第几次，默认是第一次
     callbackcount: util.system_val.rows, //返回数据的个数
     searchLoading: false, //"上拉加载"的变量，默认false，隐藏
-    searchLoadMore:true,
+    searchLoadMore: true,
     concurrentPrevention: true, //防止多次发送请求
     templateName: '',
     pagePath: '',
     wxTimerList: [],
     parameter: {},
     userId: '',
-    headertitle:'',
+    headertitle: '',
     screeningHidden: true,
     moduleCode: 'A', //右侧参数清单，参考allmenu.js
     loadingImg: util.picUrls.loading,
-    watermark: ''
+    watermark: '',
+    inputModel: {
+      industry: "",
+      hotspot: "",
+      registerPlace: ""
+    }
   },
   //输入框事件，每输入一个字符，就会触发一次
   bindKeywordInput: function(e) {
@@ -116,12 +123,16 @@ Page({
     }
   },
   onLoad: function(option) {
-  
-   
+
+
     var that = this;
-     var userId = wx.getStorageSync('userId') || '';
+    var userId = wx.getStorageSync('userId') || '';
     // var userId = util.getOpenId().openId || '';
-    console.log('userId', util.getOpenId().openId)
+    // console.log('userId', util.getOpenId().openId)
+    
+    that.setData({
+      userId: wx.getStorageSync('userId') || ''
+    })
     if (userId != '') {
       that.setData({
         watermark: "background:url('" + watermarkurl + userId + "')"
@@ -132,7 +143,7 @@ Page({
       })
     }
     this.setData({
-      headertitle:wx.getStorageSync("modelName")||""
+      headertitle: wx.getStorageSync("modelName") || ""
     })
     //let data = app.towxml.toJson(res.data,'markdown');
     wx.request({
@@ -145,45 +156,44 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(result) {
-        console.log("2")
+        // console.log("2")
         if (!result.data.success) {
           let article = app.towxml.html2wxml(result.data.content, );
           article = app.towxml.toJson(article);
-          console.log(article)
+          // console.log(article)
           that.setData({
             articleHtml: article
           })
         }
       }
     });
-    console.log("1")
-    
+    console.log(option)
     if (userId != '') {
+     // debugger
       that.setData({
         templateName: option.templet,
         pagePath: option.pagePath,
         userId: option.userId,
+        // inputModel: inputModel,
         moduleCode: (option.templet == 'information' ? 'A' : 'B'),
-        item: wx.getStorageSync("customMenu") || {},
-         
-         
-     
+        item: wx.getStorageSync("customMenu") || {}
       })
-     
+
     } else {
       that.setData({
         templateName: option.templet,
         pagePath: option.pagePath,
         userId: option.userId,
+        // inputModel: inputModel,
         moduleCode: (option.templet == 'information' ? 'A' : 'B'),
         item: wx.getStorageSync("customMenu") || {}
       })
     }
-    console.log("3")
-   util.inintPicUrls(that);
-   menu.init(that);
-   that.anyNewNews();
-   // that.verWhetherUnbound();
+    // console.log("3")
+    util.inintPicUrls(that);
+    menu.init(that);
+    that.anyNewNews();
+    // that.verWhetherUnbound();
   },
   informationBind: function() {
     wx.navigateTo({
@@ -216,7 +226,9 @@ Page({
     })
   },
   article_btn: function() {
+    
     let vm = this;
+    debugger
     wx.request({
       url: host + 'customPrivacy/agree.do',
       data: {
@@ -251,7 +263,7 @@ Page({
       url: '../upgrade/masterlist/collection/collection',
     })
   },
-  aboutBind: function() {
+  about: function() {
     wx.navigateTo({
       url: '../upgrade/detailspage/about/about',
     })
@@ -271,12 +283,13 @@ Page({
     var that = this;
     var screeningHidden = false;
     if (!opt.currentTarget.dataset.screening) {
-     
+
       screeningHidden = true;
     };
     menu.show(that, screeningHidden);
   },
   onShow: function() {
+    // console.log(Math.random());
     var that = this;
     that.fetchSearchList();
     that.anyNewNews();

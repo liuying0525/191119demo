@@ -12,7 +12,7 @@
 
             <view class="text">{{item.name}}</view>
             <block wx:if="{{item.type=='industry'||item.type=='hotspot'||item.type=='registerPlace'}}">
-              <input bindinput="bindKeyInput" placeholder="search" data-index='{{item.id}}' class="searchitem" />
+              <input bindinput="bindKeyInput" placeholder="search" data-index='{{item.id}}' class="searchitem"  data-mtype='{{item.type}}' value="{{inputModel[item.type]}}"/>
             </block>
 
           </view>

@@ -21,7 +21,12 @@ Page({
     expectedTimeOne: '',
     expectedTimeOneTwo: '',
     loadingImg: util.picUrls.loading,
-    customNeeds: true
+    customNeeds: true,
+    inputModel: {
+      industry: "",
+      hotspot: "",
+      registerPlace: ""
+    }
   },
   //搜索，访问网络
   fetchSearchList: function(){

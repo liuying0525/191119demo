@@ -16,7 +16,12 @@ Page({
 	  prerequisite:'',
     parameter: {},
     moduleCode: 'D',//右侧参数清单，参考allmenu.js
-    loadingImg: util.picUrls.loading
+    loadingImg: util.picUrls.loading,
+    inputModel: {
+      industry: "",
+      hotspot: "",
+      registerPlace: ""
+    }
   },
   //搜索，访问网络
   fetchSearchList: function () {
