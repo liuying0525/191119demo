@@ -13,13 +13,9 @@ Page({
     searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏
     screeningHidden:true, //筛选 默认true，隐藏
     concurrentPrevention:true, //防止多次发送请求
-<<<<<<< HEAD
     loadingImg: util.picUrls.loading,
     searchLoadMore: true,
  
-=======
-    loadingImg: util.picUrls.loading
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   },
   //搜索，访问网络
   fetchSearchList: function(){
@@ -28,11 +24,7 @@ Page({
 	wx.request({
 	  url:host+"store/list.do",
 	  data:{
-<<<<<<< HEAD
       page: this.data.searchPageNum,
-=======
-      page:util.system_val.page,
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
       rows:util.system_val.rows,
       openId: user.openid
 	  },
@@ -46,16 +38,10 @@ Page({
         if (!that.data.isFromSearch) {
           searchList=that.data.searchSongList.concat(searchList);
         } 
-<<<<<<< HEAD
       
         that.setData({
           searchSongList: searchList, //获取数据数组
           searchLoading: false,   //把"上拉加载"的变量设为false，显示
-=======
-        that.setData({
-          searchSongList: searchList, //获取数据数组
-          searchLoading: true,   //把"上拉加载"的变量设为false，显示
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           concurrentPrevention:true //防止多次发送请求
         });
 		  } else {
@@ -66,12 +52,8 @@ Page({
         }
           that.setData({
             searchLoadingComplete: true, //把“没有数据”设为true，显示
-<<<<<<< HEAD
             searchLoading: true,  //把"上拉加载"的变量设为false，隐藏
             searchLoadMore:false
-=======
-            searchLoading: false  //把"上拉加载"的变量设为false，隐藏
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           });
 		  }
 	   }
@@ -81,7 +63,6 @@ Page({
   //滚动到底部触发事件
   searchScrollLower: function(){
     let that = this;
-<<<<<<< HEAD
     if(!that.data.searchLoading && !that.data.searchLoadingComplete &&that.data.concurrentPrevention){
       that.setData({
         searchPageNum: that.data.searchPageNum+1,  //每次触发上拉事件，把searchPageNum+1
@@ -89,13 +70,6 @@ Page({
 		concurrentPrevention:false, //防止多次发送请求
         searchLoadMore: true,
         searchLoading:false
-=======
-    if(that.data.searchLoading && !that.data.searchLoadingComplete &&  that.data.concurrentPrevention){
-      that.setData({
-        searchPageNum: that.data.searchPageNum+1,  //每次触发上拉事件，把searchPageNum+1
-        isFromSearch: false,  //触发到上拉事件，把isFromSearch设为为false
-		concurrentPrevention:false //防止多次发送请求
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
       });
       that.fetchSearchList();
     }

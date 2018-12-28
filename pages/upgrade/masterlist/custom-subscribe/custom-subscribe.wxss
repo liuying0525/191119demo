@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 /* pages/upgrade/masterlist/custom-subscribe/custom-subscribe.wxss */
-=======
-/* pages/upgrade/masterlist/setting.wxss */
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 @import "../../../common/menu/menu.wxss";

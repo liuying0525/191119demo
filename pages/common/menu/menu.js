@@ -3,11 +3,7 @@ const host = require('../../../config').host;
 var util = require('../../../utils/util.js')
 module.exports = {
   init: function(obj) {
-<<<<<<< HEAD
     var that = this; //obj.data.moduleCode == "A" ? "ALL" : 
-=======
-    var that = this;//obj.data.moduleCode == "A" ? "ALL" : 
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     allMenu.initMap(obj.data.moduleCode, host, function() {
       var checkedItem = obj.data.checkedItem;
       var syncCheckedItem = wx.getStorageSync('checkedItem') || '';
@@ -20,11 +16,7 @@ module.exports = {
         }
       }
 
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
       obj.setData({
         dataOne: allMenu.getMenu(),
         checkedItem: checkedItem,
@@ -63,11 +55,7 @@ module.exports = {
         }
 
         obj.bindKeyInput = function(event) {
-<<<<<<< HEAD
           var FLAG = false;
-=======
-          var FLAG=false;
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           var txtValue = event.detail.value.trim();
           txtValue = txtValue;
           var imodel = obj.data.inputModel;
@@ -76,13 +64,8 @@ module.exports = {
             menuKeyword: txtValue,
             inputModel: imodel
           });
-<<<<<<< HEAD
           if (txtValue.length > 0) {
             FLAG = true;
-=======
-          if(txtValue.length>0){
-           FLAG=true;
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
             if (!FLAG) {
               obj.setData({
                 ocs_clear: 'clearMortar'
@@ -92,13 +75,8 @@ module.exports = {
                 ocs_clear: ''
               })
             }
-<<<<<<< HEAD
           } else {
             FLAG = false;
-=======
-          }else{
-            FLAG=false;
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           }
           var sid = event.currentTarget.dataset.index;
           var nData = obj.data.dataOne.filter(a => a.id == sid);
@@ -252,11 +230,7 @@ module.exports = {
         }
 
       };
-<<<<<<< HEAD
       obj.search = function(event) {
-=======
-      obj.search = function() {
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         var parameter = {
           'seached': 'Y'
         };
@@ -293,40 +267,25 @@ module.exports = {
           parameter: changeParameter,
           screeningHidden: true
         });
-<<<<<<< HEAD
          obj.keywordSearch(event);
       };
       obj.clear = function() {
         //if (obj.data.ocs_clear != "") return;
-=======
-        obj.keywordSearch();
-      };
-      obj.clear = function() {
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         var imodel = obj.data.inputModel;
         for (var key in imodel) {
           imodel[key] = "";
         };
-<<<<<<< HEAD
         var allMenuarry = allMenu.getAllMenu();
         var ndataOne = allMenu.generateMenuData(allMenuarry, obj.data.moduleCode||"ALL");
-=======
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         obj.setData({
           checkedItem: {},
           parameter: {},
           expectedTimeOne: '',
           expectedTimeOneTwo: '',
           inputModel: imodel,
-<<<<<<< HEAD
           dataOne: ndataOne
         });
 
-=======
-          menuOpen: {},
-          dataOne: allMenu.getMenu()
-        });
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         clearCss(obj.data.checkedItem);
       };
 
@@ -348,15 +307,9 @@ module.exports = {
           })
         }
       }
-<<<<<<< HEAD
       if (!obj.data.setting) {
         obj.search();
       }
-=======
-       if (!obj.data.setting){
-         obj.search();
-       }
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     });
   },
   show: function(obj, screeningHidden) {
@@ -366,10 +319,6 @@ module.exports = {
   },
   getAllMenu: function() {
     return allMenu;
-<<<<<<< HEAD
   },
 
-=======
-  }
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }

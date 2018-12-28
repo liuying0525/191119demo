@@ -39,11 +39,7 @@ Page({
     parameter = that.data.parameter;
     parameter.inputVal = that.data.searchKeyword;
     parameter.prerequisite = that.data.prerequisite || "";
-<<<<<<< HEAD
     // debugger
-=======
-
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     util.getSearchMusic(condition, parameter, function(data) {
       util.pagingBottom(that, data); //分页底部状态切换
       let searchList = data.data.rows; //把取到的数组的值赋值给list
@@ -62,11 +58,7 @@ Page({
         that.setData(d); //为了解决setdata数据长度限制的问题，小程序setData最多存储字符长度为1兆
         that.setData({
           concurrentPrevention: true, //防止多次发送请求
-<<<<<<< HEAD
           // searchSongList: searchList //获取数据数组
-=======
-         // searchSongList: searchList //获取数据数组
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         });
       }
     })
@@ -114,17 +106,7 @@ Page({
   onLoad: function(option) {
     var that = this;
     var userId = wx.getStorageSync('userId') || '';
-<<<<<<< HEAD
 
-=======
-    menu.init(that);
-    util.inintInput(that);
-    if (option.title) {
-      wx.setNavigationBarTitle({
-        title: option.title,
-      })
-    }
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     if (userId != '') {
       that.setData({
         prerequisite: option.prerequisite || "",
@@ -132,7 +114,6 @@ Page({
       })
     } else {
       that.setData({
-<<<<<<< HEAD
         prerequisite: option.prerequisite || "",
         watermark: "background:url('" + watermarkurl + option.userId + "')"
       })
@@ -142,19 +123,12 @@ Page({
     if (option.title) {
       wx.setNavigationBarTitle({
         title: option.title,
-=======
-        quisite: option.prerequisite || "",
-         watermark: "background:url('" + watermarkurl + option.userId + "')"
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
       })
     }
   },
   onShow: function() {
     var that = this;
-<<<<<<< HEAD
    // debugger
-=======
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     that.fetchSearchList();
   }
 })

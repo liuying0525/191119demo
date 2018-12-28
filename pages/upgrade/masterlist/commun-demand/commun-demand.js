@@ -54,27 +54,19 @@ Page({
   },
   //点击搜索按钮，触发事件
   keywordSearch: function(e){
-<<<<<<< HEAD
     if(!e) return;
     if(e){
       if (e.currentTarget.dataset.type != "search") return
     }
     var that = this;
     
-=======
-    var that = this;
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     that.setData({  
       searchPageNum: 1,   //第一次加载，设置1
       searchSongList:[],  //放置返回数据的数组,设为空
       isFromSearch: true,  //第一次加载，设置true
       searchLoading: false  //把"上拉加载"的变量设为true，显示
     })
-<<<<<<< HEAD
      that.fetchSearchList();
-=======
-    that.fetchSearchList();
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   },
   //滚动到底部触发事件
   searchScrollLower: function(){
@@ -86,11 +78,7 @@ Page({
         isFromSearch: false,  //触发到上拉事件，把isFromSearch设为为false
         searchLoading: false  //把"上拉加载"的变量设为true，显示
       });
-<<<<<<< HEAD
      that.fetchSearchList();
-=======
-      that.fetchSearchList();
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     }
   },
   expectedTimeOne: function (e) {
@@ -150,12 +138,7 @@ Page({
     }
   }, onShow: function () {
     var that = this;
-<<<<<<< HEAD
      that.fetchSearchList();
   }
   
-=======
-    that.fetchSearchList();
-  }
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 })

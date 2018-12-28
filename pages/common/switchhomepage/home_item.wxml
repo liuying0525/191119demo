@@ -78,15 +78,10 @@
         </block>
        </block>
       </view>
-<<<<<<< HEAD
        <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
         <view  class="loading complete" hidden="{{searchLoadMore}}" >没有更多数据了！</view>
     </scroll-view>
 	 
-=======
-    </scroll-view>
-	  <view class="loading" hidden="{{searchLoading}}"><image src="{{loadingImg}}"></image>正在加载</view>
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
    <!-- <view class="loading complete" hidden="{{!searchLoading}}">已加载全部</view> -->
   </view>
   <block wx:if="{{1> searchSongList.length}}">

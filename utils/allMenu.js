@@ -2,10 +2,7 @@ var menu_data = [];
 var all_menu_data = [];
 var setting_data = {};
 var customSubscribe = []
-<<<<<<< HEAD
 var subscribe_data = {} //增加订阅设置值
-=======
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 var menuMap = {
   idMapper: {},
   init: false
@@ -30,21 +27,14 @@ demandType:需求类型
  */
 
 var module_data = {
-<<<<<<< HEAD
   A: ['industry', 'hotspot', 'tradeStatus', 'tradeScale', 'equityChange', 'tradeCurrency', 'tradeRounds', 'tradeNature', 'companyNature', 'registerPlace', 'salesAmount', 'retainedProfits'], //资讯  
-=======
-  A: ['industry', 'hotspot', 'tradeStatus', 'tradeScale', 'equityChange', 'tradeCurrency', 'tradeRounds', 'tradeNature', 'companyNature', 'registerPlace', 'salesAmount','retainedProfits'], //资讯  
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   B: ['industry', 'hotspot', 'registeredCapital', 'companyNature', 'salesAmount', 'retainedProfits', 'registerPlace'], //企业库
   C: ['industry', 'hotspot', 'registeredCapital', 'companyNature', 'salesAmount', 'retainedProfits', 'registerPlace'], //企业研究
   D: ['industry', 'hotspot'], //行业研究
   E: ['demandType', 'demandStatus', 'customizedDemand'], //沟通需求
   F: ['demandStatus'], //定制需求
   G: ['industry', 'tradeStatus', 'tradeScale', 'equityChange', 'tradeCurrency'], //设置
-<<<<<<< HEAD
   H: ['whetherSubscribe','industry', 'hotspot', 'tradeScale', 'equityChange'], //增加模块H用于展示订阅相关菜单
-=======
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   ALL: true //所有菜单
 };
 
@@ -52,7 +42,6 @@ function getMenu() {
   return menu_data;
 }
 
-<<<<<<< HEAD
 function getAllMenu() {
   return all_menu_data;
 }
@@ -80,39 +69,12 @@ function getSubscribeData(host, openid) {
       }
     });
   });
-=======
-function getSettingData() {
-  return setting_data;
-}
-//ttp://mml.qunda.im/customSubscribe/treeList.do
-function customSubscribeDate(host, callback) {
-  var user = wx.getStorageSync('user') || {};
-  wx.request({
-    url: host + 'customSubscribe/listInput.do',
-    data: {
-      'openId': user.openid
-    },
-    method: 'get',
-    header: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    success: function(res) {
-      callback(res.data)
-      customSubscribe = res.data
-    }
-  })
-  //callback(customSubscribe)
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 
 function getSubscribe() {
   return customSubscribe
 }
-<<<<<<< HEAD
 //增加保存订阅功能
-=======
-
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 function updateSettingData(host, data, callback) {
   var user = wx.getStorageSync('user') || {};
   var arr = [],
@@ -185,7 +147,6 @@ function initMap(moduleCode, host, callback) {
           menu_data = generateMenuData(res.data.menu, moduleCode);
           all_menu_data = res.data.menu;
           setting_data = res.data.setting;
-<<<<<<< HEAD
           console.log('setting_data:', setting_data)
           wx.request({
             url: host + 'customSubscribe/listInput.do',
@@ -203,8 +164,6 @@ function initMap(moduleCode, host, callback) {
               // subscribe_data = JSON.parse(res.data.tmCustomSubscribe)
             }
           });
-=======
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           callback();
         }
       }
@@ -246,25 +205,15 @@ function initMenuMap() {
   }
   menuMap.init = true;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 module.exports = {
   getMenu: getMenu,
   getMapMenu: getMapMenu,
   initMap: initMap,
-<<<<<<< HEAD
   getAllMenu: getAllMenu,
   getSettingData: getSettingData,
   generateMenuData: generateMenuData,
   updateSettingData: updateSettingData,
   getSubscribeData: getSubscribeData,
-=======
-  getSettingData: getSettingData,
-  updateSettingData: updateSettingData,
-  customSubscribeDate: customSubscribeDate,
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   getSubscribe: getSubscribe,
   module_data: module_data
 }

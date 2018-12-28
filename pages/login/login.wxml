@@ -2,10 +2,7 @@
 <view class="login">
 <view class='logintop'>
 	  <image src="{{login}}" alt="" />
-<<<<<<< HEAD
     <!-- <image src="../../images/login.jpg" alt="" /> -->
-=======
->>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 </view>
 	  <view class="login-bottom">
 	  	<form action="" method="post" bindsubmit="formSubmit" class="am-form" data-am-validator>
