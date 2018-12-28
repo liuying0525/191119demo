@@ -275,6 +275,10 @@ text-align: center
   line-height:85rpx;
   color:#fff;
   background: #3f474d;
+<<<<<<< HEAD
+=======
+  padding-right:10rpx;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   width:20%;
 box-sizing:border-box;
 
@@ -352,7 +356,11 @@ box-sizing:border-box;
 .foot-btn .btn_ok {
   width: 45%;
   height: 80rpx;
+<<<<<<< HEAD
   background: #000832;
+=======
+  background: #83afe0;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   color: #fff;
   border-radius: 10rpx;
   margin-top: 20rpx;
@@ -388,6 +396,10 @@ box-sizing:border-box;
 
 .foot .foot-con view.colorWhite {
   color: #fff;
+<<<<<<< HEAD
   background:#000832;
+=======
+  background:#004c6a;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 
 }

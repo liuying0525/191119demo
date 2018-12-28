@@ -3,8 +3,13 @@
 <import src="../../../common/screening/screening.wxml"/> 
 <template is="searchList" data="{{screeningHidden,searchKeyword,placeholder,watermark}}"/>  
 <view class="search-head">
+<<<<<<< HEAD
     <template is="enterprise" data="{{searchSongList,searchLoading,loadingImg,customNeeds,watermark,searchLoadMore}}"/>  
     <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,watermark,inputModel}}"/>
+=======
+    <template is="enterprise" data="{{searchSongList,searchLoading,loadingImg,customNeeds,watermark}}"/>  
+    <template is="menu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,watermark}}"/>
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
  </view>
 
 

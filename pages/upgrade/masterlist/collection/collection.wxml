@@ -1,5 +1,6 @@
 <!--pages/upgrade/masterlist/collection.wxml-->
 <view class="search-head">
+<<<<<<< HEAD
 <view class='search-result'>
 <!-- <block wx:if="{{searchSongList.length < 1}}"><view class="nodata">没有更多数据了</view></block> -->
  <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
@@ -9,6 +10,14 @@
       <view class="main" style="{{watermark}}">
  <block wx:for="{{searchSongList}}" wx:key="">
   <block wx:if="{{item.tmInformation && item.tmInformation.title && item.modelType == 'INFORMATION'}}">
+=======
+<block wx:if="{{searchSongList.length < 1}}">
+ <view class="nodata">没有更多数据了</view>
+</block>
+  <block wx:for="{{searchSongList}}" wx:key="">
+    <block wx:if="{{item.tmInformation && item.tmInformation.title && item.modelType == 'INFORMATION'}}">
+      <view class="main" style="{{watermark}}">
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           <view class="li" bindtap="informationDts" data-infoid="{{item.modelId}}">
             <view class="titleChange">
               <text>{{item.tmInformation.title}}</text>
@@ -39,10 +48,17 @@
                 <text>关联热点：</text>{{item.tmInformation.hotspotSubdivide}}</view>
             </block>
           </view>
+<<<<<<< HEAD
       
     </block>
     <block wx:if="{{item.tmEnterprise && item.tmEnterprise.companyName && item.modelType == 'ENTERPRISE_STORE'}}">
        
+=======
+      </view>
+    </block>
+    <block wx:if="{{item.tmEnterprise && item.tmEnterprise.companyName && item.modelType == 'ENTERPRISE_STORE'}}">
+        <view class="main" style="{{watermark}}">
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
             <view class="li" bindtap="enterpriseDts" data-infoid="{{item.modelId}}">
               <view class="titleChange">
                 <text>{{item.tmEnterprise.companyName}}</text>
@@ -59,10 +75,17 @@
                   <text>关联热点：</text>{{item.tmEnterprise.hotspotSegmentation}}</view>
               </block>
             </view>
+<<<<<<< HEAD
         
     </block>
     <block wx:if="{{item.tmEnterpriseResearch && item.tmEnterpriseResearch.enterprise.companyName && item.modelType == 'ENTERPRISE_RESEARCH'}}">
      
+=======
+        </view>
+    </block>
+    <block wx:if="{{item.tmEnterpriseResearch && item.tmEnterpriseResearch.enterprise.companyName && item.modelType == 'ENTERPRISE_RESEARCH'}}">
+      <view class="main" style="{{watermark}}">
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           <view class="li" bindtap="enterpriseResearchDts" data-infoid="{{item.tmEnterpriseResearch.enterprise.id}}" data-modelid="{{item.modelId}}">
             <view class="titleChange">
               <text>{{item.tmEnterpriseResearch.enterprise.companyName}}</text>
@@ -85,9 +108,16 @@
                 <text>关联热点：</text>{{item.tmEnterpriseResearch.enterprise.hotspotSegmentation}}</view>
             </block>
           </view>
+<<<<<<< HEAD
      
     </block>
     <block wx:if="{{item.tmIndustryResearch && item.tmIndustryResearch.reportName && item.modelType == 'INDUSTRY_RESEARCH'}}">
+=======
+      </view>
+    </block>
+    <block wx:if="{{item.tmIndustryResearch && item.tmIndustryResearch.reportName && item.modelType == 'INDUSTRY_RESEARCH'}}">
+      <view class="main" style="{{watermark}}">
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         <view class="li" bindtap="industryResearchDts" data-infoid="{{item.modelId}}">
           <view class="titleChange">
             <text>{{item.tmIndustryResearch.reportName}}</text>
@@ -104,6 +134,7 @@
               <text>关联热点：</text>{{item.tmIndustryResearch.hotspot.hotspotName}} </view>
           </block>
         </view>
+<<<<<<< HEAD
       
     </block>
   </block>
@@ -114,4 +145,9 @@
           <view class="loading complete" hidden="{{searchLoadMore}}">没有更多数据了！</view>
   </scroll-view>
   </view>
+=======
+      </view>
+    </block>
+  </block>
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 </view>

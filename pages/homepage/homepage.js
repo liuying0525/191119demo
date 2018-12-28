@@ -54,7 +54,10 @@ Page({
   },
   //搜索，访问网络
   fetchSearchList: function() {
+<<<<<<< HEAD
     
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     let condition = {},
       parameter = {},
       that = this,
@@ -76,7 +79,10 @@ Page({
           //if (that.data.isFromSearch) {
           if (that.data.templateName == 'information') {
             d[k] = home_item.getInforMationSearchList(data.data, aPageNumber);
+<<<<<<< HEAD
                    
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
             // searchList = home_item.getInforMationSearchList(data.data, aPageNumber);
             placeholder = '全文关键字检索';
           } else if (that.data.templateName == 'enterprise') {
@@ -241,7 +247,11 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(result) {
+<<<<<<< HEAD
         if (result.success || result.statusCode == 200) {
+=======
+        if (result.success) {
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
           vm.setData({
             articleHtml: ''
           })
@@ -281,7 +291,11 @@ Page({
     util.readingStatus(infoId, util.commons_locale.enterpriseStore, url);
   },
   screening: function(opt) {
+<<<<<<< HEAD
 debugger
+=======
+
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     var that = this;
     var screeningHidden = false;
     if (!opt.currentTarget.dataset.screening) {
@@ -293,8 +307,12 @@ debugger
   onShow: function() {
     // console.log(Math.random());
     var that = this;
+<<<<<<< HEAD
 
     // that.fetchSearchList();
+=======
+    that.fetchSearchList();
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     that.anyNewNews();
   },
   anyNewNews: function() {

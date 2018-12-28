@@ -32,7 +32,11 @@
    height: 100%;
    background: #fff;
    overflow-y: auto;
+<<<<<<< HEAD
    /* border-top:10rpx solid #fc7afc; */
+=======
+   border-top:10rpx solid #fc7afc;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .content{
     height: 100%;
@@ -84,12 +88,20 @@
   text-align: center;
   margin-top: 15px;
   margin-bottom: 2px;
+<<<<<<< HEAD
   border-bottom: 3vh solid #999;
 }
 .ocs-logo{
   width:438rpx;
 height:62rpx;
 
+=======
+  border-bottom: 3vh solid #00c6ff  ;
+}
+.ocs-logo{
+  width: 170px;
+  height: 28px;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 @keyframes slidown{
     from{
@@ -142,9 +154,15 @@ height:62rpx;
 .searchitem{
 position:absolute;
 left:25%;
+<<<<<<< HEAD
 top:0rpx;
 width:50%;
 height:84%;
+=======
+top:-2rpx;
+width:50%;
+height:90%;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 border:2rpx solid #ddd;
 border-radius:8rpx;
 padding-left:8rpx;

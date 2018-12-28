@@ -6,7 +6,11 @@
       <input bindinput="bindKeywordInput" value="{{searchKeyword}}" name="searchKeyword" placeholder-style="font-size:24rpx;color:#ccc" />
       <image src="../../../../images/false.png" bindtap="resetBtnClick"></image>
     </view>
+<<<<<<< HEAD
     <view class="search-img" bindtap="search" data-type="search"><image src="../../../../images/searchicon.png"></image></view>
+=======
+    <view class="search-img" bindtap="search"><image src="../../../../images/searchicon.png"></image></view>
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     <view class="screening" data-screening="{{screeningHidden}}" bindtap="screening">
       <image src="../../../../images/screen.png" />
     </view>

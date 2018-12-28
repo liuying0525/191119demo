@@ -1,3 +1,7 @@
 <!--pages/upgrade/masterlist/setting.wxml-->
 <import src="../../../common/menu/menu.wxml"/>
+<<<<<<< HEAD
 <template is="settingMenu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo,inputModel}}"/>
+=======
+<template is="settingMenu" data="{{dataOne,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo}}"/>
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88

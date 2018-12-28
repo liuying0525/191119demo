@@ -22,7 +22,10 @@
 }
 .newcommun-bottom text{
   display: inline-block;
+<<<<<<< HEAD
 
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .newcommun-bottom .type view{
   display: inline-block;
@@ -33,21 +36,31 @@
   text-align: center;
   margin: 0 10rpx;
 }
+<<<<<<< HEAD
 /* .newcommun-bottom .type view:nth-of-type(1){
   width: 14%;
 } */
+=======
+.newcommun-bottom .type view:nth-of-type(1){
+  width: 14%;
+}
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 
 .time input{
      border: 1px solid #ccc;
      width:30%;
      height: 30rpx;
+<<<<<<< HEAD
      border-radius: 10rpx;
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .time .timeOne{
     width: 80%;
     margin-left: 10%;
     margin-top: 20rpx;
     display: flex;
+<<<<<<< HEAD
     justify-content: flex-start;
     align-items: center;
 }
@@ -55,13 +68,21 @@
   width: 24.5%;
 } 
 
+=======
+    justify-content: space-around;
+}
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 .time .timeTwo{
     width: 80%;
     margin-left: 10%;
     margin-top: 20rpx;
     display: flex;
+<<<<<<< HEAD
     justify-content: flex-start;
      align-items: center;
+=======
+    justify-content: space-around;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .associated {
   position: relative;
@@ -73,7 +94,10 @@
   background: rgba(10,10,10,0.05);
   padding: 10rpx 0 10rpx 10rpx;
   color: #333;
+<<<<<<< HEAD
   border-radius: 10rpx;
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .ass-word view{
   padding: 10rpx 0;
@@ -99,7 +123,10 @@
      width: 80%;
      height: 200rpx;
      padding-left: 5rpx;
+<<<<<<< HEAD
      border-radius: 10rpx;
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 } 
 .new-btn{
   width: 100%;

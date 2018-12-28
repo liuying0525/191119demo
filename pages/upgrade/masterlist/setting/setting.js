@@ -9,12 +9,16 @@ Page({
   data: {
     setting:true,
     parameter: {},
+<<<<<<< HEAD
     moduleCode: 'G',//右侧参数清单，参考allmenu.js
       inputModel: {
       industry: "",
       hotspot: "",
       registerPlace: ""
     },
+=======
+    moduleCode: 'G'//右侧参数清单，参考allmenu.js
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   },
 
   /**
@@ -25,8 +29,12 @@ Page({
     menu.init(me);
     me.setData({
       pagePath: options.pagePath,
+<<<<<<< HEAD
       templet: options.moduleCode,
       userId: wx.getStorageSync('userId') || ''
+=======
+      moduleCode: options.moduleCode
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     });
   },
  keywordSearch:function(){
@@ -35,7 +43,11 @@ Page({
       wx.removeStorageSync('checkedItem');
       menu.getAllMenu().updateSettingData(host,data,function(){
         wx.reLaunch({
+<<<<<<< HEAD
           url: '../../../homepage/homepage?templet=' + me.data.templet + '&pagePath=' + me.data.pagePath + '&userId=' + me.data.userId
+=======
+          url: '../../../homepage/homepage?templet=' + me.data.moduleCode + '&pagePath=' + me.data.pagePath
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
         });
       });
       

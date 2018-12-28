@@ -20,8 +20,11 @@ function getInforMationSearchList(result, aPageNumber) {
   var that = this;
   var userMode = wx.getStorageSync('userMode') || {};
   let searchList = result.rows;
+<<<<<<< HEAD
 
   if(!searchList) return;
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   for (var i = 0; i < searchList.length; i++) {
     searchList[i].outContent = util.characterConversion(searchList[i].outContent);
     searchList[i].tradeStatus = util.entryRenderer("TRANSACTION_STATE", searchList[i].tradeStatus);
@@ -120,7 +123,10 @@ function getIndustryResearchSearchList(searchList, aPageNumber) {
 function getCommunSearchList(result, that) {
   var userMode = wx.getStorageSync('userMode') || {};
   let searchList = result.rows;
+<<<<<<< HEAD
   if(!searchList) return;
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   for (var i = 0; i < searchList.length; i++) {
     searchList[i].urlName = 'communDts';
     var time = "";

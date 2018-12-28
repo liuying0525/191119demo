@@ -6,7 +6,11 @@
   position: absolute;
   top: 40%;
   left:20%;
+<<<<<<< HEAD
   color: #000832;
+=======
+  color: #5d82bc;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   font-size: 28rpx;
   }
   .infor-list{

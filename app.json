@@ -1,6 +1,9 @@
 {
   "pages": [
+<<<<<<< HEAD
    
+=======
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     "pages/index/index",
     "pages/logs/logs",
 
@@ -25,10 +28,16 @@
     "pages/upgrade/masterlist/enterprise/enterprise",
     "pages/upgrade/masterlist/enterprise-research/enterprise-research",
     "pages/upgrade/masterlist/industry-research/industry-research",
+<<<<<<< HEAD
     "pages/upgrade/masterlist/custom-subscribe/custom-subscribe",
     "pages/upgrade/masterlist/information/information",
     "pages/upgrade/masterlist/setting/setting",
     
+=======
+    "pages/upgrade/masterlist/information/information",
+    "pages/upgrade/masterlist/setting/setting",
+    "pages/upgrade/masterlist/custom-subscribe/custom-subscribe",
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
     "pages/upgrade/masterlist/about/about"
   ],
   "window": {

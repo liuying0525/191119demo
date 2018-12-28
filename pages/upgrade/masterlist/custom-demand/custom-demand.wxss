@@ -12,6 +12,7 @@
   z-index: 20;
   display: flex;
   align-items:center;
+<<<<<<< HEAD
   padding:0 3%;
   box-sizing: border-box;
 
@@ -23,6 +24,16 @@ justify-content:space-between;
   background-color: #fff;
   height: 70rpx;
   border-radius:10rpx;
+=======
+  border-bottom:10rpx solid #fc7afc;
+  padding:0 3%;
+  box-sizing: border-box;
+}
+.custom-demand-list{
+  width:64%;
+  background-color: #fff;
+  height: 70rpx;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .custom-demand-list input{
   width:85%;
@@ -41,10 +52,16 @@ justify-content:space-between;
    display: inline-block;
   color: #fff;
   font-size:24rpx;
+<<<<<<< HEAD
   background-color:#000832;
   padding:18rpx 18rpx;
 vertical-align:middle;
 border-radius:10rpx;
+=======
+  background-color:#4c607d;
+  padding:18rpx 18rpx;
+vertical-align:middle;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 
 }
 .search-img image{
@@ -55,17 +72,28 @@ vertical-align:middle;
 
 }
 .custom-demand .custon-add {
+<<<<<<< HEAD
 
+=======
+  margin: 0 22rpx;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
   width:70rpx;
   height:70rpx;
   display: inline-block;
   vertical-align: middle;
 }
 .custom-demand .custom-scree{
+<<<<<<< HEAD
 
   width: 65rpx;
   height:65rpx;
 
+=======
+  margin: 0 5rpx;
+  width: 65rpx;
+  height:65rpx;
+  float: right;
+>>>>>>> e76c6facb39f39ecb656e80e2502fdd67bf19b88
 }
 .prompt{
   width:16rpx;
