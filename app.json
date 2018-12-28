@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/index/index",
     "pages/logs/logs",
 
@@ -24,9 +25,10 @@
     "pages/upgrade/masterlist/enterprise/enterprise",
     "pages/upgrade/masterlist/enterprise-research/enterprise-research",
     "pages/upgrade/masterlist/industry-research/industry-research",
+    "pages/upgrade/masterlist/custom-subscribe/custom-subscribe",
     "pages/upgrade/masterlist/information/information",
     "pages/upgrade/masterlist/setting/setting",
-    "pages/upgrade/masterlist/custom-subscribe/custom-subscribe",
+    
     "pages/upgrade/masterlist/about/about"
   ],
   "window": {

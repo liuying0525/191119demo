@@ -54,6 +54,7 @@ Page({
   },
   //搜索，访问网络
   fetchSearchList: function() {
+    
     let condition = {},
       parameter = {},
       that = this,
@@ -75,6 +76,7 @@ Page({
           //if (that.data.isFromSearch) {
           if (that.data.templateName == 'information') {
             d[k] = home_item.getInforMationSearchList(data.data, aPageNumber);
+                   
             // searchList = home_item.getInforMationSearchList(data.data, aPageNumber);
             placeholder = '全文关键字检索';
           } else if (that.data.templateName == 'enterprise') {
@@ -239,7 +241,7 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(result) {
-        if (result.success) {
+        if (result.success || result.statusCode == 200) {
           vm.setData({
             articleHtml: ''
           })
@@ -279,7 +281,7 @@ Page({
     util.readingStatus(infoId, util.commons_locale.enterpriseStore, url);
   },
   screening: function(opt) {
-
+debugger
     var that = this;
     var screeningHidden = false;
     if (!opt.currentTarget.dataset.screening) {
@@ -291,7 +293,8 @@ Page({
   onShow: function() {
     // console.log(Math.random());
     var that = this;
-    that.fetchSearchList();
+
+    // that.fetchSearchList();
     that.anyNewNews();
   },
   anyNewNews: function() {

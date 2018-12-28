@@ -54,14 +54,19 @@ Page({
   },
   //点击搜索按钮，触发事件
   keywordSearch: function(e){
+    if(!e) return;
+    if(e){
+      if (e.currentTarget.dataset.type != "search") return
+    }
     var that = this;
+    
     that.setData({  
       searchPageNum: 1,   //第一次加载，设置1
       searchSongList:[],  //放置返回数据的数组,设为空
       isFromSearch: true,  //第一次加载，设置true
       searchLoading: false  //把"上拉加载"的变量设为true，显示
     })
-    that.fetchSearchList();
+     that.fetchSearchList();
   },
   //滚动到底部触发事件
   searchScrollLower: function(){
@@ -73,7 +78,7 @@ Page({
         isFromSearch: false,  //触发到上拉事件，把isFromSearch设为为false
         searchLoading: false  //把"上拉加载"的变量设为true，显示
       });
-      that.fetchSearchList();
+     that.fetchSearchList();
     }
   },
   expectedTimeOne: function (e) {
@@ -133,6 +138,7 @@ Page({
     }
   }, onShow: function () {
     var that = this;
-    that.fetchSearchList();
+     that.fetchSearchList();
   }
+  
 })

@@ -52,27 +52,30 @@ height: 100%;
   width: 100%;
   height: 75%;
   position: relative;
-  margin-top:24rpx;
 }
 .homepage-list{
-    height:70%;
-  background-color: #fff;
-  position: fixed;
+    height:84%;
+  /* background-color: #fff; */
+  /* position: fixed;
   top:50rpx;
   left: 0;
   right:0;
-  z-index: 20;
-  box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2);
+  z-index: 20; */
+ 
+display: flex;
+flex-direction: row;
+align-items:flex-end;
 
 }
+
 .category-info {
- margin-top: 45rpx;
-  float: left;
+ /* margin-top: 62rpx; */
+  /* float: left; */
   width: 20%;
   text-align: center;
   font-size: 14px; 
-  position:relative;
- 
+  position:relative; 
+ padding-bottom: 4%;
  
 }
 .category-info image{
@@ -123,14 +126,14 @@ line-height: 80rpx;
   right:40rpx;
 }
 .homepage .swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
-     margin-bottom: 20rpx;   
+     margin-bottom: 10rpx;   
   /* margin-top:5rpx; */
 }
-@media screen and (max-width:376px){
+ @media screen and (max-width:376px){
    .homepage .swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
-   margin-bottom:0rpx;   
+  margin-bottom:6rpx;   
 }
-}
+}  
 .homepage .swiper-box .wx-swiper-dot{
   width:8rpx;
   display: inline-flex;
@@ -156,8 +159,20 @@ top:162rpx;
 left:62rpx;
 
 }
- swiper-item{
- /* background:#fff; */
- /* box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2); */
- /* height:90% !important; */
+
+/* .wx-swiper-dots{position:relative;left: unset!important;right: 46%;}
+.wx-swiper-dots.wx-swiper-dots-horizontal{
+  position:absolute;bottom:9%; 
+ } */
+ swiper-item{ 
+  bottom:12rpx;
+  box-shadow:0rpx 4rpx 12rpx rgba(0,0,0,.2);
+  background: #fff;
+  padding-bottom: 8rpx;
+ }  
+  @media screen and (max-width:376px){
+ swiper-item{ 
+  
+  padding-bottom: 14rpx;
+ }
 } 

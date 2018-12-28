@@ -6,9 +6,10 @@
   position: relative;
 }
 .title-demand {
-  color: #5d82bc;
-  font-size: 32rpx;
+  color: #000832;
+  font-size: 35rpx;
   font-weight: 600;
+  line-height:33rpx;
   width:74%;
 }
 .state {

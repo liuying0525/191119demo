@@ -25,14 +25,14 @@
       <image src="{{false_0}}" bindtap="resetBtnClick"></image>
     </view>
     <view class="search-img" bindtap="keywordSearch"><image src="../../images/searchicon.png"></image></view>
-    <view class="screening" data-screening="{{screeningHidden}}" bindtap="screening">
+    <view class="screening" data-screening="{{screeningHidden}}" bindtap="screening" data-type="search">
       <!-- <image src="{{screen}}" /> -->
       <image src="../../images/screen.png" />
     </view>
   </view>
   </view>
 <swiper current="{{currentTab}}" indicator-dots="true" indicator-color="#ccc" indicator-active-color="#83afe0"  class="swiper-box" duration="300" bindchange="bindChange">
-    <swiper-item style="top:0">
+    <swiper-item>
      <view class="homepage-list" data-current="0">
       <block wx:for="{{item.topOne}}" wx:key="item" wx:if="{{item.wxUrl}}">
       <view class="category-info" bindtap="{{item.wxBindtaps}}">
@@ -43,7 +43,7 @@
     </block>
   </view>
     </swiper-item>
-    <swiper-item style="top:0">
+    <swiper-item>
        <view class="homepage-list" data-current="0">
         <block wx:for="{{item.topTow}}" wx:key="" wx:if="{{item.wxUrl}}">
             <view class="category-info" bindtap="{{item.wxBindtaps}}">

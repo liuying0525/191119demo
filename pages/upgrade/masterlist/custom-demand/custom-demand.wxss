@@ -12,14 +12,17 @@
   z-index: 20;
   display: flex;
   align-items:center;
-  border-bottom:10rpx solid #fc7afc;
   padding:0 3%;
   box-sizing: border-box;
+
+justify-content:space-between;
 }
 .custom-demand-list{
-  width:64%;
+  display: inline-block;
+  width:65%;
   background-color: #fff;
   height: 70rpx;
+  border-radius:10rpx;
 }
 .custom-demand-list input{
   width:85%;
@@ -38,9 +41,10 @@
    display: inline-block;
   color: #fff;
   font-size:24rpx;
-  background-color:#4c607d;
+  background-color:#000832;
   padding:18rpx 18rpx;
 vertical-align:middle;
+border-radius:10rpx;
 
 }
 .search-img image{
@@ -51,17 +55,17 @@ vertical-align:middle;
 
 }
 .custom-demand .custon-add {
-  margin: 0 22rpx;
+
   width:70rpx;
   height:70rpx;
   display: inline-block;
   vertical-align: middle;
 }
 .custom-demand .custom-scree{
-  margin: 0 5rpx;
+
   width: 65rpx;
   height:65rpx;
-  float: right;
+
 }
 .prompt{
   width:16rpx;

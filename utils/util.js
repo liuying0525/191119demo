@@ -173,6 +173,7 @@ function redirect(options){
 	wx.redirectTo({
 		url:options.url
 	})
+  console.log(options.url);
 }
 function inintInput(obj){
   obj.bindKeywordInput = function (e) {
@@ -309,7 +310,7 @@ function inintPicUrls(obj){
     inform: picUrl + 'inform.png',
     left: picUrl + 'left.png',
     loading: picUrl + 'loading.gif',
-    login: picUrl + 'login.jpg',
+    login: picUrl + 'login.jpg?l='+Math.random()*999,
     M: picUrl + 'M.png',
     mail: picUrl + 'mail.png',
     menu: picUrl + 'menu.png',

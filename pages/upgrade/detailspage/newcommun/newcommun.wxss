@@ -22,6 +22,7 @@
 }
 .newcommun-bottom text{
   display: inline-block;
+
 }
 .newcommun-bottom .type view{
   display: inline-block;
@@ -32,28 +33,35 @@
   text-align: center;
   margin: 0 10rpx;
 }
-.newcommun-bottom .type view:nth-of-type(1){
+/* .newcommun-bottom .type view:nth-of-type(1){
   width: 14%;
-}
+} */
 
 .time input{
      border: 1px solid #ccc;
      width:30%;
      height: 30rpx;
+     border-radius: 10rpx;
 }
 .time .timeOne{
     width: 80%;
     margin-left: 10%;
     margin-top: 20rpx;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
 }
+ .time .timeOne text,.time .timeTwo text{
+  width: 24.5%;
+} 
+
 .time .timeTwo{
     width: 80%;
     margin-left: 10%;
     margin-top: 20rpx;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+     align-items: center;
 }
 .associated {
   position: relative;
@@ -65,6 +73,7 @@
   background: rgba(10,10,10,0.05);
   padding: 10rpx 0 10rpx 10rpx;
   color: #333;
+  border-radius: 10rpx;
 }
 .ass-word view{
   padding: 10rpx 0;
@@ -90,6 +99,7 @@
      width: 80%;
      height: 200rpx;
      padding-left: 5rpx;
+     border-radius: 10rpx;
 } 
 .new-btn{
   width: 100%;

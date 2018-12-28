@@ -275,7 +275,6 @@ text-align: center
   line-height:85rpx;
   color:#fff;
   background: #3f474d;
-  padding-right:10rpx;
   width:20%;
 box-sizing:border-box;
 
@@ -353,7 +352,7 @@ box-sizing:border-box;
 .foot-btn .btn_ok {
   width: 45%;
   height: 80rpx;
-  background: #83afe0;
+  background: #000832;
   color: #fff;
   border-radius: 10rpx;
   margin-top: 20rpx;
@@ -389,6 +388,6 @@ box-sizing:border-box;
 
 .foot .foot-con view.colorWhite {
   color: #fff;
-  background:#004c6a;
+  background:#000832;
 
 }

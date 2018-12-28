@@ -13,7 +13,9 @@ Page({
     searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏
     screeningHidden:true, //筛选 默认true，隐藏
     concurrentPrevention:true, //防止多次发送请求
-    loadingImg: util.picUrls.loading
+    loadingImg: util.picUrls.loading,
+    searchLoadMore: true,
+ 
   },
   //搜索，访问网络
   fetchSearchList: function(){
@@ -22,7 +24,7 @@ Page({
 	wx.request({
 	  url:host+"store/list.do",
 	  data:{
-      page:util.system_val.page,
+      page: this.data.searchPageNum,
       rows:util.system_val.rows,
       openId: user.openid
 	  },
@@ -36,9 +38,10 @@ Page({
         if (!that.data.isFromSearch) {
           searchList=that.data.searchSongList.concat(searchList);
         } 
+      
         that.setData({
           searchSongList: searchList, //获取数据数组
-          searchLoading: true,   //把"上拉加载"的变量设为false，显示
+          searchLoading: false,   //把"上拉加载"的变量设为false，显示
           concurrentPrevention:true //防止多次发送请求
         });
 		  } else {
@@ -49,7 +52,8 @@ Page({
         }
           that.setData({
             searchLoadingComplete: true, //把“没有数据”设为true，显示
-            searchLoading: false  //把"上拉加载"的变量设为false，隐藏
+            searchLoading: true,  //把"上拉加载"的变量设为false，隐藏
+            searchLoadMore:false
           });
 		  }
 	   }
@@ -59,11 +63,13 @@ Page({
   //滚动到底部触发事件
   searchScrollLower: function(){
     let that = this;
-    if(that.data.searchLoading && !that.data.searchLoadingComplete &&  that.data.concurrentPrevention){
+    if(!that.data.searchLoading && !that.data.searchLoadingComplete &&that.data.concurrentPrevention){
       that.setData({
         searchPageNum: that.data.searchPageNum+1,  //每次触发上拉事件，把searchPageNum+1
         isFromSearch: false,  //触发到上拉事件，把isFromSearch设为为false
-		concurrentPrevention:false //防止多次发送请求
+		concurrentPrevention:false, //防止多次发送请求
+        searchLoadMore: true,
+        searchLoading:false
       });
       that.fetchSearchList();
     }

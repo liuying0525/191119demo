@@ -1,150 +1,82 @@
-<template name="subscribe">
-    <view class="page-content">
-      <view class="settingContent">
-        <view class="menuOne" wx:for="{{subscribeData}}" wx:for-index="idx">
-          <block wx:if="{{idx == 'whetherSubscribe'}}">
-
-            <view class="menuItem" data-index='{{idx}}' bindtap="selectItemNews">
-              <view class="text">是否订阅</view>
-            </view>
-
-            <view class="menuTwo {{subscribeOpen[idx] ? 'slidown' : 'slidup'}}">
-              <radio-group bindchange="radioChange" data-index="{{idx}}">
-                <view class="menuItem" wx:for="{{item}}" wx:for-item="checkbox">
-                  <radio checked="{{radioChangeObj['radio'] == checkbox.code}}" style="transform:scale(.7)" value="{{checkbox.code}}" /> 
-                  <view  class="text">{{checkbox.name}}</view>
-                </view>
-              </radio-group>
-            </view>
-          </block>
-          <block wx:if="{{idx == 'industry'}}">
-            <view class="menuItem" data-index='{{idx}}' bindtap="selectItemNews">
-              <view class="text">订阅行业</view>
-            </view>
-            <view class="menuTwo {{subscribeOpen[idx] ? 'slidown':'slidup'}}">
-              <checkbox-group bindchange="industryChange" data-index='{{idx}}' data-data='{{item}}'>
-                <block wx:for="{{item}}" wx:for-item="checkbox">
-                  <view class="menuItem">
-                    <label data-id="{{checkbox.id}}" data-children="{{checkbox.children}}" data-checked="{{!!industryObj['industry_'+checkbox.id + '|' + checkbox.text]}}">
-                      <block wx:if="{{industrylength < 3}}">
-                        <checkbox checked="{{industryObj['industry_'+checkbox.id + '|' + checkbox.text]}}" style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.text}}" />
-                      </block>
-                      <block wx:else>
-                        <checkbox wx:if="{{industryObj['industry_' + checkbox.id + '|' + checkbox.text] || childrenItem['industry_'+checkbox.id]}}" checked="{{industryObj['industry_'+ checkbox.id + '|' + checkbox.text]  || industryObj['industry_'+checkbox.id]}}" style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.text}}" />
-                        <checkbox wx:else disabled style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.text}}" />
-                      </block>
-                    </label>
-                    <view class="text" data-index='{{idx+checkbox.id}}' bindtap="selectItemNews">{{checkbox.text}}</view>
-                  </view>
-                  <view class="menuThree {{subscribeOpen[idx+checkbox.id] ? 'slidown' : 'slidup'}}">
-                    <checkbox-group bindchange="childrenChanges" data-index='{{idx}}' data-data='{{children}}' data-parentid="{{checkbox.id}}">
-                      <block wx:for="{{checkbox.children}}" wx:for-item="children">
-                        <view class="menuItem">
-                          <block wx:if="{{industrylength < 3}}">
-                            <checkbox checked="{{prnArrayObj['industry_'+ checkbox.id + '_' + children.id]}}" style="transform:scale(.7)" value="{{children.id}}" />
-                          </block>
-                          <block wx:else>
-                            <checkbox wx:if="{{prnArrayObj['industry_' + checkbox.id + '_' + children.id] || childrenItem['industry_'+checkbox.id] }}" checked="{{prnArrayObj['industry_'+ checkbox.id + '_' + children.id]}}" style="transform:scale(.7)" value="{{children.id}}" />
-                            <checkbox wx:else disabled style="transform:scale(.7)" value="{{children.id}}" />
-                          </block>
-                          <view class="text">{{children.text}}</view>   
-                        </view>
-                        <view class="menuThree {{subscribeOpen[idx+checkbox.id] ? 'slidown' : 'slidup'}}">
-                          <checkbox-group>
-                            <block wx:for="{{children.children}}" wx:for-item="tchildren">
-                              <view class="menuItem">
-                                <checkbox style="transform:scale(.7)" value="{{tchildren.id}}" />
-                                <view class="text">{{tchildren.text}}</view>
-                              </view> 
-                            </block>
-                          </checkbox-group>
-                        </view>
-                      </block>
-                    </checkbox-group>
-                  </view>
-                </block>
-              </checkbox-group>
-            </view>
-          </block>
-          
-
-          <block wx:if="{{idx == 'industryHotspot'}}">
-            <view class="menuItem" data-index='{{idx}}' bindtap="selectItemNews" >
-              <view class="text">热点细分</view>
-            </view>
-
-            <view class="menuTwo {{subscribeOpen[idx] ? 'slidown' : 'slidup'}}">
-              <checkbox-group bindchange="checkboxChange" data-index="{{idx}}">
-                <block wx:for="{{item}}" wx:for-item="checkbox">
-                  <view class="menuItem">
-                    <block wx:if="{{hotspotLength < 8}}">
-                      <checkbox checked="{{industryHotspot['hot'+checkbox.id + '|' + checkbox.hotspotName]}}" style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.hotspotName}}" />
-                    </block>
-
-                    <block wx:else>
-                      <checkbox wx:if="{{industryHotspot['hot'+checkbox.id + '|' + checkbox.hotspotName]}}" checked="{{industryHotspot['hot'+checkbox.id + '|' + checkbox.hotspotName]}}" style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.hotspotName}}" />
-                      <checkbox wx:else disabled style="transform:scale(.7)" value="{{checkbox.id}}" />
-                    </block>
-                    
-                    <view  class="text">{{checkbox.hotspotName}}</view>
-                  </view>
-                </block>
-              </checkbox-group>
-            </view>
-          </block>
-          <!-- children -->
-
-          <block wx:if="{{idx == 'tradeScale'}}">
-            <view class="menuItem" data-index='{{idx}}' bindtap="selectItemNews">
-              <view class="text">交易规模</view>
-            </view>
-
-            <view class="menuTwo {{subscribeOpen[idx] ? 'slidown' : 'slidup'}}">
-              <checkbox-group bindchange="checkboxChange" data-index="{{idx}}">
-                <view class="menuItem" wx:for="{{item}}" wx:for-item="checkbox">
-                  <checkbox checked="{{tradeScaleObj['trade_' + checkbox.id + '|' + checkbox.name]}}" style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.name}}" /> 
-                  <view  class="text">{{checkbox.name}}</view>
-                </view>
-              </checkbox-group>
-            </view>
-          </block>
-
-          <block wx:if="{{idx == 'stockChange'}}">
-            <view class="menuItem" data-index='{{idx}}' bindtap="selectItemNews" >
-              <view class="text">股权变动</view>
-            </view>
-
-            <view class="menuTwo {{subscribeOpen[idx] ? 'slidown' : 'slidup'}}">
-              <checkbox-group bindchange="checkboxChange" data-index="{{idx}}">
-                <view class="menuItem" wx:for="{{item}}" wx:for-item="checkbox">
-                  <checkbox checked="{{stockChangeObj['stock_' + checkbox.id + '|' + checkbox.name]}}" style="transform:scale(.7)" value="{{checkbox.id + '|' + checkbox.name}}" /> 
-                  <view  class="text">{{checkbox.name}}</view>
-                </view>
-              </checkbox-group>
-            </view>
-          </block>
-
-          <block wx:if="{{idx == 'subscribeCycle'}}">
-            <view class="menuItem" data-index='{{idx}}' bindtap="selectItemNews">
-              <view class="text">订阅周期</view>
-            </view>
-            
-            <view class="menuTwo {{subscribeOpen[idx] ? 'slidown' : 'slidup'}}">
-              <radio-group bindchange="radioChange" data-index="{{idx}}">
-                <view class="menuItem" wx:for="{{item}}" wx:for-item="checkbox">
-                  <radio checked="{{subscribeCycleObj['radio'] == checkbox.code}}" style="transform:scale(.7)" value="{{checkbox.code}}" /> 
-                  <view  class="text">{{checkbox.name}}</view>
-                </view>
-              </radio-group>
-            </view>
-          </block>
-
+<!-- page/one/index.wxml -->
+<template name="subscribeMenu">
+  <view class="page-content">
+    <view class="settingContent">
+      <view class="menuOne">
+         <view class="menuItem" bindtap="selectItem" data-index='whetherSubscribe'>
+          <view class="text">是否订阅</view>
         </view>
-        
-        <view class="ocs-foot">
-          <button class="ocs-search" bindtap="search">确认</button>
-          <button class="{{ocs_clear}}" bindtap="clear" >清除</button>
+        <view class="menuTwo {{menuOpen['whetherSubscribe'] ? 'slidown' : 'slidup'}}">
+          <radio-group bindchange="radioboxChange" data-index='whetherSubscribe'>
+            <view class="menuItem">
+              <radio checked="{{checkedItem['whetherSubscribe']=='YES'}}" style="transform:scale(.7)" value="YES" />
+              <view class="text">是</view>
+            </view>
+            <view class="menuItem">
+              <radio checked="{{checkedItem['whetherSubscribe']=='NO'}}" style="transform:scale(.7)" value="NO" />
+              <view class="text">否</view>
+            </view>
+          </radio-group>
         </view>
       </view>
-  </view>   
+      <view class="menuOne" wx:for-items="{{dataOne}}" wx:key="menuOnekey">
+        <view class="menuItem" bindtap="selectItem" data-index='{{item.id}}'>
+          <view class="text">{{item.name}}</view>
+        </view>
+        <view class="menuTwo {{menuOpen[item.id] ? 'slidown' : 'slidup'}} " wx:for="{{item.items}}" wx:key="menuTwokey" wx:for-item="itemTwo" wx:for-index="idx">
+          <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{item}}' data-checked="{{itemTwo.id}}" data-parentid="{{item.id}}" data-topid="{{itemTwo.id}}" data-topidindex="{{idx}}" data-parentids="{{item.id}}">
+            <view class="menuItem">
+
+              <checkbox checked="{{checkedItem[itemTwo.id]}}" style="transform:scale(.7)" value="{{itemTwo.id}}" />
+              <view bindtap="selectItem" class="text" class= data-index='{{itemTwo.id}}'>
+                <text wx:if="{{selectTopItem[itemTwo.id]&&!checkedItem[itemTwo.id]}}"></text>
+                {{itemTwo.name}}
+              </view>
+            </view>
+            <view class="menuThree  {{menuOpen[itemTwo.id] ? 'slidown' : 'slidup'}}" wx:for="{{itemTwo.items}}" wx:key="menuThreekey" wx:for-item="itemThree">
+              <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{itemTwo}}' data-checked="{{itemThree.id}}" data-parentid="{{itemTwo.id}}" data-topid="{{itemTwo.id}}" data-topidindex="{{idx}}" data-parentids="{{itemTwo.id+','+item.id}}">
+                <view class="menuItem">
+                  <checkbox checked="{{checkedItem[itemThree.id]}}" style="transform:scale(.7)" value="{{itemThree.id}}" />
+                  <view bindtap="selectItem" class="text" data-index='{{itemThree.id}}'>
+                    {{itemThree.name}}
+                  </view>
+                </view>
+                <view class="menuFour  {{menuOpen[itemThree.id] ? 'slidown' : 'slidup'}}" wx:for="{{itemThree.items}}" wx:key="menuFourkey" wx:for-item="itemFour">
+                  <checkbox-group bindchange="checkboxChange" data-index='{{index}}' data-data='{{itemThree}}' data-checked="{{itemFour.id}}" data-parentid="{{itemThree.id}}" data-topid="{{itemTwo.id}}" data-topidindex="{{idx}}" data-parentids="{{itemThree.id+','+itemTwo.id+','+item.id}}">
+                    <view class="menuItem">
+                      <checkbox checked="{{checkedItem[itemFour.id]}}" style="transform:scale(.7)" value="{{itemFour.id}}" />
+                      <view bindtap="selectItem" class="text" data-index='{{itemFour.id}}'>
+                        {{itemFour.name}}
+                      </view>
+                    </view>
+                  </checkbox-group>
+                </view>
+              </checkbox-group>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class="menuOne">
+         <view class="menuItem" bindtap="selectItem" data-index='subscribeCycle'>
+          <view class="text">订阅周期</view>
+        </view>
+        <view class="menuTwo {{menuOpen['subscribeCycle'] ? 'slidown' : 'slidup'}}">
+          <radio-group bindchange="radioboxChange" data-index='subscribeCycle'>
+            <view class="menuItem">
+              <radio checked="{{checkedItem['subscribeCycle']=='DAILY'}}" style="transform:scale(.7)" value="DAILY" />
+              <view class="text">每天</view>
+            </view>
+            <view class="menuItem">
+              <radio checked="{{checkedItem['subscribeCycle']=='WEEKLY'}}" style="transform:scale(.7)" value="WEEKLY" />
+              <view class="text">每周</view>
+            </view>
+          </radio-group>
+        </view>
+      </view>
+      <view class="ocs-foot">
+        <button class="ocs-search" bindtap="search">确认</button>
+        <button class="{{ocs_clear}}" bindtap="clear">清除</button>
+      </view>
+    </view>
+  </view>
 </template>

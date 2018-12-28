@@ -9,7 +9,12 @@ Page({
   data: {
     setting:true,
     parameter: {},
-    moduleCode: 'G'//右侧参数清单，参考allmenu.js
+    moduleCode: 'G',//右侧参数清单，参考allmenu.js
+      inputModel: {
+      industry: "",
+      hotspot: "",
+      registerPlace: ""
+    },
   },
 
   /**
@@ -20,7 +25,8 @@ Page({
     menu.init(me);
     me.setData({
       pagePath: options.pagePath,
-      moduleCode: options.moduleCode
+      templet: options.moduleCode,
+      userId: wx.getStorageSync('userId') || ''
     });
   },
  keywordSearch:function(){
@@ -29,7 +35,7 @@ Page({
       wx.removeStorageSync('checkedItem');
       menu.getAllMenu().updateSettingData(host,data,function(){
         wx.reLaunch({
-          url: '../../../homepage/homepage?templet=' + me.data.moduleCode + '&pagePath=' + me.data.pagePath
+          url: '../../../homepage/homepage?templet=' + me.data.templet + '&pagePath=' + me.data.pagePath + '&userId=' + me.data.userId
         });
       });
       

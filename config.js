@@ -6,13 +6,13 @@
 
 
 
-var host = "http://192.168.1.97:8080/merger-weixin-webapp/"
+//  var host = "http://192.168.1.97:8080/merger-weixin-webapp/"
   //var host = "http://192.168.1.250:8080/merger-weixin-webapp/"
   //var host = "http://182.168.1.36:9999/merger-weixin-webapp/"
-  //var host = "https://www.merger-link.com/merger-weixin-webapp/";
+ var host = "https://www.merger-link.com/merger-weixin-webapp/";
 
-  // var watermarkurl = "https://www.merger-link.com/merger-weixin-webapp/custom/watermark.do?id=";
-var watermarkurl = "http://192.168.1.97:8080/merger-weixin-webapp/custom/watermark.do?id="
+  var watermarkurl = "https://www.merger-link.com/merger-weixin-webapp/custom/watermark.do?id=";
+//  var watermarkurl = "http://192.168.1.97:8080/merger-weixin-webapp/custom/watermark.do?id="
 
 var config = {
    watermarkurl,

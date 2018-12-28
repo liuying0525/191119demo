@@ -69,7 +69,7 @@
 /*增加video的css样式*/
 .wxParse-strong,.wxParse-s{display: inline;}
 .wxParse-a{
-    color: #5d82bc;
+    color: #000832;
     word-break:break-all;
     overflow:auto;
     font-weight: 600;

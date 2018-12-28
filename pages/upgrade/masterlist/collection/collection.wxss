@@ -5,5 +5,6 @@
   text-align: center;
 }
 .search-head{
-  border-top:10rpx solid #fc7afc;
+  /* border-top:10rpx solid #fc7afc; */
+  height:100%;
 }

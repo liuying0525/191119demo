@@ -136,7 +136,6 @@ Page({
     var userId = wx.getStorageSync('userId') || '';
 
     if(userId != ''){
-      console.log(userId);
       that.setData({
         infoId: options.modelId,
         verifyFlage: options.verifyFlage,

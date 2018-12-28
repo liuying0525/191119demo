@@ -1,2 +1,5 @@
+<!--pages/upgrade/masterlist/custom-subscribe/custom-subscribe.wxml-->
 <import src="../../../common/subscribe/menu.wxml"/>
-<template is="subscribe" data="{{dataOne,tmCustomSubscribe,stockChangeObj,tradeScaleObj,subscribeCycleObj,subscribeData,prnArrayName,prnArrayObj,childrenItem,industryObj,industrylength,industryHotspot,hotspotLength,subscribeOpen,checkedindustry,ocs_clear,checkedItem,screeningHidden,menuOpen,moduleCode,M_logo}}" />
+<template is="subscribeMenu" data="{{dataOne,ocs_clear,checkedItem,selectTopItem,disableItem,screeningHidden,menuOpen,moduleCode,M_logo}}"/>
+
+

@@ -1,16 +1,16 @@
-const host = require('../../config').host; 
+const host = require('../../config').host;
 const picUrl = require('../../config').picUrl;
 var allMenu = require('../../utils/allMenu.js');
 var util = require('../../utils/util.js')
 
 Page({
-  j_username: function (e) {   //获取input输入的值 
+  j_username: function(e) { //获取input输入的值 
     var that = this;
     that.setData({
       j_username: e.detail.value
     })
   },
-  j_password: function (e) {    //获取input输入的值
+  j_password: function(e) { //获取input输入的值
     var that = this;
     that.setData({
       j_password: e.detail.value
@@ -24,9 +24,9 @@ Page({
     }
   },
   /**
-     * 登录
-     */
-  formSubmit: function (e) {
+   * 登录
+   */
+  formSubmit: function(e) {
     var that = this;
     // e.detail.value.j_username = '牛一'
     // e.detail.value.j_password = 'ml123456'
@@ -37,18 +37,18 @@ Page({
       });
       return;
     }
-    if (!e.detail.value.j_password){
+    if (!e.detail.value.j_password) {
       wx.showToast({
         title: '请输入密码！',
         duration: 1000
       });
       return;
     }
-    var usernameVal = e.detail.value.j_username;   
-    var passwordVal = e.detail.value.j_password;   
-    var user = {};  
-   
-    if (wx.getStorageSync('user')){
+    var usernameVal = e.detail.value.j_username;
+    var passwordVal = e.detail.value.j_password;
+    var user = {};
+
+    if (wx.getStorageSync('user')) {
       user = wx.getStorageSync('user');
 
       wx.request({
@@ -61,41 +61,42 @@ Page({
         method: 'POST',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
-        }, success: function (res) {
-       
-
+        },
+        success: function(res) {
           if (!res.data.message) {
             var customMenuList = res.data.customMenu;
             for (var i in customMenuList) {
-              customMenuList[i].wxIconCls =picUrl + customMenuList[i].wxIconCls;
+              customMenuList[i].wxIconCls = picUrl + customMenuList[i].wxIconCls;
             }
             wx.setStorageSync("customMenu", customMenuList);
             wx.setStorageSync("entrys", res.data.entrys);
             wx.setNavigationBarTitle({
               title: res.data.modelName,
             });
-            allMenu.initMap('F', host, function () { });
+            allMenu.initMap('F', host, function() {});
             that.verifyCustomerViewData();
             var url = '../homepage/homepage?templet=' + res.data.modelType + '&pagePath=' + res.data.pagePath + '&userId=' + res.data.userId;
             // wx.setStorageSync("pagePath", url);
-			wx.setStorageSync('userId', res.data.userId);//存储openid
+            wx.setStorageSync('userId', res.data.userId); //存储openid
             wx.redirectTo({
               url: url
             })
           } else {
             wx.showToast({
+              icon: 'none',
               title: res.data.message,
               duration: 1000
             });
           }
-        }, fail: function (res) {
+        },
+        fail: function(res) {
           wx.showToast({
             title: '系统忙，请稍后重试！',
             duration: 1000
           });
         }
       });
-    }else{
+    } else {
       wx.showToast({
         title: '用户绑定失败，请联系系统管理员！',
         duration: 2000
@@ -105,8 +106,8 @@ Page({
   /**
    * 重置
    */
-  formReset: function () {
-    
+  formReset: function() {
+
   },
   /**
    * 页面的初始数据
@@ -114,19 +115,19 @@ Page({
   data: {
 
   },
-  bindViewTap: function () {
+  bindViewTap: function() {
     wx.navigateTo({
       url: '../upgrade/masterlist/information/information'
     })
   },
-  onLoad:function(){
+  onLoad: function() {
     var that = this;
     util.inintPicUrls(that);
   },
-  verifyCustomerViewData:function(){
+  verifyCustomerViewData: function() {
     var user = wx.getStorageSync('user') || {};
     wx.request({
-      url: host +'information/verifyCustomerViewData.do',
+      url: host + 'information/verifyCustomerViewData.do',
       data: {
         openId: user.openid
       },
@@ -134,7 +135,7 @@ Page({
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      success: function (res) {
+      success: function(res) {
         let userMode = {};
         userMode.verifyFlage = res.data.verifyFlage;
         userMode.customersViewNumber = res.data.customersViewNumber;

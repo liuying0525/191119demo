@@ -3,7 +3,7 @@ const host = require('../../../config').host;
 var util = require('../../../utils/util.js')
 module.exports = {
   init: function(obj) {
-    var that = this;//obj.data.moduleCode == "A" ? "ALL" : 
+    var that = this; //obj.data.moduleCode == "A" ? "ALL" : 
     allMenu.initMap(obj.data.moduleCode, host, function() {
       var checkedItem = obj.data.checkedItem;
       var syncCheckedItem = wx.getStorageSync('checkedItem') || '';
@@ -16,7 +16,7 @@ module.exports = {
         }
       }
 
-      
+
       obj.setData({
         dataOne: allMenu.getMenu(),
         checkedItem: checkedItem,
@@ -55,7 +55,7 @@ module.exports = {
         }
 
         obj.bindKeyInput = function(event) {
-          var FLAG=false;
+          var FLAG = false;
           var txtValue = event.detail.value.trim();
           txtValue = txtValue;
           var imodel = obj.data.inputModel;
@@ -64,8 +64,8 @@ module.exports = {
             menuKeyword: txtValue,
             inputModel: imodel
           });
-          if(txtValue.length>0){
-           FLAG=true;
+          if (txtValue.length > 0) {
+            FLAG = true;
             if (!FLAG) {
               obj.setData({
                 ocs_clear: 'clearMortar'
@@ -75,8 +75,8 @@ module.exports = {
                 ocs_clear: ''
               })
             }
-          }else{
-            FLAG=false;
+          } else {
+            FLAG = false;
           }
           var sid = event.currentTarget.dataset.index;
           var nData = obj.data.dataOne.filter(a => a.id == sid);
@@ -230,7 +230,7 @@ module.exports = {
         }
 
       };
-      obj.search = function() {
+      obj.search = function(event) {
         var parameter = {
           'seached': 'Y'
         };
@@ -267,22 +267,25 @@ module.exports = {
           parameter: changeParameter,
           screeningHidden: true
         });
-        obj.keywordSearch();
+         obj.keywordSearch(event);
       };
       obj.clear = function() {
+        //if (obj.data.ocs_clear != "") return;
         var imodel = obj.data.inputModel;
         for (var key in imodel) {
           imodel[key] = "";
         };
+        var allMenuarry = allMenu.getAllMenu();
+        var ndataOne = allMenu.generateMenuData(allMenuarry, obj.data.moduleCode||"ALL");
         obj.setData({
           checkedItem: {},
           parameter: {},
           expectedTimeOne: '',
           expectedTimeOneTwo: '',
           inputModel: imodel,
-          menuOpen: {},
-          dataOne: allMenu.getMenu()
+          dataOne: ndataOne
         });
+
         clearCss(obj.data.checkedItem);
       };
 
@@ -304,9 +307,9 @@ module.exports = {
           })
         }
       }
-       if (!obj.data.setting){
-         obj.search();
-       }
+      if (!obj.data.setting) {
+        obj.search();
+      }
     });
   },
   show: function(obj, screeningHidden) {
@@ -316,5 +319,6 @@ module.exports = {
   },
   getAllMenu: function() {
     return allMenu;
-  }
+  },
+
 }

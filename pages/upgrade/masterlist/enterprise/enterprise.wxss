@@ -6,7 +6,7 @@
   position: absolute;
   top: 40%;
   left:20%;
-  color: #5d82bc;
+  color: #000832;
   font-size: 28rpx;
   }
   .infor-list{

@@ -1,2 +1,2 @@
-/* pages/upgrade/masterlist/setting.wxss */
+/* pages/upgrade/masterlist/custom-subscribe/custom-subscribe.wxss */
 @import "../../../common/menu/menu.wxss";

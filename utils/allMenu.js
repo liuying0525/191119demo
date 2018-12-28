@@ -2,6 +2,7 @@ var menu_data = [];
 var all_menu_data = [];
 var setting_data = {};
 var customSubscribe = []
+var subscribe_data = {} //增加订阅设置值
 var menuMap = {
   idMapper: {},
   init: false
@@ -26,13 +27,14 @@ demandType:需求类型
  */
 
 var module_data = {
-  A: ['industry', 'hotspot', 'tradeStatus', 'tradeScale', 'equityChange', 'tradeCurrency', 'tradeRounds', 'tradeNature', 'companyNature', 'registerPlace', 'salesAmount','retainedProfits'], //资讯  
+  A: ['industry', 'hotspot', 'tradeStatus', 'tradeScale', 'equityChange', 'tradeCurrency', 'tradeRounds', 'tradeNature', 'companyNature', 'registerPlace', 'salesAmount', 'retainedProfits'], //资讯  
   B: ['industry', 'hotspot', 'registeredCapital', 'companyNature', 'salesAmount', 'retainedProfits', 'registerPlace'], //企业库
   C: ['industry', 'hotspot', 'registeredCapital', 'companyNature', 'salesAmount', 'retainedProfits', 'registerPlace'], //企业研究
   D: ['industry', 'hotspot'], //行业研究
   E: ['demandType', 'demandStatus', 'customizedDemand'], //沟通需求
   F: ['demandStatus'], //定制需求
   G: ['industry', 'tradeStatus', 'tradeScale', 'equityChange', 'tradeCurrency'], //设置
+  H: ['whetherSubscribe','industry', 'hotspot', 'tradeScale', 'equityChange'], //增加模块H用于展示订阅相关菜单
   ALL: true //所有菜单
 };
 
@@ -40,33 +42,39 @@ function getMenu() {
   return menu_data;
 }
 
+function getAllMenu() {
+  return all_menu_data;
+}
+
 function getSettingData() {
   return setting_data;
 }
-//ttp://mml.qunda.im/customSubscribe/treeList.do
-function customSubscribeDate(host, callback) {
-  var user = wx.getStorageSync('user') || {};
-  wx.request({
-    url: host + 'customSubscribe/listInput.do',
-    data: {
-      'openId': user.openid
-    },
-    method: 'get',
-    header: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    success: function(res) {
-      callback(res.data)
-      customSubscribe = res.data
-    }
-  })
-  //callback(customSubscribe)
+//增加返回订阅设置的函数
+function getSubscribeData(host, openid) {
+  return new Promise(function(resolve, reject) {
+    wx.request({
+      url: host + 'customSubscribe/listInput.do',
+      data: {
+        'openId': openid
+      },
+      method: 'get',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function(res) {
+        resolve(res.data.tmCustomSubscribe);
+      },
+      error: function(xhr, statusText) {
+        reject(statusText);
+      }
+    });
+  });
 }
 
 function getSubscribe() {
   return customSubscribe
 }
-
+//增加保存订阅功能
 function updateSettingData(host, data, callback) {
   var user = wx.getStorageSync('user') || {};
   var arr = [],
@@ -139,6 +147,23 @@ function initMap(moduleCode, host, callback) {
           menu_data = generateMenuData(res.data.menu, moduleCode);
           all_menu_data = res.data.menu;
           setting_data = res.data.setting;
+          console.log('setting_data:', setting_data)
+          wx.request({
+            url: host + 'customSubscribe/listInput.do',
+            data: {
+              'openId': user.openid
+            },
+            method: 'get',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function(res) {
+             // JSON.parse(data.replace("辅料	", "辅料"))
+              subscribe_data = JSON.parse(res.data.tmCustomSubscribe.replace("辅料	", "辅料"));
+        
+              // subscribe_data = JSON.parse(res.data.tmCustomSubscribe)
+            }
+          });
           callback();
         }
       }
@@ -180,14 +205,15 @@ function initMenuMap() {
   }
   menuMap.init = true;
 }
-
 module.exports = {
   getMenu: getMenu,
   getMapMenu: getMapMenu,
   initMap: initMap,
+  getAllMenu: getAllMenu,
   getSettingData: getSettingData,
+  generateMenuData: generateMenuData,
   updateSettingData: updateSettingData,
-  customSubscribeDate: customSubscribeDate,
+  getSubscribeData: getSubscribeData,
   getSubscribe: getSubscribe,
   module_data: module_data
 }

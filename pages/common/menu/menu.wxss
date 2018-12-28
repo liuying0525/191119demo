@@ -32,7 +32,7 @@
    height: 100%;
    background: #fff;
    overflow-y: auto;
-   border-top:10rpx solid #fc7afc;
+   /* border-top:10rpx solid #fc7afc; */
 }
 .content{
     height: 100%;
@@ -84,11 +84,12 @@
   text-align: center;
   margin-top: 15px;
   margin-bottom: 2px;
-  border-bottom: 3vh solid #00c6ff  ;
+  border-bottom: 3vh solid #999;
 }
 .ocs-logo{
-  width: 170px;
-  height: 28px;
+  width:438rpx;
+height:62rpx;
+
 }
 @keyframes slidown{
     from{
@@ -141,9 +142,9 @@
 .searchitem{
 position:absolute;
 left:25%;
-top:-2rpx;
+top:0rpx;
 width:50%;
-height:90%;
+height:84%;
 border:2rpx solid #ddd;
 border-radius:8rpx;
 padding-left:8rpx;

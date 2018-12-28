@@ -5,14 +5,14 @@
       <view class="filterpage-left" data-screening="{{screeningHidden}}" bindtap="screening"></view>
       <view class="content">
         <view class="logoView">
-          <image class="ocs-logo" src="../../../../images/M_logo.png"></image>
+          <image class="ocs-logo" src="/images/M_logo.png"></image>
         </view>
         <view class="menuOne" wx:for-items="{{dataOne}}" wx:key="item">
           <view class="menuItem" bindtap="selectItem" data-index='{{item.id}}'>
 
             <view class="text">{{item.name}}</view>
             <block wx:if="{{item.type=='industry'||item.type=='hotspot'||item.type=='registerPlace'}}">
-              <input bindinput="bindKeyInput" placeholder="search" data-index='{{item.id}}' class="searchitem"  data-mtype='{{item.type}}' value="{{inputModel[item.type]}}"/>
+              <input bindinput="bindKeyInput" placeholder="关键字检索" data-index='{{item.id}}' placeholder-style="font-size:24rpx;color:#ccc" class="searchitem"  data-mtype='{{item.type}}' value="{{inputModel[item.type]}}"/>
             </block>
 
           </view>
